@@ -41,12 +41,12 @@ Route::get('/login', 'App\Http\Controllers\LoginController@index');
 Route::post('/login-proses', [App\Http\Controllers\LoginController::class, 'login_proses'])-> name('login-proses');
 
 
-Route::get('/dashboard', 'App\Http\Controllers\DashboardController@dashboard');
+Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 // Route::get('/register', 'App\Http\Controllers\RegistrasiController@registrasi');
 Route::get('/datapersonel', 'App\Http\Controllers\DataPersonelController@datapersonel');
 Route::get('/list-personel', 'App\Http\Controllers\ListPersonelController@listPersonel');
 
 
 //Personel
-Route::get('/kuesioner', 'App\Http\Controllers\KuesionerController@kuesioner');
-Route::get('/personel', 'App\Http\Controllers\PersonelPageController@personelPage');
+Route::get('/personnel/kuesioner', 'App\Http\Controllers\KuesionerController@kuesioner');
+Route::get('/personnel', 'App\Http\Controllers\PersonnelController@index');

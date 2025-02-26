@@ -12685,11 +12685,10 @@
                         <p>28112001</p>
                         <p>28 tahun</p>
                         <p>Hasil MCU</p>
-                        <a href="kuesioner" class="btn btn-primary">Isi Assessment</a>
+                        <a href="/personnel/kuesioner" class="btn btn-primary">Isi Assessment</a>
 
 
                         <p class="font-weight-bold mt-4">Hasil Assessment Hari Ini:</p>
-
                     </div>
                 </div>
 
