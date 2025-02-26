@@ -12176,6 +12176,9 @@
     .form-label-subheading{
         color: #000
     }
+    .submitButton {
+        text-align: center
+    }
 </style>
 
 <head>
@@ -12776,8 +12779,11 @@
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
-    </div>
-</form>
+    </div><br>
+    <div class="submitButton">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+</form><br>
                         </div>
                     </div>
 
