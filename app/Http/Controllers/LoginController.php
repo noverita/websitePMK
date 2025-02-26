@@ -10,6 +10,6 @@ class LoginController extends Controller
 		return view('login');
 	}
     public function login_proses(Request $request){
-dd($request->all());
+    dd($request->all());
     }
 }
