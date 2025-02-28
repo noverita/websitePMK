@@ -13,6 +13,6 @@ class PersonnelMiddleware
         if (auth()->user() && auth()->user()->role === 'personnel') {
             return $next($request);
         }
-        return redirect('/')->with('error', 'Unauthorized access.');
+        return redirect('/dashboard')->with('error', 'Unauthorized access.');
     }
 }

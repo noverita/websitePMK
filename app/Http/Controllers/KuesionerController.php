@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 class KuesionerController extends Controller
 {
-    public function kuesioner(){
+    public function index(){
 		return view('personnel.kuesioner');
 	}
 }

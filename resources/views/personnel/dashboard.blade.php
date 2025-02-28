@@ -12652,40 +12652,64 @@
             <div id="content">
 
                 <!-- Topbar -->
-                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                <nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
 
-                    <!-- Sidebar Toggle (Topbar) -->
-                    <form class="form-inline">
-                        <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                    <div class="container-fluid d-flex justify-content-between align-items-center">
+                
+                        <!-- Sidebar Toggle (Muncul di layar kecil) -->
+                        <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle">
                             <i class="fa fa-bars"></i>
                         </button>
-                    </form>
-
-                    <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small"
-                                placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
+                
+                        <!-- Topbar Search (Bisa disembunyikan di mobile kalau mau) -->
+                        <form class="d-none d-md-flex form-inline flex-grow-1 mx-3">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control bg-light border-0 small"
+                                    placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    </form>
+                        </form>
+                
+                        <!-- Tombol Logout -->
+                        <form method="POST" action="{{ route('logout') }}" class="d-flex">
+                            @csrf
+                            <button type="submit" class="btn btn-danger btn-sm">Logout</button>
+                        </form>
+                
+                    </div>
+                
+                    <!-- Search Form (Tampil di mobile, tersembunyi di layar besar) -->
+                    <div class="d-md-none p-2 w-100">
+                        <form class="form-inline">
+                            <div class="input-group w-100">
+                                <input type="text" class="form-control bg-light border-0 small"
+                                    placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                <div class="input-group-append">
+                                    <button class="btn btn-primary" type="button">
+                                        <i class="fas fa-search fa-sm"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                
                 </nav>
+                
                 <!-- End of Topbar -->
 
                 <div class="container mt-5">
                     <h3 class="text-center font-weight-bold">Dashboard Personel</h3>
 
                     <div class="mt-4 p-4 assessment-card">
-                        <h5>John Doe</h5>
+                        <h5>{{Auth::user()->name}}</h5>
                         <p>28112001</p>
                         <p>28 tahun</p>
                         <p>Hasil MCU</p>
-                        <a href="/personnel/kuesioner" class="btn btn-primary">Isi Assessment</a>
+                        <a href="{{route('personnel.kuesioner')}}" class="btn btn-primary">Isi Assessment</a>
 
 
                         <p class="font-weight-bold mt-4">Hasil Assessment Hari Ini:</p>
