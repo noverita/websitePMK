@@ -20,6 +20,21 @@ return new class extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+        Schema::create('datadiripersonnel', function (Blueprint $table) {
+            $table->id();
+            $table->string('nama_lengkap');
+            $table->string('nik');
+            $table->date('tanggal_lahir');
+            $table->string('foto_diri')->nullable(); // File Upload
+            $table->integer('tahun');
+            $table->string('jenis_pelatihan');
+            $table->string('file_pelatihan')->nullable(); // File Upload
+            $table->string('nama_pelatihan');
+            $table->text('catatan')->nullable();
+            $table->string('kesimpulan');
+            $table->string('tingkat_kebugaran')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**

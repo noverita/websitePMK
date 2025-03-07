@@ -64,7 +64,7 @@
             font-size: 1rem;
             font-weight: 400;
             line-height: 1.5;
-            color: #858796;
+            color: #5a5c69;
             text-align: left;
             background-color: #fff;
         }
@@ -12655,12 +12655,12 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <div class="container-fluid d-flex justify-content-between align-items-center">
-                
+
                         <!-- Sidebar Toggle (Muncul di layar kecil) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle">
                             <i class="fa fa-bars"></i>
                         </button>
-                
+
                         <!-- Topbar Search (Bisa disembunyikan di mobile kalau mau) -->
                         <form class="d-none d-md-flex form-inline flex-grow-1 mx-3">
                             <div class="input-group w-100">
@@ -12673,15 +12673,15 @@
                                 </div>
                             </div>
                         </form>
-                
+
                         <!-- Tombol Logout -->
                         <form method="POST" action="{{ route('logout') }}" class="d-flex">
                             @csrf
                             <button type="submit" class="btn btn-danger btn-sm">Logout</button>
                         </form>
-                
+
                     </div>
-                
+
                     <!-- Search Form (Tampil di mobile, tersembunyi di layar besar) -->
                     <div class="d-md-none p-2 w-100">
                         <form class="form-inline">
@@ -12696,9 +12696,9 @@
                             </div>
                         </form>
                     </div>
-                
+
                 </nav>
-                
+
                 <!-- End of Topbar -->
 
                 <div class="container mt-5">

@@ -9,6 +9,7 @@ use App\Http\Controllers\ListPersonelController;
 use App\Http\Controllers\DataPersonelController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KuesionerController;
+use App\Http\Controllers\LaporanPersonelController;
 use App\Http\Controllers\AuthenticatedSessionController;
 
 /*
@@ -39,8 +40,9 @@ Route::middleware('auth')->group(function () {
 // Protecting admin routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/datapersonel', [DataPersonelController::class, 'datapersonel'])-> name('data.personel');
-    Route::get('/list-personel', [ListPersonelController::class, 'listPersonel'])-> name('list.personel');
+    Route::get('/admin/datapersonel', [DataPersonelController::class, 'datapersonel'])-> name('data.personel');
+    Route::get('/admin/list-personel', [ListPersonelController::class, 'listPersonel'])-> name('list.personel');
+    Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])-> name('laporan.personel');
 });
 
 // Protecting personnel routes

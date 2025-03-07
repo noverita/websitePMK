@@ -64,7 +64,7 @@
         font-size: 1rem;
         font-weight: 400;
         line-height: 1.5;
-        color: #858796;
+        color: #5a5c69;
         text-align: left;
         background-color: #fff;
     }
@@ -12221,12 +12221,12 @@
                 <nav class="navbar navbar-expand-lg navbar-light bg-white topbar mb-4 static-top shadow">
 
                     <div class="container-fluid d-flex justify-content-between align-items-center">
-                
+
                         <!-- Sidebar Toggle (Muncul di layar kecil) -->
                         <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle">
                             <i class="fa fa-bars"></i>
                         </button>
-                
+
                         <!-- Topbar Search (Bisa disembunyikan di mobile kalau mau) -->
                         <form class="d-none d-md-flex form-inline flex-grow-1 mx-3">
                             <div class="input-group w-100">
@@ -12239,15 +12239,15 @@
                                 </div>
                             </div>
                         </form>
-                
+
                         <!-- Tombol Logout -->
                         <form method="POST" action="{{ route('logout') }}" class="d-flex">
                             @csrf
                             <button type="submit" class="btn btn-danger btn-sm">Logout</button>
                         </form>
-                
+
                     </div>
-                
+
                     <!-- Search Form (Tampil di mobile, tersembunyi di layar besar) -->
                     <div class="d-md-none p-2 w-100">
                         <form class="form-inline">
@@ -12262,9 +12262,9 @@
                             </div>
                         </form>
                     </div>
-                
+
                 </nav>
-                
+
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -12272,8 +12272,22 @@
 
                     <!-- Page Heading -->
                     <h3 class="text-center font-weight-bold">Kuesioner Kesiapan</h3><br>
-
-
+                    <div class="card shadow mb-4">
+                        <div class="form-kuesioner">
+                        <form>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label class="form-label"><b>Tanggal Pengisian</b></label>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div><br>
+                </form>
+                        </div>
+                    </div>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
@@ -12283,60 +12297,106 @@
                         <div class="form-kuesioner">
                             <form>
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Berapa lama anda tidur dalam 24 jam terakhir?</label>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select class="form-control">
-                                            <option>___</option>
-                                            <option>7 jam atau lebih</option>
-                                            <option>5 sampai 7 jam</option>
-                                            <option>kurang dari 5 jam</option>
-                                        </select><br>
+                                    <div class="col">
+                                        <label class="form-label"><b>Berapa lama anda tidur dalam 24 jam terakhir?</b></label>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Berapa lama anda tidur dalam 48 jam terakhir?</label>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select class="form-control">
-                                            <option>___</option>
-                                            <option>14 jam atau lebih</option>
-                                            <option>12 sampai 13 jam</option>
-                                            <option>kurang dari 12 jam</option>
-                                        </select><br>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Apakah Anda mengkonsumsi obat tertentu?</label>
-                                    </div>
-                                    <div class="col-md-4">
+                                    <div class="row">
+                                        <div class="col">
                                         <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="obat"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="obat"
-                                                id="inlineRadio2" value="option2" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Tidak</label><br>
+                                            <input class="form-check-input" type="radio" name="tidur24"
+                                                id="inlineRadio1">
+                                            <label class="form-check-label" for="inlineRadio1">7 jam atau lebih</label>
                                         </div>
                                     </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="tidur24"
+                                                id="inlineRadio2">
+                                            <label class="form-check-label" for="inlineRadio2">5-7 jam</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="tidur24"
+                                                id="inlineRadio3">
+                                            <label class="form-check-label" for="inlineRadio3">kurang dari 5 jam</label>
+                                        </div>
+                                    </div>
+                                    </div><hr>
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="form-label"><b>Berapa lama anda tidur dalam 48 jam terakhir?</b></label>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="tidur48"
+                                                id="inlineRadio4">
+                                            <label class="form-check-label" for="inlineRadio4">14 jam atau lebih</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="tidur48"
+                                                id="inlineRadio5">
+                                            <label class="form-check-label" for="inlineRadio5">12-13 jam</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="tidur48"
+                                                id="inlineRadio6">
+                                            <label class="form-check-label" for="inlineRadio6">kurang dari 12 jam</label>
+                                        </div>
+                                    </div>
+                                    </div><hr>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="form-label"><b>Apakah Anda mengkonsumsi obat tertentu?</b></label>
+                                    </div></div>
+                                    <div class="row">
+                                    <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="obat"
+                                                id="inlineRadio7" value="option1">
+                                            <label class="form-check-label" for="inlineRadio7">Ya</label>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Jika Ya, Sebutkan obat yang Anda minum!</label>
+                                    <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="obat"
+                                                id="inlineRadio8" value="option2">
+                                            <label class="form-check-label" for="inlineRadio8">Tidak</label><br>
+                                        </div>
                                     </div>
-                                    <div class="col-md-4">
+                                </div><hr>
+                                <div class="row">
+                                    <div class="col">
+                                        <label class="form-label"><b>Jika Ya, Sebutkan obat yang Anda minum!</b></label>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                    <div class="col-8">
                                         <input type="text" class="form-control"
                                             placeholder="Isikan Obat yang Anda Minum...">
                                     </div>
-                                </div>
+                                </div><hr>
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label class="form-label">Efek Samping Obat:</label>
+                                        <label class="form-label"><b>Efek Samping Obat:</b></label>
                                     </div>
                                     <div class="col-md-4">
                                     </div>
@@ -12348,13 +12408,13 @@
                                     <div class="col-md-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect1"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                                id="inlineRadio9" value="option1">
+                                            <label class="form-check-label" for="inlineRadio9">Ya</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect1"
-                                                id="inlineRadio2" value="option2" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                                                id="inlineRadio10" value="option2">
+                                            <label class="form-check-label" for="inlineRadio10">Tidak</label>
                                         </div>
                                     </div>
                                 </div>
@@ -12365,13 +12425,13 @@
                                     <div class="col-md-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect2"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                                id="inlineRadio11" value="option1">
+                                            <label class="form-check-label" for="inlineRadio11">Ya</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect2"
-                                                id="inlineRadio2" value="option2" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                                                id="inlineRadio12" value="option2">
+                                            <label class="form-check-label" for="inlineRadio12">Tidak</label>
                                         </div>
                                     </div>
                                 </div>
@@ -12382,13 +12442,13 @@
                                     <div class="col-md-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect3"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                                id="inlineRadio13" value="option1">
+                                            <label class="form-check-label" for="inlineRadio13">Ya</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect3"
-                                                id="inlineRadio2" value="option2" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                                                id="inlineRadio14" value="option2">
+                                            <label class="form-check-label" for="inlineRadio14">Tidak</label>
                                         </div>
                                     </div>
                                 </div>
@@ -12399,13 +12459,13 @@
                                     <div class="col-md-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect4"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                                id="inlineRadio15" value="option1" >
+                                            <label class="form-check-label" for="inlineRadio15">Ya</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect4"
-                                                id="inlineRadio2" value="option2" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                                                id="inlineRadio16" value="option2" >
+                                            <label class="form-check-label" for="inlineRadio16">Tidak</label>
                                         </div>
                                     </div>
                                 </div>
@@ -12416,52 +12476,95 @@
                                     <div class="col-md-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect5"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
+                                                id="inlineRadio17" value="option1">
+                                            <label class="form-check-label" for="inlineRadio17">Ya</label>
                                         </div>
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="sideeffect5"
-                                                id="inlineRadio2" value="option2" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                                                id="inlineRadio18" value="option2">
+                                            <label class="form-check-label" for="inlineRadio18">Tidak</label>
                                         </div>
                                     </div>
-                                </div>
+                                </div><hr>
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Apakah Anda Waspada?</label>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <select class="form-control">
-                                            <option>___</option>
-                                            <option>Merasa Aktif dan Waspada</option>
-                                            <option>Berfungsi pada tingkat yang baik, tapi tidak di puncak, bisa
-                                                berkonsentrasi</option>
-                                            <option>OK, tapi tidak sepenuhnya waspada</option>
-                                            <option>Sedikit grogi, sulit berkonsentrasi</option>
-                                            <option>Mengantuk, grogi, ingin berbaring</option>
-                                        </select><br>
+                                    <div class="col">
+                                        <label class="form-label"><b>Apakah Anda Waspada?</b></label>
                                     </div>
                                 </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="waspada"
+                                                id="inlineRadio19">
+                                            <label class="form-check-label" for="inlineRadio19">Merasa Aktif dan Waspada</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="waspada"
+                                                id="inlineRadio20">
+                                            <label class="form-check-label" for="inlineRadio20">Berfungsi pada tingkat yang baik, tapi tidak di puncak, bisa
+                                                berkonsentrasi</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="waspada"
+                                                id="inlineRadio21">
+                                            <label class="form-check-label" for="inlineRadio21">OK, tapi tidak sepenuhnya waspada</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="waspada"
+                                                id="inlineRadio22">
+                                            <label class="form-check-label" for="inlineRadio22">Sedikit grogi, sulit berkonsentrasi</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="waspada"
+                                                id="inlineRadio23">
+                                            <label class="form-check-label" for="inlineRadio23">Mengantuk, grogi, ingin berbaring</label>
+                                        </div>
+                                    </div>
+                                    </div>
+                                <hr>
                                 <div class="row">
-                                    <div class="col-md-4">
-                                        <label class="form-label">Apakah Anda memiliki stres, masalah kesehatan atau
+                                    <div class="col">
+                                        <label class="form-label"><b>Apakah Anda memiliki stres, masalah kesehatan atau
                                             masalah pribadi lainnya yang secara signifikan mempengaruhi konsentrasi dan
-                                            / atau tidur Anda?
+                                            / atau tidur Anda?</b>
                                         </label>
                                     </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-4">
                                         <div class="form-check form-check-inline">
                                             <input class="form-check-input" type="radio" name="stress1"
-                                                id="inlineRadio1" value="option1" checked>
-                                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="stress1"
-                                                id="inlineRadio2" value="option2" checked>
-                                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
+                                                id="inlineRadio24" value="option1">
+                                            <label class="form-check-label" for="inlineRadio24">Ya</label>
                                         </div>
                                     </div>
                                 </div>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="stress1"
+                                                id="inlineRadio25" value="option2">
+                                            <label class="form-check-label" for="inlineRadio25">Tidak</label>
+                                        </div>
+                                    </div>
+                                    </div><br>
+
                             </form>
                         </div>
 
@@ -12474,17 +12577,36 @@
 <form>
     <div class="row">
         <div class="col-md-4">
-            <label class="form-label">Berapa lama Anda bekerja hari sebelumnya?</label>
-        </div>
-        <div class="col-md-4">
-            <select class="form-control">
-                <option>___</option>
-                <option>Masuk kerja lebih dari 12 jam </option>
-                <option>Masuk kerja lebih dari 8 jam - 12 jam</option>
-                <option>Kerja Normal 8 jam</option>
-            </select><br>
+            <label class="form-label"><b>Berapa lama Anda bekerja hari sebelumnya?</b></label>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-4">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="jamkerja"
+                id="inlineRadio26">
+            <label class="form-check-label" for="inlineRadio26">Masuk kerja lebih dari 12 jam</label>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="jamkerja"
+                id="inlineRadio27">
+            <label class="form-check-label" for="inlineRadio27">Masuk kerja lebih dari 8 jam - 12 jam</label>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="jamkerja"
+                id="inlineRadio28">
+            <label class="form-check-label" for="inlineRadio28">Mengantuk, grogi, ingin berbaring</label>
+        </div>
+    </div>
+    </div><br>
 </form>
                         </div>
                     </div>
@@ -12496,7 +12618,7 @@
 <form>
     <div class="row">
         <div class="col-md-4">
-            <label class="form-label">Keluhan yang Dirasakan Saat ini:</label>
+            <label class="form-label"><b>Keluhan yang Dirasakan Saat ini:</b></label>
         </div>
         <div class="col-md-4">
         </div>
@@ -12508,12 +12630,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan1"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan1"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12525,12 +12647,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan2"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan2"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12542,12 +12664,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan3"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan3"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12559,12 +12681,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan4"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan4"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12576,36 +12698,36 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan5"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="keluhan5"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
-    </div>
+    </div><hr>
     <div class="row">
         <div class="col-md-4">
-            <label class="form-label">Tes Kesiapan Berkendara (Tes WAT)</label><br>
+            <label class="form-label"><b>Tes Kesiapan Berkendara (Tes WAT)</b></label><br>
         </div>
         <div class="col-md-4">
         </div>
     </div>
     <div class="row">
         <div class="col-md-4">
-            <label class="form-label-option">A1. Berjalan Keluar Garis</label>
+            <label class="form-label-option">A1 : Berjalan Keluar Garis</label>
         </div>
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat1"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat1"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12617,12 +12739,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat2"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat2"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12634,12 +12756,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat3"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat3"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12651,12 +12773,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat4"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat4"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12668,12 +12790,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat5"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat5"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12685,12 +12807,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat6"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat6"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12702,12 +12824,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat7"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat7"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12719,19 +12841,19 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat8"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="wat8"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
-    </div>
+    </div><hr>
     <div class="row">
         <div class="col-md-4">
-            <label class="form-label">Tes Kesiapan Berkendara (Tes OLS)</label><br>
+            <label class="form-label"><b>Tes Kesiapan Berkendara (Tes OLS)</b></label><br>
         </div>
         <div class="col-md-4">
         </div>
@@ -12743,12 +12865,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols1"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols1"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12760,12 +12882,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols2"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols2"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12777,12 +12899,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols3"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols3"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
@@ -12794,12 +12916,12 @@
         <div class="col-md-4">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols4"
-                    id="inlineRadio1" value="option1" checked>
+                    id="inlineRadio1" value="option1">
                 <label class="form-check-label" for="inlineRadio1">Ya</label>
             </div>
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="radio" name="ols4"
-                    id="inlineRadio2" value="option2" checked>
+                    id="inlineRadio2" value="option2">
                 <label class="form-check-label" for="inlineRadio2">Tidak</label>
             </div>
         </div>
