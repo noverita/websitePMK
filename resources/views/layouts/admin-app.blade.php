@@ -7,11 +7,13 @@
     <title>@yield('title', 'Admin Panel')</title>
 
     <!-- Custom fonts and styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,300,400,600,700,800,900" rel="stylesheet">
     <link href="{{asset('css/dashboard-admin.css')}}" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.css">
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     @yield('css')
 </head>
 
@@ -26,7 +28,7 @@
                 <div class="sidebar-brand-text mx-3">FIRE-FIT</div>
             </a>
             <hr class="sidebar-divider my-0">
-            <li class="nav-item"><a class="nav-link" href="{{route('admin.dashboard')}}"><i class="fas fa-fw fa-tachometer-alt"></i> Dashboard</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{route('admin.dashboard')}}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('list.personel')}}"><i class="fas fa-fw fa-users"></i> List Data Diri</a></li>
             <li class="nav-item"><a class="nav-link" href="{{route('laporan.personel')}}"><i class="fas fa-fw fa-file-alt"></i> Laporan</a></li>
         </ul>
