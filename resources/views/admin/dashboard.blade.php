@@ -14,15 +14,15 @@
             <div class="text-center card shadow bg-primary-gradient mb-4 p-3">
                 <h5 class="greetings">Selamat Datang, Hartin Alfina 🎉</h5>
                 <p class="status-excellent">Excellent</p>
-                <button class="btn btn-light btn-sm">Lihat Laporan</button>
+                <a href="{{ route ('laporan.personel')}}" class="btn btn-light btn-sm">Lihat Laporan</a>
             </div>
         </div>
 
         <!-- Statistics -->
         <div class="col-md-6">
-            <div class="text-center card shadow mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Statistik</h6>
+            <div class="text-center card shadow  mb-4">
+                <div class="card-header bg-primary-gradient">
+                    <h6 class="m-0 font-weight-bold text-white">STATISTIK</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -39,7 +39,7 @@
     <!-- Health & Reports -->
     <div class="row mt-3">
         <div class="col-md-4">
-            <div class="card border-left-primary shadow mb-4 py-2">
+            <div class="card border-left-danger shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -56,7 +56,7 @@
         </div>
 
             <div class="col-md-4">
-                <div class="card border-left-info shadow mb-4 py-2">
+                <div class="card border-left-warning shadow mb-4 py-2">
                     <div class="card-body">
                         <div class="row no-gutters align-items-center">
                             <div class="col mr-2">
@@ -93,21 +93,27 @@
     <!-- Employee Shift & Availability -->
     <div class="row mt-3 justify-content-center">
         <div class="col-md-6">
-            <div class="text-center card shadow mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Shift Pegawai</h6>
+            <div class="card shadow mb-4">
+                <div class="card-header bg-primary-gradient">
+                    <h6 class="m-0 font-weight-bold text-white">SHIFT PEGAWAI</h6>
                 </div>
-                <nav class="navbar navbar-expand-lg navbar-light justify-content-center">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+
+                {{-- <div class="font-weight-bold text-primary text-uppercase mb-1 text-center">
+                    SHIFT PEGAWAI</div> --}}
+                <nav class="navbar navbar-expand-lg navbar-light justify-content-center mb-2">
                     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                        <ul class="navbar-nav">
+                        <ul class="nav nav-pills">
                             <li class="nav-item">
-                                <a class="nav-link active" href="#">Pagi</a>
+                                <a class="nav-link active" href="#">PAGI</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Siang</a>
+                                <a class="nav-link" href="#">SIANG</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Malam</a>
+                                <a class="nav-link" href="#">MALAM</a>
                             </li>
                         </ul>
                     </div>
@@ -120,11 +126,20 @@
                 </ul>
             </div>
         </div>
+    </div>
+</div>
+        </div>
         <div class="col-md-6">
-            <div class="text-center card shadow mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Pegawai Available</h6>
+            <div class="card shadow mb-4">
+                <div class="card-header bg-primary-gradient">
+                    <h6 class="m-0 font-weight-bold text-white">PEGAWAI TERSEDIA</h6>
                 </div><br>
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+
+                {{-- <div class="font-weight-bold text-primary text-uppercase mb-3 text-center">
+                    PEGAWAI TERSEDIA</div> --}}
                 <ul class="available">
                     <li>Hartin Alfina - <span class="status-excellent">Excellent</span></li><hr>
                     <li>Arvi Arinal Khaqqo - <span class="status-excellent">Excellent</span></li><hr>
@@ -133,6 +148,9 @@
                 </ul>
             </div><br>
         </div>
+    </div>
+</div>
+</div>
     </div>
 @endsection
 @section('js')

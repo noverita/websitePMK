@@ -6,9 +6,9 @@
 
 @endsection
 @section('content')
-    <div class="card shadow mb-4">
-        <div class="card-header">
-            <h6 class="m-0 font-weight-bold text-primary">Laporan Personnel</h6>
+    <div class="card border-bottom-primary shadow mb-4">
+        <div class="card-header bg-primary-gradient">
+            <h6 class="m-0 font-weight-bold text-white">LAPORAN PERSONEL</h6>
         </div>
         <div class="card-body">
             <table id="example" class="table table-striped" style="width:100%">

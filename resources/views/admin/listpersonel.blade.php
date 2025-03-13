@@ -12,9 +12,9 @@
     </span>
     <span class="text">Tambah Data</span>
 </a>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Daftar Personel</h6>
+    <div class="card border-bottom-primary shadow mb-4">
+        <div class="card-header bg-primary-gradient py-3">
+            <h6 class="m-0 font-weight-bold text-white">DAFTAR PERSONEL</h6>
         </div>
         <div class="card-body">
             {{-- <a href="{{ route('data.personel') }}" class="btn btn-primary mb-2 w-20">+ Create</a> --}}

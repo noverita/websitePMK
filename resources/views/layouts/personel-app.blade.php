@@ -25,15 +25,6 @@
                 <!-- Topbar -->
                 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow mb-4">
                     <div class="container-fluid d-flex justify-content-between align-items-center">
-                        <button id="sidebarToggleTop" class="btn btn-link d-lg-none rounded-circle"><i class="fa fa-bars"></i></button>
-                        {{-- <form class="d-none d-md-flex form-inline flex-grow-1 mx-3">
-                            <div class="input-group w-100">
-                                <input type="text" class="form-control bg-light border-0 small" placeholder="Search...">
-                                <div class="input-group-append">
-                                    <button class="btn btn-primary" type="button"><i class="fas fa-search fa-sm"></i></button>
-                                </div>
-                            </div>
-                        </form> --}}
                         <a class="navbar-brand d-flex align-items-center" href="{{ route('personnel.dashboard') }}">
                             <img src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 40px;">
                         </a>

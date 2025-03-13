@@ -1,4 +1,3 @@
-
 @extends('layouts.personel-app')
 
 @section('title', 'Dashboard Personel')
@@ -6,17 +5,17 @@
 
 @endsection
 @section('content')
-<h2 class="text-center font-weight-bold">Dashboard Personel</h2><br>
-<a href="{{ route('personnel.kuesioner') }}" class="btn btn-primary  mb-4">
+{{-- s --}}
+<a href="{{ route('personnel.kuesioner') }}" class="btn btn-primary mb-4">
     <span class="icon text-white">
         <i class="fas fa-add"></i>
     </span>
     <span class="text">Tambah Data</span>
 </a>
-    <div class="card shadow mb-4">
-        {{-- <div class="card-header">
-            <h6 class="m-0 font-weight-bold text-primary">Dashboard Personnel</h6>
-        </div> --}}
+    <div class="card border-bottom-primary shadow mb-4">
+        <div class="card-header bg-primary-gradient">
+            <h6 class="m-0 font-weight-bold text-white">DASHBOARD PERSONEL</h6>
+        </div>
         <div class="card-body">
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>

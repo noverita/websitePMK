@@ -5,10 +5,11 @@
 
 @endsection
 @section('content')
-    <div class="card shadow">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DATA DIRI</h6>
+    <div class="card border-left-primary shadow">
+        <div class="card-header bg-primary-gradient py-3 text-white">
+            <h6 class="m-0 font-weight-bold">DATA DIRI</h6>
         </div>
+        <div class="card-body ">
         <div class="form-kuesioner">
             <form>
                 <div class="row">
@@ -19,7 +20,7 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan Nama Lengkap...">
+                            placeholder="Isikan Nama Lengkap . . .">
                     </div>
                 </div><hr>
                 <div class="row">
@@ -30,7 +31,7 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan NIK...">
+                            placeholder="Isikan NIK . . .">
                     </div>
                 </div><hr>
                 <div class="row">
@@ -62,7 +63,7 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan Grade...">
+                            placeholder="Isikan Grade . . .">
                     </div>
                 </div><hr>
                 <div class="row">
@@ -73,7 +74,7 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan No. Whatsapp...">
+                            placeholder="Isikan No. Whatsapp . . .">
                     </div>
                 </div><hr>
                 <div class="row ">
@@ -84,16 +85,30 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control mb-4"
-                            placeholder="Isikan Alamat Email...">
+                            placeholder="Isikan Alamat Email . . .">
+                    </div>
+                </div>
+                <div class="row ">
+                    <div class="col">
+                        <label class="form-label"><b>Foto Diri</b></label>
+                </div>
+                </div>
+                    <div class="row">
+                    <div class="col">
+                        <div class="form-check form-check-inline">
+                        <input type="file" class="form-check-input mb-4">
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
-    </div>
-    <div class="card shadow">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">SERTIFIKASI</h6>
         </div>
+    </div>
+    <div class="card border-left-primary shadow">
+        <div class="card-header bg-primary-gradient py-3 text-white">
+            <h6 class="m-0 font-weight-bold">SERTIFIKASI</h6>
+        </div>
+        <div class="card-body">
         <div class="form-kuesioner">
             <form>
                 <div class="row">
@@ -104,7 +119,7 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan Nama Sertifikasi...">
+                            placeholder="Isikan Nama Sertifikasi . . .">
                     </div>
                 </div><hr>
                 <div class="row">
@@ -115,7 +130,7 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan Jenis Lisensi...">
+                            placeholder="Isikan Jenis Lisensi . . .">
                     </div>
                 </div><hr>
                 <div class="row">
@@ -184,11 +199,13 @@
                 </div>
             </form>
         </div>
-    </div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">PELATIHAN</h6>
         </div>
+    </div>
+    <div class="card border-left-primary shadow mb-4">
+        <div class="card-header bg-primary-gradient py-3 text-white">
+            <h6 class="m-0 font-weight-bold">PELATIHAN</h6>
+        </div>
+        <div class="card-body">
         <div class="form-kuesioner">
             <form>
                 <div class="row">
@@ -199,7 +216,7 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan Nama Pelatihan...">
+                            placeholder="Isikan Nama Pelatihan . . .">
                     </div>
                 </div><hr>
                 <div class="row">
@@ -210,13 +227,14 @@
                     <div class="row">
                     <div class="col">
                         <input type="text" class="form-control"
-                            placeholder="Isikan Nama Penyelenggara...">
+                            placeholder="Isikan Nama Penyelenggara . . .">
                     </div>
                 </div><br>
                 <div class="submitButton mb-4">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
             </form>
+        </div>
         </div>
     </div>
 @endsection

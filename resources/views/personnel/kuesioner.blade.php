@@ -8,7 +8,7 @@
     <!-- Page Heading -->
     {{-- <h3 class="text-center font-weight-bold"></h3> --}}
 
-    <div class="card shadow mb-4">
+    <div class="card border-left-primary shadow mb-4">
         <div class="form-kuesioner">
             <form>
                 <div class="row">
@@ -41,9 +41,9 @@
     </div>
 
     <!-- DataTales Example -->
-    <div class="card shadow">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">KONDISI UMUM</h6>
+    <div class="card border-left-primary shadow">
+        <div class="card-header bg-primary-gradient py-3">
+            <h6 class="m-0 font-weight-bold text-white">KONDISI UMUM</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -151,7 +151,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="form-label-option">a. Sedatif</label>
+                        <label class="form-label-option"><strong>a.</strong> Sedatif</label>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check form-check-inline">
@@ -168,7 +168,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="form-label-option">b. Kepala Berputar (Dizziness)</label>
+                        <label class="form-label-option"><strong>b.</strong> Kepala Berputar (Dizziness)</label>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check form-check-inline">
@@ -185,7 +185,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="form-label-option">c. Mual</label>
+                        <label class="form-label-option"><strong>c.</strong> Mual</label>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check form-check-inline">
@@ -202,7 +202,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="form-label-option">d. Hilang Konsentrasi</label>
+                        <label class="form-label-option"><strong>d.</strong> Hilang Konsentrasi</label>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check form-check-inline">
@@ -219,7 +219,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <label class="form-label-option">e. Tidak Ada Efek Samping</label>
+                        <label class="form-label-option"><strong>e.</strong> Tidak Ada Efek Samping</label>
                     </div>
                     <div class="col-md-4">
                         <div class="form-check form-check-inline">
@@ -315,9 +315,9 @@
         </div>
 
     </div>
-    <div class="card shadow">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">JAM KERJA</h6>
+    <div class="card border-left-primary shadow">
+        <div class="card-header bg-primary-gradient py-3">
+            <h6 class="m-0 font-weight-bold text-white">JAM KERJA</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -354,9 +354,9 @@
             </form>
         </div>
     </div>
-    <div class="card shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary"> KESEHATAN</h6>
+    <div class="card border-left-primary shadow mb-4">
+        <div class="card-header bg-primary-gradient py-3">
+            <h6 class="m-0 font-weight-bold text-white"> KESEHATAN</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -369,7 +369,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option">Pusing</label>
+                        <label class="form-label-option"><strong>a.</strong> Pusing</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -386,7 +386,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option">Mengantuk</label>
+                        <label class="form-label-option"><strong>b.</strong> Mengantuk</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -403,7 +403,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option">Lemas</label>
+                        <label class="form-label-option"><strong>c.</strong> Lemas</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -420,7 +420,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option">Mual Muntah</label>
+                        <label class="form-label-option"><strong>d.</strong> Mual Muntah</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -437,7 +437,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option">Flu dan Meriang</label>
+                        <label class="form-label-option"><strong>e.</strong> Flu dan Meriang</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -611,7 +611,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option"><strong>B1 : </strong>selalu bergoyang/tidak seimbang</label>
+                        <label class="form-label-option"><strong>B1 : </strong>Selalu bergoyang/tidak seimbang</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -646,7 +646,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option"><strong>B3 :</strong> kaki tumpuan bergerak secara tidak
+                        <label class="form-label-option"><strong>B3 :</strong> Kaki tumpuan bergerak secara tidak
                             teratur</label>
                     </div>
                     <div class="col-md">
@@ -679,7 +679,7 @@
                             <label class="form-check-label" for="inlineRadio2">Tidak</label>
                         </div>
                     </div>
-                </div><br>
+                </div><br><hr>
                 <div class="submitButton">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
