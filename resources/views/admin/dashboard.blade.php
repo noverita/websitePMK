@@ -11,7 +11,7 @@
     <div class="row">
         <!-- Welcome Card -->
         <div class="col-md-6">
-            <div class="text-center card shadow bg-primary-gradient p-3">
+            <div class="text-center card shadow bg-primary-gradient mb-4 p-3">
                 <h5 class="greetings">Selamat Datang, Hartin Alfina 🎉</h5>
                 <p class="status-excellent">Excellent</p>
                 <button class="btn btn-light btn-sm">Lihat Laporan</button>
@@ -31,7 +31,7 @@
                         <div class="col-4"><strong>9</strong><br> Kurang Fit</div>
                     </div>
                 </div>
-                
+
             </div>
         </div>
     </div>
@@ -39,30 +39,56 @@
     <!-- Health & Reports -->
     <div class="row mt-3">
         <div class="col-md-4">
-            <div class="text-center card shadow mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Kesehatan</h6>
-                </div><br>
-                <p>Bulan Lalu: <strong>75</strong> (+8.24%)</p>
-            </div><br>
+            <div class="card border-left-primary shadow mb-4 py-2">
+                <div class="card-body">
+                    <div class="row no-gutters align-items-center">
+                        <div class="col mr-2">
+                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                Kesehatan</div>
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">75</div>
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-heartbeat fa-2x text-gray-300"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-4">
-            <div class="text-center card shadow mb-4">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Laporan Tahunan</h6>
-                </div><br>
-                <p>Jumlah Laporan: <strong>78%</strong></p>
-            </div><br>
-        </div>
-        <div class="col-md-4">
-            <div class="text-center card shadow mb-4-3">
-                <div class="card-header">
-                    <h6 class="m-0 font-weight-bold text-primary">Laporan Fitness Pegawai</h6>
-                </div><br>
-                <p>Laporan Bulanan: <strong>184</strong> (+15.8%)</p>
-            </div><br>
-        </div>
-    </div>
+
+            <div class="col-md-4">
+                <div class="card border-left-info shadow mb-4 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Laporan Tahunan</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">78%</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-file-alt fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card border-left-success shadow mb-4 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                                    Laporan Fitness Pegawai</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">78%</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-dumbbell fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div><br>
 
     <!-- Employee Shift & Availability -->
     <div class="row mt-3 justify-content-center">

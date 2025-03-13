@@ -19,20 +19,6 @@
 
 <body id="page-top">
     <div id="wrapper">
-        <!-- Sidebar -->
-        <ul class="navbar-nav bg-primary-gradient sidebar sidebar-dark accordion" id="accordionSidebar">
-            <a class="sidebar-brand d-flex align-items-center justify-content-center">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-fire"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">FIRE-FIT</div>
-            </a>
-            <hr class="sidebar-divider my-0">
-            <li class="nav-item"><a class="nav-link" href="{{route('admin.dashboard')}}"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('list.personel')}}"><i class="fas fa-fw fa-users"></i> Daftar Personel</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{route('laporan.personel')}}"><i class="fas fa-fw fa-file-alt"></i> Laporan</a></li>
-        </ul>
-        <!-- End of Sidebar -->
 
         <div id="content-wrapper" class="d-flex flex-column">
             <div id="content">
@@ -48,7 +34,7 @@
                                 </div>
                             </div>
                         </form> --}}
-                        <a class="navbar-brand d-flex align-items-center" href="{{ route('admin.dashboard') }}">
+                        <a class="navbar-brand d-flex align-items-center" href="{{ route('personnel.dashboard') }}">
                             <img src="{{ asset('images/logo.png') }}" alt="Logo" style="height: 40px;">
                         </a>
 

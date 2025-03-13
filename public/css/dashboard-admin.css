@@ -11524,7 +11524,7 @@ min-height: 100vh;
 }
 
 .sidebar .nav-item {
-position: relative;
+position: sticky;
 }
 
 .sidebar .nav-item:last-child {
@@ -12644,5 +12644,43 @@ width: 100%;
     }
     .card-header{
 text-align: center;
+    }
+    .label-name {
+        font-size: 20px;
+        color: #000
+    }
+    .assessment-card {
+        background-color: #f5f5f5;
+        border-radius: 15px;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .assessment-button {
+        background-color: #b0b0b0;
+        color: black;
+        font-weight: bold;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+    }
+
+    .assessment-button:hover {
+        background-color: #9a9a9a;
+    }
+    .form-kuesioner {
+        padding-left: 25px;
+        padding-top: 10px;
+        padding-right: 25px;
+    }
+
+    .form-label-option {
+        padding-left: 25px
+    }
+    .form-label-subheading{
+        color: #000
+    }
+    .submitButton {
+        text-align: center
     }
 

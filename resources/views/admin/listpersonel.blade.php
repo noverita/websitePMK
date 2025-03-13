@@ -3,13 +3,21 @@
 
 @section('title', 'List Data Diri Personel')
 @section('css')
-    
+
 @endsection
 @section('content')
-    <h2 class="text-center font-weight-bold">List Data Diri Personel</h2>
-    <div class="card">
+<a href="{{ route('data.personel') }}" class="btn btn-primary  mb-4">
+    <span class="icon text-white">
+        <i class="fas fa-add"></i>
+    </span>
+    <span class="text">Tambah Data</span>
+</a>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Daftar Personel</h6>
+        </div>
         <div class="card-body">
-            <a href="{{ route('data.personel') }}" class="btn btn-primary mb-2 w-20">+ Create</a>
+            {{-- <a href="{{ route('data.personel') }}" class="btn btn-primary mb-2 w-20">+ Create</a> --}}
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
                     <tr>
@@ -27,8 +35,16 @@
                         <td>Personnel</td>
                         <td>-</td>
                         <td>
-                            <a href="http://" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="http://" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="{{ route('profil.personel') }}" class="btn btn-primary btn-circle">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="btn btn-warning btn-circle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="#" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
+                        </td>
                         </td>
                     </tr>
                     <tr>
@@ -37,8 +53,15 @@
                         <td>Personnel</td>
                         <td>-</td>
                         <td>
-                            <a href="http://" class="btn btn-warning btn-sm">Edit</a>
-                            <a href="http://" class="btn btn-danger btn-sm">Hapus</a>
+                            <a href="#" class="btn btn-primary btn-circle">
+                                <i class="fas fa-eye"></i>
+                            </a>
+                            <a href="#" class="btn btn-warning btn-circle">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                            <a href="#" class="btn btn-danger btn-circle">
+                                <i class="fas fa-trash"></i>
+                            </a>
                         </td>
                     </tr>
                 </tbody>

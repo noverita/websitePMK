@@ -3,13 +3,38 @@
 
 @section('title', 'Laporan Personel')
 @section('css')
-    
+
 @endsection
 @section('content')
-    <h2 class="text-center font-weight-bold">Laporan Personel</h2>
-    <div class="card">
+    <div class="card shadow mb-4">
+        <div class="card-header">
+            <h6 class="m-0 font-weight-bold text-primary">Laporan Personnel</h6>
+        </div>
         <div class="card-body">
-            
+            <table id="example" class="table table-striped" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>Nama</th>
+                        <th>Tanggal Laporan</th>
+                        <th>Hasil</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Donna Snider</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Noverita</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 @endsection

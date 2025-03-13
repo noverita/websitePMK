@@ -2,12 +2,12 @@
 
 @section('title', 'Data Personnel')
 @section('css')
-    
+
 @endsection
 @section('content')
-    <div class="card shadow mb-4">
+    <div class="card shadow">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Diri Personel</h6>
+            <h6 class="m-0 font-weight-bold text-primary">DATA DIRI</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -17,7 +17,7 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan Nama Lengkap...">
                     </div>
@@ -28,7 +28,7 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan NIK...">
                     </div>
@@ -50,7 +50,7 @@
                     <div class="col">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input" type="radio" name="role" id="role">
-                        <label class="form-check-label" for="role">Personel</label>
+                        <label class="form-check-label" for="role">Personnel</label>
                     </div>
                 </div>
                 </div><hr>
@@ -60,7 +60,7 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan Grade...">
                     </div>
@@ -71,28 +71,28 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan No. Whatsapp...">
                     </div>
                 </div><hr>
-                <div class="row">
+                <div class="row ">
                     <div class="col">
                         <label class="form-label"><b>Email</b></label>
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
-                        <input type="text" class="form-control"
+                    <div class="col">
+                        <input type="text" class="form-control mb-4"
                             placeholder="Isikan Alamat Email...">
                     </div>
-                </div><br>
+                </div>
             </form>
         </div>
     </div>
-    <div class="card shadow mb-4">
+    <div class="card shadow">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Sertifikasi</h6>
+            <h6 class="m-0 font-weight-bold text-primary">SERTIFIKASI</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -102,7 +102,7 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan Nama Sertifikasi...">
                     </div>
@@ -113,7 +113,7 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan Jenis Lisensi...">
                     </div>
@@ -149,7 +149,7 @@
                         <input type="date" class="form-control">
                     </div>
                 </div><hr>
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Status</b></label>
                     </div>
@@ -169,7 +169,7 @@
                         <label class="form-check-label" for="status">Expired</label>
                     </div>
                 </div>
-                </div><hr>
+                </div><hr> --}}
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Masukkan File Sertifikat</b></label>
@@ -178,16 +178,16 @@
                 <div class="row">
                     <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="file">
+                        <input class="form-check-input mb-4" type="file">
                     </div>
                 </div>
-                </div><br>
+                </div>
             </form>
         </div>
     </div>
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Pelatihan</h6>
+            <h6 class="m-0 font-weight-bold text-primary">PELATIHAN</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -197,7 +197,7 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan Nama Pelatihan...">
                     </div>
@@ -208,11 +208,14 @@
                     </div>
                 </div>
                     <div class="row">
-                    <div class="col-8">
+                    <div class="col">
                         <input type="text" class="form-control"
                             placeholder="Isikan Nama Penyelenggara...">
                     </div>
                 </div><br>
+                <div class="submitButton mb-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </form>
         </div>
     </div>

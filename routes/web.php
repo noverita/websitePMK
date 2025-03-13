@@ -11,6 +11,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KuesionerController;
 use App\Http\Controllers\LaporanPersonelController;
 use App\Http\Controllers\AuthenticatedSessionController;
+use App\Http\Controllers\DataPerOrangController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,8 +42,11 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/datapersonel', [DataPersonelController::class, 'datapersonel'])-> name('data.personel');
-    Route::get('/admin/list-personel', [ListPersonelController::class, 'listPersonel'])-> name('list.personel');
+    Route::get('/admin/daftar-personel', [ListPersonelController::class, 'listPersonel'])-> name('list.personel');
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])-> name('laporan.personel');
+    Route::get('/admin/detail-personel', [DataPerOrangController::class, 'profilpersonel'])-> name('profil.personel');
+    Route::get('/admin/sertifikasi-personel', [DataPerOrangController::class, 'sertifikasipersonel'])-> name('sertifikasi.personel');
+    Route::get('/admin/pelatihan-personel', [DataPerOrangController::class, 'pelatihanpersonel'])-> name('pelatihan.personel');
 });
 
 // Protecting personnel routes
