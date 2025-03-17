@@ -19,6 +19,7 @@ return new class extends Migration
             $table->integer('skp_pt');
             $table->date('expired_date');
             $table->string('file_sertifikat');
+            $table->enum('status_sertfikat',['Aktif', 'Tidak Berlaku']);
             $table->timestamps();
         });
     }

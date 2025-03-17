@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_pelatihan');
-            $table->string('jenis_pelatihan');
             $table->string('penyelanggara');
             $table->date('date_pelatihan');
             $table->timestamps();
