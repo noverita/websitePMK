@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('sertifikasis', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); //username
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->enum('role', ['admin', 'personnel'])->default('personnel');
-            $table->rememberToken();
+            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
+            $table->string('nama_sertifikasi');
+            $table->string('jenis_lisensi');
+            $table->integer('skp_pt');
+            $table->date('expired_date');
+            $table->string('file_sertifikat');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('table_sertifikasi');
     }
 };
