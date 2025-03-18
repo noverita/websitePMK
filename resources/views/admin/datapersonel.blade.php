@@ -36,6 +36,16 @@
                 </div><hr>
                 <div class="row">
                     <div class="col">
+                        <label class="form-label"><b>Tanggal Lahir</b></label>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col-8">
+                        <input type="date" class="form-control">
+                    </div>
+                </div><hr>
+                {{-- <div class="row">
+                    <div class="col">
                         <label class="form-label"><b>Role</b></label>
                     </div>
                 </div>
@@ -54,7 +64,7 @@
                         <label class="form-check-label" for="role">Personnel</label>
                     </div>
                 </div>
-                </div><hr>
+                </div><hr> --}}
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Grade</b></label>
@@ -77,7 +87,7 @@
                             placeholder="Isikan No. Whatsapp . . .">
                     </div>
                 </div><hr>
-                <div class="row ">
+                {{-- <div class="row ">
                     <div class="col">
                         <label class="form-label"><b>Email</b></label>
                     </div>
@@ -87,7 +97,7 @@
                         <input type="text" class="form-control mb-4"
                             placeholder="Isikan Alamat Email . . .">
                     </div>
-                </div>
+                </div> --}}
                 <div class="row ">
                     <div class="col">
                         <label class="form-label"><b>Foto Diri</b></label>
@@ -99,6 +109,9 @@
                         <input type="file" class="form-check-input mb-4">
                         </div>
                     </div>
+                </div>
+                <div class="submitButton mb-4">
+                    <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
             </form>
         </div>
@@ -196,6 +209,9 @@
                         <input class="form-check-input mb-4" type="file">
                     </div>
                 </div>
+                </div>
+                <div class="submitButton mb-4">
+                    <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
             </form>
         </div>
