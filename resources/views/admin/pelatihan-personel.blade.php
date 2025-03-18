@@ -6,6 +6,11 @@
 @endsection
 @section('content')
     <div class="row justify-content-center">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
         <div class="col-md-8"> <!-- Adjust column width -->
             <div class="card shadow">
                 <div class="card-body">

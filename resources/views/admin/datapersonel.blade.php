@@ -6,6 +6,21 @@
 @endsection
 @section('content')
     <div class="card border-left-primary shadow">
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('error'))
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <div class="card-header bg-primary-gradient py-3 text-white">
             <h6 class="m-0 font-weight-bold">DATA DIRI</h6>
         </div>
@@ -131,23 +146,25 @@
                         <label class="form-label"><b>Nama Sertifikasi</b></label>
                     </div>
                 </div>
-                    <div class="row">
+                <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" name="nama_sertifikasi"
-                            placeholder="Isikan Nama Sertifikasi . . .">
+                        <input type="text" class="form-control" name="nama_sertifikasi" placeholder="Isikan Nama Sertifikasi . . .">
                     </div>
-                </div><hr>
+                </div>
+                <hr>
+
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Jenis Lisensi</b></label>
                     </div>
                 </div>
-                    <div class="row">
+                <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control" name="jenis_lisensi"
-                            placeholder="Isikan Jenis Lisensi . . .">
+                        <input type="text" class="form-control" name="jenis_lisensi" placeholder="Isikan Jenis Lisensi . . .">
                     </div>
-                </div><hr>
+                </div>
+                <hr>
+
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Apakah sudah memiliki SKP PT?</b></label>
@@ -155,30 +172,49 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="skp_pt" id="skp">
-                        <label class="form-check-label" for="skp">Sudah</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="skp_pt" id="skp_sudah" value="1">
+                            <label class="form-check-label" for="skp_sudah">Sudah</label>
+                        </div>
                     </div>
-                </div>
                 </div>
                 <div class="row">
                     <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="skp_pt" id="skp">
-                        <label class="form-check-label" for="skp">Belum</label>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="skp_pt" id="skp_belum" value="0">
+                            <label class="form-check-label" for="skp_belum">Belum</label>
+                        </div>
                     </div>
                 </div>
-                </div><hr>
+                <hr>
+
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Tanggal Expired</b></label>
                     </div>
                 </div>
-                    <div class="row">
+                <div class="row">
                     <div class="col-8">
                         <input type="date" class="form-control" name="expired_date">
                     </div>
-                </div><hr>
+                </div>
+                <hr>
+
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label"><b>Status Sertifikat</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8">
+                        <select name="status_sertifikat" id="status_sertifikat" class="form-control">
+                            <option value="Aktif">Aktif</option>
+                            <option value="Tidak Berlaku">Tidak Berlaku</option>
+                        </select>
+                    </div>
+                </div>
+                <hr>
+
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Masukkan File Sertifikat</b></label>
@@ -186,16 +222,15 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input mb-4" type="file" name="file_Sertifikat">
+                        <input class="form-control mb-4" type="file" name="file_sertifikat">
                     </div>
-                </div>
                 </div>
 
                 <div class="submitButton mb-4">
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
             </form>
+
         </div>
         </div>
     </div>

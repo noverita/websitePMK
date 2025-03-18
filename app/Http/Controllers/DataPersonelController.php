@@ -15,6 +15,7 @@ class DataPersonelController extends Controller
     // STORE PELATIHAN DATA
     public function storePelatihan(Request $request)
     {
+
         $request->validate([
             'nama_pelatihan' => 'required|string|max:255',
             'penyelanggara' => 'required|string|max:255',
@@ -36,6 +37,7 @@ class DataPersonelController extends Controller
     // STORE SERTIFIKASI DATA
     public function storeSertifikasi(Request $request)
     {
+
         $request->validate([
             'nama_sertifikasi' => 'required|string|max:255',
             'jenis_lisensi' => 'required|string|max:255',
@@ -53,19 +55,19 @@ class DataPersonelController extends Controller
         } else {
             $filePath = null;
         }
-
-        DB::table('sertifikasis')->insert([
+        $saveData =[
             'user_id' => auth()->id(),
             'nama_sertifikasi' => $request->nama_sertifikasi,
             'jenis_lisensi' => $request->jenis_lisensi,
             'skp_pt' => $request->skp_pt,
             'expired_date' => $request->expired_date,
             'file_sertifikat' => $filePath,
-            'status_sertifikat' => $request->status_sertifikat,
+            'status_sertfikat' => $request->status_sertifikat,
             'created_at' => now(),
             'updated_at' => now(),
-        ]);
+        ];
+        DB::table('sertifikasis')->insert($saveData);
 
-        return redirect()->route('admin/sertifikasi-personel')->with('success', 'Data sertifikasi berhasil disimpan!');
+        return redirect()->route('admin.sertifikasi-personel')->with('success', 'Data sertifikasi berhasil disimpan!');
     }
 }
