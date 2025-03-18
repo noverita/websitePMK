@@ -11,7 +11,8 @@
         </div>
         <div class="card-body ">
         <div class="form-kuesioner">
-            <form>
+            <form action="#" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Nama Lengkap</b></label>
@@ -19,8 +20,8 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
-                            placeholder="Isikan Nama Lengkap . . .">
+                        <input type="text" class="form-control" name="nama_lengkap"
+                            placeholder="Isikan Nama Lengkap . . ." required>
                     </div>
                 </div><hr>
                 <div class="row">
@@ -30,8 +31,8 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
-                            placeholder="Isikan NIK . . .">
+                        <input type="text" class="form-control" name="nik"
+                            placeholder="Isikan NIK . . ." required>
                     </div>
                 </div><hr>
                 <div class="row">
@@ -41,7 +42,7 @@
                 </div>
                     <div class="row">
                     <div class="col-8">
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" name="tanggal_lahir" required>
                     </div>
                 </div><hr>
                 {{-- <div class="row">
@@ -72,8 +73,8 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
-                            placeholder="Isikan Grade . . .">
+                        <input type="text" class="form-control" name="grade"
+                            placeholder="Isikan Grade . . ." required>
                     </div>
                 </div><hr>
                 <div class="row">
@@ -83,8 +84,8 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
-                            placeholder="Isikan No. Whatsapp . . .">
+                        <input type="text" class="form-control" name="whatsapp"
+                            placeholder="Isikan No. Whatsapp . . ." required>
                     </div>
                 </div><hr>
                 {{-- <div class="row ">
@@ -106,7 +107,7 @@
                     <div class="row">
                     <div class="col">
                         <div class="form-check form-check-inline">
-                        <input type="file" class="form-check-input mb-4">
+                        <input type="file" class="form-check-input mb-4" name="foto_diri" required>
                         </div>
                     </div>
                 </div>
@@ -123,7 +124,8 @@
         </div>
         <div class="card-body">
         <div class="form-kuesioner">
-            <form>
+            <form action="{{ route('datapersonel.storeSertifikasi') }}" method="POST" enctype="multipart/form-data">
+                @csrf
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Nama Sertifikasi</b></label>
@@ -131,7 +133,7 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
+                        <input type="text" class="form-control" name="nama_sertifikasi"
                             placeholder="Isikan Nama Sertifikasi . . .">
                     </div>
                 </div><hr>
@@ -142,7 +144,7 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
+                        <input type="text" class="form-control" name="jenis_lisensi"
                             placeholder="Isikan Jenis Lisensi . . .">
                     </div>
                 </div><hr>
@@ -154,7 +156,7 @@
                 <div class="row">
                     <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="skp" id="skp">
+                        <input class="form-check-input" type="radio" name="skp_pt" id="skp">
                         <label class="form-check-label" for="skp">Sudah</label>
                     </div>
                 </div>
@@ -162,7 +164,7 @@
                 <div class="row">
                     <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="skp" id="skp">
+                        <input class="form-check-input" type="radio" name="skp_pt" id="skp">
                         <label class="form-check-label" for="skp">Belum</label>
                     </div>
                 </div>
@@ -174,30 +176,9 @@
                 </div>
                     <div class="row">
                     <div class="col-8">
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" name="expired_date">
                     </div>
                 </div><hr>
-                {{-- <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Status</b></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" id="status">
-                        <label class="form-check-label" for="status">Aktif</label>
-                    </div>
-                </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="status" id="status">
-                        <label class="form-check-label" for="status">Expired</label>
-                    </div>
-                </div>
-                </div><hr> --}}
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Masukkan File Sertifikat</b></label>
@@ -206,10 +187,11 @@
                 <div class="row">
                     <div class="col">
                     <div class="form-check form-check-inline">
-                        <input class="form-check-input mb-4" type="file">
+                        <input class="form-check-input mb-4" type="file" name="file_Sertifikat">
                     </div>
                 </div>
                 </div>
+
                 <div class="submitButton mb-4">
                     <button type="submit" class="btn btn-primary">Tambahkan</button>
                 </div>
@@ -223,7 +205,8 @@
         </div>
         <div class="card-body">
         <div class="form-kuesioner">
-            <form>
+            <form action="{{route ('datapersonel.storePelatihan')}}" method="POST">
+                @csrf
                 <div class="row">
                     <div class="col">
                         <label class="form-label"><b>Nama Pelatihan</b></label>
@@ -231,8 +214,8 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
-                            placeholder="Isikan Nama Pelatihan . . .">
+                        <input type="text" class="form-control" name="nama_pelatihan"
+                            placeholder="Isikan Nama Pelatihan . . ." required>
                     </div>
                 </div><hr>
                 <div class="row">
@@ -242,8 +225,18 @@
                 </div>
                     <div class="row">
                     <div class="col">
-                        <input type="text" class="form-control"
-                            placeholder="Isikan Nama Penyelenggara . . .">
+                        <input type="text" class="form-control" name="penyelanggara"
+                            placeholder="Isikan Nama Penyelenggara . . ." required>
+                    </div>
+                </div><hr>
+                <div class="row">
+                    <div class="col">
+                        <label class="form-label"><b>Tanggal Pelatihan</b></label>
+                    </div>
+                </div>
+                    <div class="row">
+                    <div class="col">
+                        <input type="date" class="form-control" name="date_pelatihan">
                     </div>
                 </div><br>
                 <div class="submitButton mb-4">

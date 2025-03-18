@@ -6,7 +6,7 @@
 
 @endsection
 @section('content')
-<a href="{{ route('data.personel') }}" class="btn btn-primary  mb-4">
+<a href="{{ route('datapersonel.create') }}" class="btn btn-primary  mb-4">
     <span class="icon text-white">
         <i class="fas fa-add"></i>
     </span>

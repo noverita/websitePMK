@@ -41,7 +41,10 @@ Route::middleware('auth')->group(function () {
 // Protecting admin routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    Route::get('/admin/datapersonel', [DataPersonelController::class, 'datapersonel'])-> name('data.personel');
+Route::get('/admin/datapersonel/create', [DataPersonelController::class, 'create'])->name('datapersonel.create');
+// Route::post('/datapersonel/store-personnel', [DataPersonelController::class, 'storePersonnel'])->name('datapersonel.storePersonnel');
+Route::post('/datapersonel/store-sertifikasi', [DataPersonelController::class, 'storeSertifikasi'])->name('datapersonel.storeSertifikasi');
+Route::post('/datapersonel/store-pelatihan', [DataPersonelController::class, 'storePelatihan'])->name('datapersonel.storePelatihan');
     Route::get('/admin/daftar-personel', [ListPersonelController::class, 'listPersonel'])-> name('list.personel');
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])-> name('laporan.personel');
     Route::get('/admin/detail-personel', [DataPerOrangController::class, 'profilpersonel'])-> name('profil.personel');

@@ -60,17 +60,17 @@
                     <tr>
                         <th>Nama Pelatihan</th>
                         <th>Penyelenggara</th>
+                        <th>Tanggal Pelatihan</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Firetruck</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td>APAR</td>
-                        <td></td>
-                    </tr>
+                    @foreach ($pelatihans as $p)
+                        <tr>
+                            <td>{{ $p->nama_pelatihan }}</td>
+                            <td>{{ $p->penyelanggara }}</td>
+                            <td>{{ $p->date_pelatihan }}</td>
+                        </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

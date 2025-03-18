@@ -56,6 +56,7 @@
         <div class="card-body">
             <table id="example" class="table table-striped" style="width:100%">
                 <thead>
+
                     <tr>
                         <th>Nama Sertifikasi</th>
                         <th>Jenis Lisensi</th>
@@ -65,6 +66,7 @@
                     </tr>
                 </thead>
                 <tbody>
+
                     <tr>
                         <td>CSMS</td>
                         <td></td>
@@ -75,14 +77,7 @@
                             class="fas fa-download fa-sm text-white-50"></i> Download</a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>Ahli K3 Umum</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td><a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                            class="fas fa-download fa-sm text-white-50"></i> Download</a></td>
-                    </tr>
+
                 </tbody>
             </table>
         </div>
