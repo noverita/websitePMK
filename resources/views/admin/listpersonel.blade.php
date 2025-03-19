@@ -1,4 +1,3 @@
-
 @extends('layouts.admin-app')
 
 @section('title', 'List Data Diri Personel')
@@ -23,47 +22,33 @@
                     <tr>
                         <th>Nama</th>
                         <th>NIK</th>
-                        <th>Role</th>
                         <th>Grade</th>
                         <th>Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach($dataPersonels as $p)
                     <tr>
-                        <td>Donna Snider</td>
-                        <td>0000000000001</td>
-                        <td>Personnel</td>
-                        <td>-</td>
+                        <td>{{ $p->nama_lengkap }}</td>
+                        <td>{{ $p->nik }}</td>
+                        <td>{{ $p->grade }}</td>
                         <td>
                             <a href="{{ route('profil.personel') }}" class="btn btn-primary btn-circle">
                                 <i class="fas fa-eye"></i>
                             </a>
-                            <a href="#" class="btn btn-warning btn-circle">
+                            <a href="{{ route('datapersonel.edit', $p->id) }}" class="btn btn-warning btn-circle">
                                 <i class="fas fa-edit"></i>
                             </a>
-                            <a href="#" class="btn btn-danger btn-circle">
-                                <i class="fas fa-trash"></i>
-                            </a>
-                        </td>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>Noverita</td>
-                        <td>0000000000001</td>
-                        <td>Personnel</td>
-                        <td>-</td>
-                        <td>
-                            <a href="#" class="btn btn-primary btn-circle">
-                                <i class="fas fa-eye"></i>
-                            </a>
-                            <a href="#" class="btn btn-warning btn-circle">
-                                <i class="fas fa-edit"></i>
-                            </a>
-                            <a href="#" class="btn btn-danger btn-circle">
-                                <i class="fas fa-trash"></i>
-                            </a>
+                            <form action="{{ route('datapersonel.destroy', $p->id) }}" method="POST" style="display:inline;">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-circle" onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
                         </td>
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

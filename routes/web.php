@@ -41,15 +41,20 @@ Route::middleware('auth')->group(function () {
 // Protecting admin routes
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-Route::get('/admin/datapersonel/create', [DataPersonelController::class, 'create'])->name('datapersonel.create');
-// Route::post('/datapersonel/store-personnel', [DataPersonelController::class, 'storePersonnel'])->name('datapersonel.storePersonnel');
-Route::post('/datapersonel/store-sertifikasi', [DataPersonelController::class, 'storeSertifikasi'])->name('datapersonel.storeSertifikasi');
-Route::post('/datapersonel/store-pelatihan', [DataPersonelController::class, 'storePelatihan'])->name('datapersonel.storePelatihan');
-    Route::get('/admin/daftar-personel', [ListPersonelController::class, 'listPersonel'])-> name('list.personel');
-    Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])-> name('laporan.personel');
-    Route::get('/admin/detail-personel', [DataPerOrangController::class, 'profilpersonel'])-> name('profil.personel');
-    Route::get('/admin/sertifikasi-personel', [DataPerOrangController::class, 'sertifikasipersonel'])-> name('sertifikasi.personel');
-    Route::get('/admin/pelatihan-personel', [DataPerOrangController::class, 'pelatihanpersonel'])-> name('pelatihan.personel');
+    Route::get('/admin/daftar-personel', [ListPersonelController::class, 'listPersonel'])->name('list.personel');
+    Route::get('/admin/datapersonel/create', [DataPersonelController::class, 'create'])->name('datapersonel.create');
+    Route::post('/admin/datapersonel/store', [DataPersonelController::class, 'storeData'])->name('datapersonel.store');
+    Route::get('/admin/datapersonel/edit/{id}', [DataPersonelController::class, 'editData'])->name('datapersonel.edit');
+    Route::post('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
+    Route::delete('/admin/datapersonel/delete/{id}', [DataPersonelController::class, 'destroyData'])->name('datapersonel.destroy');
+    Route::get('/admin/profil-personel', [DataPersonelController::class, 'showProfile'])->name('profil.personel');
+
+
+
+    Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
+
+    // Route::get('/admin/sertifikasi-personel', [DataPerOrangController::class, 'sertifikasipersonel'])->name('sertifikasi.personel');
+    // Route::get('/admin/pelatihan-personel', [DataPerOrangController::class, 'pelatihanpersonel'])->name('pelatihan.personel');
 });
 
 // Protecting personnel routes
@@ -68,4 +73,4 @@ Route::get('/admin', 'App\Http\Controllers\AdminController@index');
 //Route::get('/personnel/kuesioner', 'App\Http\Controllers\KuesionerController@kuesioner');
 Route::get('/personnel', 'App\Http\Controllers\PersonnelController@index');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

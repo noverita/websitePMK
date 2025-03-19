@@ -25,9 +25,6 @@
                             <p class="text-muted mb-1">
                                 <i class="fas fa-map-marker-alt px-3"></i> AVP PMK PT Petrokimia Gresik
                             </p>
-                            <p class="text-muted mb-1">
-                                <i class="fas fa-briefcase px-3"></i> Organik
-                            </p>
                             <p class="text-muted mb-0">
                                 <i class="fas fa-calendar-alt px-3"></i> 27 Maret 1991
                             </p>
