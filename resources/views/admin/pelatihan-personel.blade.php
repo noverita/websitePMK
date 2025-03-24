@@ -39,10 +39,10 @@
     <div class="nav">
         <ul class="nav nav-pills ">
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('profil.personel') }}">Profil</a>
+                <a class="nav-link" href="{{ route('profil.personel', $personel->id) }}">Profil</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ route('sertifikasi.personel') }}">Sertifikasi</a>
+                <a class="nav-link" href="{{ route('sertifikasi.personel', $personel->user_id) }}">Sertifikasi</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link active" href="{{ route('pelatihan.personel') }}">Pelatihan</a>

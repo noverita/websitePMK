@@ -5,7 +5,7 @@
 
 @endsection
 @section('content')
-<div class="row justify-content-center">
+    <div class="row justify-content-center">
         <div class="col-md-8"> <!-- Adjust column width -->
             <div class="card shadow">
                 <div class="card-body">
@@ -21,7 +21,8 @@
                                 <i class="fas fa-map-marker-alt px-3"></i> {{ $personel->grade }}
                             </p>
                             <p class="text-muted mb-0">
-                                <i class="fas fa-calendar-alt px-3"></i> {{ date('d F Y', strtotime($personel->tanggal_lahir)) }}
+                                <i class="fas fa-calendar-alt px-3"></i>
+                                {{ \Carbon\Carbon::parse($personel->tanggal_lahir)->translatedFormat('d F Y') }}
                             </p>
                         </div>
                     </div>
@@ -31,78 +32,78 @@
     </div><br>
 
     <div class="row justify-content-center">
-    <div class="nav">
-        <ul class="nav nav-pills ">
-            <li class="nav-item">
-                <a class="nav-link active" href="{{ route('profil.personel') }}">Profil</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Sertifikasi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pelatihan</a>
-            </li>
-        </ul>
+        <div class="nav">
+            <ul class="nav nav-pills ">
+                <li class="nav-item">
+                    <a class="nav-link active" href="{{ route('profil.personel', $personel->id) }}">Profil</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('sertifikasi.personel', $personel->user_id) }}">Sertifikasi</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Pelatihan</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
     <hr>
 
     <div class="row justify-content-center">
-    <div class="col-md-8">
-    <div class="card shadow ">
-        <div class="card-body">
-            <div class="row">
-                <div class="col">
-                    Nama Lengkap
-                </div>
-                <div class="col">
-                    {{ $personel->nama_lengkap }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    NIK
-                </div>
-                <div class="col">
-                    {{ $personel->nik }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    Role
-                </div>
-                <div class="col">
-                    Administrator
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    Grade
-                </div>
-                <div class="col">
-                    {{ $personel->grade }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    No. Whatsapp
-                </div>
-                <div class="col">
-                    {{ $personel->whatsapp }}
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    Email
-                </div>
-                <div class="col">
-                    admin.pmk@gmail.com
+        <div class="col-md-8">
+            <div class="card shadow ">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col">
+                            Nama Lengkap
+                        </div>
+                        <div class="col">
+                            {{ $personel->nama_lengkap }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            NIK
+                        </div>
+                        <div class="col">
+                            {{ $personel->nik }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Role
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Grade
+                        </div>
+                        <div class="col">
+                            {{ $personel->grade }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            No. Whatsapp
+                        </div>
+                        <div class="col">
+                            {{ $personel->whatsapp }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            Email
+                        </div>
+                        <div class="col">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 
 
 @endsection

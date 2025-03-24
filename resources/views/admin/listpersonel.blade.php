@@ -33,7 +33,7 @@
                         <td>{{ $p->nik }}</td>
                         <td>{{ $p->grade }}</td>
                         <td>
-                            <a href="{{ route('profil.personel') }}" class="btn btn-primary btn-circle">
+                            <a href="{{ route('profil.personel', $p->id) }}" class="btn btn-primary btn-circle">
                                 <i class="fas fa-eye"></i>
                             </a>
                             <a href="{{ route('datapersonel.edit', $p->id) }}" class="btn btn-warning btn-circle">
