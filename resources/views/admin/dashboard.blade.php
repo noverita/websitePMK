@@ -6,13 +6,13 @@
 
 @endsection
 @section('content')
-<h2 class="text-center font-weight-bold">Dashboard Kesiapan Kerja</h2><br>
+{{-- <h2 class="text-center font-weight-bold">Dashboard Kesiapan Kerja</h2><br> --}}
 
     <div class="row">
         <!-- Welcome Card -->
         <div class="col-md-6">
-            <div class="text-center card shadow bg-primary-gradient mb-4 p-3">
-                <h5 class="greetings">Selamat Datang, Hartin Alfina 🎉</h5>
+            <div class="text-center card shadow bg-gradient-primary text-white mb-4 p-3">
+                <h5 class="greetings">Selamat Datang, {{ Auth::user()->name }} <i class="fas fa-smile-wink"></i></h5>
                 <p class="status-excellent">Excellent</p>
                 <a href="{{ route ('laporan.personel')}}" class="btn btn-primary btn-sm">Lihat Laporan</a>
             </div>
@@ -20,9 +20,9 @@
 
         <!-- Statistics -->
         <div class="col-md-6">
-            <div class="text-center card shadow  mb-4">
-                <div class="card-header bg-primary-gradient">
-                    <h6 class="m-0 font-weight-bold text-primary">STATISTIK</h6>
+            <div class="text-center card shadow mb-4">
+                <div class="card-header bg-gradient-primary">
+                    <h6 class="m-0 font-weight-bold text-white">STATISTIK</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -94,8 +94,8 @@
     <div class="row mt-3 justify-content-center">
         <div class="col-md-6">
             <div class="card shadow mb-4">
-                <div class="card-header bg-primary-gradient">
-                    <h6 class="m-0 font-weight-bold text-primary">SHIFT PEGAWAI</h6>
+                <div class="card-header bg-gradient-primary">
+                    <h6 class="m-0 font-weight-bold text-white text-center">SHIFT PEGAWAI</h6>
                 </div>
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -131,8 +131,8 @@
         </div>
         <div class="col-md-6">
             <div class="card shadow mb-4">
-                <div class="card-header bg-primary-gradient">
-                    <h6 class="m-0 font-weight-bold text-primary">PEGAWAI TERSEDIA</h6>
+                <div class="card-header bg-gradient-primary">
+                    <h6 class="m-0 font-weight-bold text-white text-center">PEGAWAI TERSEDIA</h6>
                 </div><br>
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">

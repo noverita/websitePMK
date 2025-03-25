@@ -7,8 +7,8 @@
 @endsection
 @section('content')
     <div class="card border-bottom-primary shadow mb-4">
-        <div class="card-header bg-primary-gradient py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DAFTAR PERSONEL</h6>
+        <div class="card-header bg-gradient-primary py-3">
+            <h6 class="m-0 font-weight-bold text-white text-center">DAFTAR PERSONEL</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">

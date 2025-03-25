@@ -22,7 +22,7 @@
             </div>
         @endif
 
-        <div class="card-header bg-primary-gradient py-3 text-white">
+        <div class="card-header bg-gradient-primary py-3 text-white text-center">
             <h6 class="m-0 font-weight-bold">DATA DIRI</h6>
         </div>
         <div class="card-body ">
@@ -32,7 +32,8 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Nama Lengkap</b></label>
-                            <input type="text" class="form-control" name="nama_lengkap" value="{{ $personel->nama_lengkap }}" required>
+                            <input type="text" class="form-control" name="nama_lengkap"
+                                value="{{ $personel->nama_lengkap }}" required>
                         </div>
                     </div>
                     <hr>
@@ -46,9 +47,10 @@
                     <hr>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-2">
                             <label class="form-label"><b>Tanggal Lahir</b></label>
-                            <input type="date" class="form-control" name="tanggal_lahir" value="{{ $personel->tanggal_lahir }}" required>
+                            <input type="date" class="form-control" name="tanggal_lahir"
+                                value="{{ $personel->tanggal_lahir }}" required>
                         </div>
                     </div>
                     <hr>
@@ -56,7 +58,8 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Grade</b></label>
-                            <input type="text" class="form-control" name="grade" value="{{ $personel->grade }}" required>
+                            <input type="text" class="form-control" name="grade" value="{{ $personel->grade }}"
+                                required>
                         </div>
                     </div>
                     <hr>
@@ -64,34 +67,37 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Whatsapp</b></label>
-                            <input type="text" class="form-control" name="whatsapp" value="{{ $personel->whatsapp }}" required>
+                            <input type="text" class="form-control" name="whatsapp" value="{{ $personel->whatsapp }}"
+                                required>
                         </div>
                     </div>
                     <hr>
                     <div class="row ">
                         <div class="col">
                             <label class="form-label"><b>Foto Diri</b></label>
+                        </div>
                     </div>
-                    </div>
-                        <div class="row">
+                    <div class="row">
                         <div class="col">
                             <div class="form-check form-check-inline">
-                            <input type="file" class="form-check-input mb-4" name="foto_diri" value="{{ $personel->foto_diri }}">
+                                <input type="file" class="form-check-input mb-4" name="foto_diri"
+                                    value="{{ $personel->foto_diri }}">
                             </div>
                         </div>
                     </div>
-                    <div class="submitButton mb-4">
+                    <div class="submitButton mb-4 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Perbarui</button>
                     </div>
                 </form>
             </div>
         </div>
- <div class="card-header bg-primary-gradient py-3 text-white">
+        <div class="card-header py-3 bg-gradient-primary text-white text-center">
             <h6 class="m-0 font-weight-bold">SERTIFIKASI</h6>
         </div>
         <div class="card-body ">
             <div class="form-kuesioner">
-                <form action="{{ route('sertifikasi.store', ['user_id' => $personel->user_id]) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('sertifikasi.store', ['user_id' => $personel->user_id]) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     <!-- Ensure the correct user_id is passed -->
                     <input type="hidden" name="user_id" value="{{ $personel->user_id }}">
@@ -102,7 +108,8 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" name="nama_sertifikasi" placeholder="Isikan Nama Sertifikasi . . .">
+                            <input type="text" class="form-control" name="nama_sertifikasi"
+                                placeholder="Isikan Nama Sertifikasi . . .">
                         </div>
                     </div>
                     <hr>
@@ -114,7 +121,8 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control" name="jenis_lisensi" placeholder="Isikan Jenis Lisensi . . .">
+                            <input type="text" class="form-control" name="jenis_lisensi"
+                                placeholder="Isikan Jenis Lisensi . . .">
                         </div>
                     </div>
                     <hr>
@@ -140,13 +148,13 @@
                             </div>
                         </div>
                     </div> --}}
-                    <select name="skp_pt" class="form-control">
-                        <option value="1">Ya</option>
-                        <option value="0">Tidak</option>
-                    </select>
-                    <hr>
-                </div>
-        </div>
+                            <select name="skp_pt" class="form-control">
+                                <option value="1">Ya</option>
+                                <option value="0">Tidak</option>
+                            </select>
+                            <hr>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col">
@@ -186,13 +194,13 @@
                         </div>
                     </div>
 
-                    <div class="submitButton mb-4">
+                    <div class="submitButton mb-4 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Tambahkan</button>
                     </div>
                 </form>
             </div>
         </div>
-        <div class="card-header bg-primary-gradient py-3 text-white">
+        <div class="card-header bg-gradient-primary py-3 text-white text-center">
             <h6 class="m-0 font-weight-bold">PELATIHAN</h6>
         </div>
         <div class="card-body ">
@@ -204,34 +212,36 @@
                             <label class="form-label"><b>Nama Pelatihan</b></label>
                         </div>
                     </div>
-                        <div class="row">
+                    <div class="row">
                         <div class="col">
                             <input type="text" class="form-control" name="nama_pelatihan"
                                 placeholder="Isikan Nama Pelatihan . . ." required>
                         </div>
-                    </div><hr>
+                    </div>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Penyelenggara</b></label>
                         </div>
                     </div>
-                        <div class="row">
+                    <div class="row">
                         <div class="col">
                             <input type="text" class="form-control" name="penyelanggara"
                                 placeholder="Isikan Nama Penyelenggara . . ." required>
                         </div>
-                    </div><hr>
+                    </div>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Tanggal Pelatihan</b></label>
                         </div>
                     </div>
-                        <div class="row">
+                    <div class="row">
                         <div class="col">
                             <input type="date" class="form-control" name="date_pelatihan">
                         </div>
                     </div><br>
-                    <div class="submitButton mb-4">
+                    <div class="submitButton mb-4 d-flex justify-content-center">
                         <button type="submit" class="btn btn-primary">Tambahkan</button>
                     </div>
                 </form>

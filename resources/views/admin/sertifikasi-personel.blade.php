@@ -84,8 +84,11 @@
                 {{ $sertifikasi->status }}
             </span></td>
             <td>
-                <a href="{{ asset('storage/' . $sertifikasi->file_sertifikat) }}" class="btn btn-primary" download>
-                    <i class="fas fa-download"></i> Download
+                <a href="{{ asset('storage/' . $sertifikasi->file_sertifikat) }}" class="btn btn-primary btn-icon-split" download>
+                    <span class="icon text-white-50">
+                        <i class="fas fa-download"></i>
+                    </span>
+                    <span class="text">Download</span>
                 </a>
             </td>
         </tr>

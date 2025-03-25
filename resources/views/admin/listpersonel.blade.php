@@ -8,14 +8,19 @@
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class="h4 mb-2 text-gray-800">Laporan</h1>
+    {{-- <h1 class="h4 mb-2 text-gray-800">Laporan</h1> --}}
                     {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> --}}
-
+                            <a href="{{route ('datapersonel.create')}}" class="btn btn-primary btn-icon-split mb-4">
+                                <span class="icon text-white-50">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                                <span class="text">Tambah Data</span>
+                            </a>
     <div class="card border-bottom-primary shadow mb-4">
-        <div class="card-header bg-primary-gradient py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DAFTAR PERSONEL</h6>
+        <div class="card-header bg-gradient-primary py-3">
+            <h6 class="m-0 font-weight-bold text-white text-center">DAFTAR PERSONEL</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
