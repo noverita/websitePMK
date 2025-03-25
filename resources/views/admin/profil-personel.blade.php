@@ -48,9 +48,9 @@
     </div>
     <hr>
 
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb-4">
         <div class="col-md-8">
-            <div class="card shadow ">
+            <div class="card shadow">
                 <div class="card-body">
                     <div class="row">
                         <div class="col">
@@ -60,6 +60,7 @@
                             {{ $personel->nama_lengkap }}
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             NIK
@@ -68,6 +69,7 @@
                             {{ $personel->nik }}
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             Role
@@ -76,6 +78,7 @@
 
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             Grade
@@ -84,6 +87,7 @@
                             {{ $personel->grade }}
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             No. Whatsapp
@@ -92,6 +96,7 @@
                             {{ $personel->whatsapp }}
                         </div>
                     </div>
+                    <hr>
                     <div class="row">
                         <div class="col">
                             Email
