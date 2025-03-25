@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-@extends('layouts.admin-app')
+@extends('layouts.app')
 
 @section('title', 'Dashboard')
 @section('css')
@@ -14,7 +14,7 @@
             <div class="text-center card shadow bg-primary-gradient mb-4 p-3">
                 <h5 class="greetings">Selamat Datang, Hartin Alfina 🎉</h5>
                 <p class="status-excellent">Excellent</p>
-                <a href="{{ route ('laporan.personel')}}" class="btn btn-light btn-sm">Lihat Laporan</a>
+                <a href="{{ route ('laporan.personel')}}" class="btn btn-primary btn-sm">Lihat Laporan</a>
             </div>
         </div>
 
@@ -22,7 +22,7 @@
         <div class="col-md-6">
             <div class="text-center card shadow  mb-4">
                 <div class="card-header bg-primary-gradient">
-                    <h6 class="m-0 font-weight-bold text-white">STATISTIK</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">STATISTIK</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -95,7 +95,7 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-header bg-primary-gradient">
-                    <h6 class="m-0 font-weight-bold text-white">SHIFT PEGAWAI</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">SHIFT PEGAWAI</h6>
                 </div>
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -132,7 +132,7 @@
         <div class="col-md-6">
             <div class="card shadow mb-4">
                 <div class="card-header bg-primary-gradient">
-                    <h6 class="m-0 font-weight-bold text-white">PEGAWAI TERSEDIA</h6>
+                    <h6 class="m-0 font-weight-bold text-primary">PEGAWAI TERSEDIA</h6>
                 </div><br>
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -154,4 +154,10 @@
     </div>
 @endsection
 @section('js')
+    <!-- Page level plugins -->
+    <script src="{{asset('assets/vendor/chart.js/Chart.min.js')}}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{asset('assets/js/demo/chart-area-demo.js')}}"></script>
+    <script src="{{asset('assets/js/demo/chart-pie-demo.js')}}"></script>
 @endsection
