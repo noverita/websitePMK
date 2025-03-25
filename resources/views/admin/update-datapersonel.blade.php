@@ -91,7 +91,7 @@
         </div>
         <div class="card-body ">
             <div class="form-kuesioner">
-                <form action="{{ route('sertifikasi.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('sertifikasi.store', ['user_id' => $personel->user_id]) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <!-- Ensure the correct user_id is passed -->
                     <input type="hidden" name="user_id" value="{{ $personel->user_id }}">

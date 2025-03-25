@@ -48,14 +48,18 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/datapersonel/edit/{id}', [DataPersonelController::class, 'editData'])->name('datapersonel.edit');
     Route::post('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
     Route::delete('/admin/datapersonel/delete/{id}', [DataPersonelController::class, 'destroyData'])->name('datapersonel.destroy');
-    Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])
-    ->name('profil.personel');
+//     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])
+//     ->name('profil.personel');
 
-    Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])
-    ->name('sertifikasi.personel');
+//     Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])
+//     ->name('sertifikasi.personel');
 
 Route::post('/admin/store-sertifikasi', [SertifikasiController::class, 'storeSertifikasi'])
     ->name('sertifikasi.store');
+Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])-> name('profil.personel');
+Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])->name('sertifikasi.personel');
+// Route::get('/admin/pelatihan-personel/{user_id}', [PelatihanController::class, 'showPelatihan']);
+
 
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
 
