@@ -11,7 +11,7 @@
 @section('content')
     <!-- Page Heading -->
     {{-- <h3 class="text-center font-weight-bold"></h3> --}}
-    <h1 class="h4 mb-2 text-gray-800">Form Survey</h1>
+    {{-- <h1 class="h4 mb-2 text-gray-800">Form Survey</h1> --}}
     <div class="card border-left-primary shadow mb-4">
         <div class="form-kuesioner">
             <form>
@@ -21,7 +21,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-8">
+                    <div class="col-md-4">
                         <input type="date" class="form-control">
                     </div>
                 </div><br>
@@ -31,7 +31,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md">
+                    <div class="col-md-4">
                         <select class="form-control" id="shift">
                             <option value="pagi">Pagi</option>
                             <option value="siang">Siang</option>
@@ -616,7 +616,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option"><strong>B1 : </strong>Selalu bergoyang/tidak seimbang</label>
+                        <label class="form-label-option"><strong>B1 : </strong>Selalu bergoyang / tidak seimbang</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -685,8 +685,8 @@
                         </div>
                     </div>
                 </div><br><hr>
-                <div class="submitButton">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="submitButton d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary" style="width: 10cm">Submit</button>
                 </div>
                 {{-- <div class="card">
                     <div class="card-body">

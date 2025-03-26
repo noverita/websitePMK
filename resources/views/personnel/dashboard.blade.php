@@ -6,12 +6,13 @@
 @endsection
 @section('content')
 {{-- s --}}
-<a href="{{ route('personnel.kuesioner') }}" class="btn btn-primary mb-4">
-    <span class="icon text-white">
-        <i class="fas fa-add"></i>
+<a href="{{route ('personnel.kuesioner')}}" class="btn btn-primary btn-icon-split mb-4">
+    <span class="icon text-white-50">
+        <i class="fas fa-plus"></i>
     </span>
-    <span class="text">Tambah Data</span>
+    <span class="text">Isi Kuesioner</span>
 </a>
+
     <div class="card border-bottom-primary shadow mb-4">
         <div class="card-header bg-primary-gradient">
             <h6 class="m-0 font-weight-bold text-white">DASHBOARD PERSONEL</h6>

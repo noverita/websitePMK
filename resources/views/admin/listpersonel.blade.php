@@ -16,7 +16,7 @@
                                 <span class="icon text-white-50">
                                     <i class="fas fa-plus"></i>
                                 </span>
-                                <span class="text">Tambah Data</span>
+                                <span class="text">Tambah Personel</span>
                             </a>
     <div class="card border-bottom-primary shadow mb-4">
         <div class="card-header bg-gradient-primary py-3">

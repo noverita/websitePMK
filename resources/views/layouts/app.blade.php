@@ -31,11 +31,11 @@
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
-                <div class="sidebar-brand-text mx-3">FIRE - FIT</div>
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
+                {{-- <div class="sidebar-brand-icon rotate-n-15"> --}}
+                    <img src="{{ asset('images/firefit2.png') }}" class="logo-image" style="width:auto; height:30px">
+                                {{-- </div> --}}
+
             </a>
 
             <!-- Divider -->
@@ -105,6 +105,10 @@
                         <i class="fa fa-bars"></i>
                     </button>
 
+                    <a class="navbar-brand" href="#">
+                        <img src="{{ asset('images/logo.png') }}" alt="Logo" class="topbar-logo" style="width: auto; height: 40px">
+                    </a>
+
                     <!-- Topbar Search -->
                     {{-- <form
                         class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
@@ -124,12 +128,13 @@
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                            {{-- <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
-                            </a>
+                            </a> --}}
+
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                            {{-- <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
                                 aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
@@ -143,7 +148,8 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
+                            </div> --}}
+
                         </li>
 
                         <div class="topbar-divider d-none d-sm-block"></div>

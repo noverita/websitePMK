@@ -14,7 +14,7 @@
             <div class="text-center card shadow bg-gradient-primary text-white mb-4 p-3">
                 <h5 class="greetings">Selamat Datang, {{ Auth::user()->name }} <i class="fas fa-smile-wink"></i></h5>
                 <p class="status-excellent">Excellent</p>
-                <a href="{{ route ('laporan.personel')}}" class="btn btn-primary btn-sm">Lihat Laporan</a>
+                <a href="{{ route ('laporan.personel')}}" class="btn bg-white btn-sm text-primary">Lihat Laporan</a>
             </div>
         </div>
 
@@ -26,9 +26,9 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-4"><strong>20</strong><br> Laporan Terkumpul</div>
-                        <div class="col-4"><strong>12</strong><br> Good</div>
-                        <div class="col-4"><strong>9</strong><br> Kurang Fit</div>
+                        <div class="col-4"><strong>20</strong><br><i class="fas fa-folder-plus text-gray-400"></i> Laporan Terkumpul</div>
+                        <div class="col-4"><strong>12</strong><br><i class="fas fa-fire-alt text-gray-400"></i> Good</div>
+                        <div class="col-4"><strong>9</strong><br><i class="fas fa-stethoscope text-gray-400"></i> Kurang Fit</div>
                     </div>
                 </div>
 
