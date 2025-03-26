@@ -72,10 +72,16 @@
 
             <!-- Nav Item - Personnel -->
             <li class="nav-item {{ request()->routeIs('personnel.dashboard') ? 'active' : '' }}">
+                <a class="nav-link" href="{{route('personnel.profile')}}">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Identitas Diri</span></a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('personnel.dashboard') ? 'active' : '' }}">
                 <a class="nav-link" href="{{route('personnel.dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
+
             <li class="nav-item {{ request()->routeIs('personnel.kuesioner') ? 'active' : '' }}">
                 <a class="nav-link" href="{{route('personnel.kuesioner')}}">
                     <i class="fas fa-fw fa-table"></i>

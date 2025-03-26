@@ -100,7 +100,7 @@
                     enctype="multipart/form-data">
                     @csrf
                     <!-- Ensure the correct user_id is passed -->
-                    <input type="hidden" name="user_id" value="{{ $personel->user_id }}">
+                    <input type="hidden" name="user_id" value="{{ $personel->id }}">
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Nama Sertifikasi</b></label>

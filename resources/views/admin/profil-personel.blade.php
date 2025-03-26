@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Laporan Personel')
+@section('title', 'Profile Personel')
 @section('css')
 
 @endsection

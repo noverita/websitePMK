@@ -57,7 +57,7 @@
             <h6 class="m-0 font-weight-bold text-primary">Laporan Personnel</h6>
         </div> --}}
         <div class="card-body">
-            <table id="example" class="table table-striped" style="width:100%">
+            <table id="dataTable" class="table table-striped" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Nama Pelatihan</th>

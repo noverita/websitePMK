@@ -46,8 +46,9 @@ class SertifikasiController extends Controller
         return redirect()->back()->with('success', 'Sertifikasi berhasil ditambahkan!');
     }
 
-    public function storeSertifikasi(Request $request, $user_id)
+    public function storeSertifikasi(Request $request)
     {
+        dd($request->all());
         // Ensure a valid user_id is provided
         $request->validate([
             'user_id' => 'required|exists:data_personnels,user_id',

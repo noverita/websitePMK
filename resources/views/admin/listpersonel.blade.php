@@ -3,7 +3,7 @@
 @section('title', 'List Data Diri Personel')
 
 @section('css')
-
+<link href="{{asset('assets/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -24,7 +24,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="example" class="table table-striped">
+                <table id="dataTable" class="table table-striped" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Nama</th>
@@ -77,4 +77,6 @@
 
  <!-- Page level custom scripts -->
  <script src="{{asset('assets/js/demo/datatables-demo.js')}}"></script>
+
+</script>
 @endsection

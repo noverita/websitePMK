@@ -10,4 +10,7 @@ class PersonnelController extends Controller
     {
         return view('personnel.dashboard'); // Create this view
     }
+    public function profile(){
+        return view('personnel.profile');
+    }
 }

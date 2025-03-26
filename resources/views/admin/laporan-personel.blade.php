@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="example" class="table table-striped">
+                <table id="dataTable" class="table table-striped" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>Nama</th>
@@ -59,4 +59,12 @@
 
  <!-- Page level custom scripts -->
  <script src="{{asset('assets/js/demo/datatables-demo.js')}}"></script>
+ <script>
+    $(document).ready(function() {
+        $('#example').DataTable({
+            "paging": true,
+            "searching": true
+        });
+    });
+</script>
 @endsection

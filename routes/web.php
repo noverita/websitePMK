@@ -71,6 +71,7 @@ Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::clas
 Route::middleware(['auth', 'personnel'])->group(function () {
     Route::get('/personnel/dashboard', [PersonnelController::class, 'index'])->name('personnel.dashboard');
     Route::get('/personnel/kuesioner', [KuesionerController::class, 'index'])->name('personnel.kuesioner');
+    Route::get('/personnel/profile', [PersonnelController::class, 'profile'])->name('personnel.profile');
 });
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');
