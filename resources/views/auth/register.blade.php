@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
     <meta charset="utf-8">
@@ -25,12 +26,12 @@
 
     <div class="container">
         <div class="row justify-content-center">
-        <div class="col-lg-8">
-        <div class="card o-hidden border-0 shadow-lg my-5">
-            <div class="card-body p-0">
-                <!-- Nested Row within Card Body -->
-                {{-- <div class="row"> --}}
-                    {{-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
+            <div class="col-lg-8">
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        {{-- <div class="row"> --}}
+                        {{-- <div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
                     <div class="col-lg-7"> --}}
                         <div class="p-5">
                             <div class="text-center">
@@ -64,7 +65,8 @@
                                     </div>
                                     <div class="col-sm-6">
                                         <input type="password" class="form-control form-control-user"
-                                            id="exampleRepeatPassword" placeholder="Repeat Password" name="password_confirmation">
+                                            id="exampleRepeatPassword" placeholder="Repeat Password"
+                                            name="password_confirmation">
                                     </div>
                                 </div>
 

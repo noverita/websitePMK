@@ -43,7 +43,8 @@
                     <a class="nav-link " href="{{ route('profil.personel', $personel->id) }}">Profil</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('sertifikasi.personel', $personel->user_id) }}">Sertifikasi</a>
+                    <a class="nav-link active"
+                        href="{{ route('sertifikasi.personel', $personel->user_id) }}">Sertifikasi</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Pelatihan</a>
@@ -73,27 +74,30 @@
                 </thead>
                 <tbody>
 
-                    @foreach($sertifikasis as $sertifikasi)
-        @if ($sertifikasi->user_id == $personel->user_id) <!-- Ensure correct personnel -->
-        <tr>
-            <td>{{ $sertifikasi->nama_sertifikasi }}</td>
-            <td>{{ $sertifikasi->jenis_lisensi }}</td>
-            <td>{{ $sertifikasi->skp_pt == 1 ? 'Ya' : 'Tidak' }}</td>
-            <td>{{ \Carbon\Carbon::parse($sertifikasi->expired_date)->translatedFormat('d F Y') }}</td>
-            <td> <span class="badge {{ $sertifikasi->status == 'Berlaku' ? 'badge-success' : 'badge-danger' }}">
-                {{ $sertifikasi->status }}
-            </span></td>
-            <td>
-                <a href="{{ asset('storage/' . $sertifikasi->file_sertifikat) }}" class="btn btn-primary btn-icon-split" download>
-                    <span class="icon text-white-50">
-                        <i class="fas fa-download"></i>
-                    </span>
-                    <span class="text">Download</span>
-                </a>
-            </td>
-        </tr>
-        @endif
-    @endforeach
+                    @foreach ($sertifikasis as $sertifikasi)
+                        @if ($sertifikasi->user_id == $personel->user_id)
+                            <!-- Ensure correct personnel -->
+                            <tr>
+                                <td>{{ $sertifikasi->nama_sertifikasi }}</td>
+                                <td>{{ $sertifikasi->jenis_lisensi }}</td>
+                                <td>{{ $sertifikasi->skp_pt == 1 ? 'Ya' : 'Tidak' }}</td>
+                                <td>{{ \Carbon\Carbon::parse($sertifikasi->expired_date)->translatedFormat('d F Y') }}</td>
+                                <td> <span
+                                        class="badge {{ $sertifikasi->status == 'Berlaku' ? 'badge-success' : 'badge-danger' }}">
+                                        {{ $sertifikasi->status }}
+                                    </span></td>
+                                <td>
+                                    <a href="{{ asset('storage/' . $sertifikasi->file_sertifikat) }}"
+                                        class="btn btn-primary btn-icon-split" download>
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-download"></i>
+                                        </span>
+                                        <span class="text">Download</span>
+                                    </a>
+                                </td>
+                            </tr>
+                        @endif
+                    @endforeach
                 </tbody>
             </table>
         </div>

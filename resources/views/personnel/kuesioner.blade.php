@@ -3,7 +3,7 @@
 @section('title', 'Dashboard Personel')
 @section('css')
     <style>
-        .form-kuesioner{
+        .form-kuesioner {
             padding: 1rem;
         }
     </style>
@@ -684,7 +684,8 @@
                             <label class="form-check-label" for="inlineRadio2">Tidak</label>
                         </div>
                     </div>
-                </div><br><hr>
+                </div><br>
+                <hr>
                 <div class="submitButton d-flex justify-content-center">
                     <button type="submit" class="btn btn-primary" style="width: 10cm">Submit</button>
                 </div>

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('foto_diri');
             $table->string('grade');
             $table->string('whatsapp');
-            $table->enum('status_pegawai', ['aktif', 'tidak aktif']);
+            $table->enum('status_pegawai', ['Organik', 'Non-Organik']);
             $table->timestamps();
         });
     }
