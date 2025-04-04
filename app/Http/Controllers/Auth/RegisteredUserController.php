@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\DB;
 
 class RegisteredUserController extends Controller
 {
@@ -30,30 +31,39 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
-        // dd($request->all());
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:users,email'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-
         ]);
 
-        $user = User::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'role' => 'personnel',
-        ]);
+        DB::beginTransaction();
+        try {
+            $userId = DB::table('users')->insertGetId([
+                'name'       => $request->input('name'),
+                'email'      => $request->input('email'),
+                'password'   => bcrypt($request->input('password')),
+                'role'       => 'personnel',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
 
-        // event(new Registered($user));
+            DB::table('data_personnels')->insert([
+                'user_id'       => $userId,
+                'nama_lengkap'  => $request->input('name'),
+                'created_at'    => now(),
+                'updated_at'    => now(),
+            ]);
 
-        Auth::login($user);
+            DB::commit();
+            // Auth::loginUsingId($userId); // Login dulu
+            session()->flash('success', 'Pendaftaran berhasil, silahkan Login terlebih dahulu!'); // Flash pesan setelah login
+            return redirect()->route('login');
 
-        // return redirect(RouteServiceProvider::HOME);
-        if (auth()->user()->role == 'admin') {
-            return redirect()->route('admin.dashboard');
-        } else {
-            return redirect()->route('personnel.dashboard');
+        } catch (\Exception $e) {
+            DB::rollBack();
+
+            return redirect()->back()->with('error', 'Terjadi kesalahan: ' . $e->getMessage());
         }
     }
 }

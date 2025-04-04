@@ -15,12 +15,12 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('nama_lengkap');
-            $table->string('nik')->unique();
-            $table->date('tanggal_lahir');
-            $table->string('foto_diri');
-            $table->string('grade');
-            $table->string('whatsapp');
-            $table->enum('status_pegawai', ['Organik', 'Non-Organik']);
+            $table->string('nik')->nullable()->unique();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('foto_diri')->nullable();
+            $table->string('grade')->nullable();
+            $table->string('whatsapp')->nullable();
+            $table->enum('status_pegawai', ['Organik', 'Non-Organik'])->nullable();
             $table->timestamps();
         });
     }
