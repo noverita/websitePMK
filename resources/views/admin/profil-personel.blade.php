@@ -47,7 +47,16 @@
         </div>
     </div>
     <hr>
-
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn btn-primary btn-icon-split mb-4">
+        <span class="icon text-white-50">
+            <i class="fas fa-edit"></i>
+        </span>
+        <span class="text">Edit Profil</span>
+    </a>
+    </div>
+</div>
     <div class="row justify-content-center mb-4">
         <div class="col-md-8">
             <div class="card shadow">

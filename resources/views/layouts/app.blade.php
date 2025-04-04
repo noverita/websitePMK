@@ -54,7 +54,7 @@
             <li class="nav-item {{ request()->routeIs('list.personel') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('list.personel') }}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Daftar Personnel</span>
+                    <span>Daftar Personel</span>
                 </a>
             </li>
 

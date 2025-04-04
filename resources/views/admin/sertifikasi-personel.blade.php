@@ -53,7 +53,16 @@
         </div>
     </div>
     <hr>
-
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+    <a href="{{ route('sertifikasi.create') }}" class="btn btn-primary btn-icon-split mb-4">
+        <span class="icon text-white-50">
+            <i class="fas fa-plus"></i>
+        </span>
+        <span class="text">Tambah Sertifikasi</span>
+    </a>
+    </div>
+</div>
 
     <div class="card shadow">
         {{-- <div class="card-header">

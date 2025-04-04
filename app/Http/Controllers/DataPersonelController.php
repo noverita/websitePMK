@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Carbon\Carbon;
 
 class DataPersonelController extends Controller
 {
@@ -99,4 +100,45 @@ class DataPersonelController extends Controller
 
         return view('admin.profil-personel', compact('personel'));
     }
+
+    //sertifikasi
+    public function showSertifikasi($user_id)
+    {
+    $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
+
+    if (!$personel) {
+        return redirect()->back()->with('error', 'Personnel data not found.');
+    }
+
+    $sertifikasis = DB::table('sertifikasis')
+        ->where('user_id', $user_id)
+        ->get()
+        ->map(function ($sertifikasi) {
+            $sertifikasi->status = Carbon::parse($sertifikasi->expired_date)->isFuture() ? 'Berlaku' : 'Tidak Berlaku';
+            return $sertifikasi;
+        });
+
+    return view('admin.sertifikasi-personel', compact('personel', 'sertifikasis'));
+}
+    public function createSertifikasi()
+    {
+        return view('admin/create-sertifikasi');
+    }
+    public function storeSertifikasi(Request $request)
+{
+    DB::table('sertifikasis')->insert([
+        'user_id' => $request->user_id ?? 1,
+        'nama_sertifikasi' => $request->nama_sertifikasi,
+        'jenis_lisensi' => $request->jenis_lisensi,
+        'skp_pt' =>$request->skp_pt,
+        'expired_date' => $request->expired_date,
+        'file_sertifikat'=>$request->file_sertifikat,
+        'created_at' => now(),
+    ]);
+
+    return redirect()->route('sertifikasi.store', ['user_id' => $request->user_id])
+                     ->with('success', 'Sertifikasi berhasil ditambahkan!');
+}
+
+
 }

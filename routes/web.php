@@ -43,21 +43,22 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('/admin/daftar-personel', [ListPersonelController::class, 'listPersonel'])->name('list.personel');
-    Route::get('/admin/datapersonel/create', [DataPersonelController::class, 'create'])->name('datapersonel.create');
+    Route::get('/admin/datapersonel/add', [DataPersonelController::class, 'create'])->name('datapersonel.create');
     Route::post('/admin/datapersonel/store', [DataPersonelController::class, 'storeData'])->name('datapersonel.store');
     Route::get('/admin/datapersonel/edit/{id}', [DataPersonelController::class, 'editData'])->name('datapersonel.edit');
     Route::post('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
     Route::delete('/admin/datapersonel/delete/{id}', [DataPersonelController::class, 'destroyData'])->name('datapersonel.destroy');
+    Route::get('/admin/sertifikasi/add', [DataPersonelController::class, 'createSertifikasi'])->name('sertifikasi.create');
 //     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])
 //     ->name('profil.personel');
 
 //     Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])
 //     ->name('sertifikasi.personel');
 
-Route::post('/admin/store-sertifikasi', [SertifikasiController::class, 'storeSertifikasi'])
+Route::post('/admin/store-sertifikasi', [DataPersonelController::class, 'storeSertifikasi'])
     ->name('sertifikasi.store');
 Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])-> name('profil.personel');
-Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])->name('sertifikasi.personel');
+Route::post('/admin/sertifikasi-personel/{user_id}', [DataPersonelController::class, 'showSertifikasi'])->name('sertifikasi.personel');
 // Route::get('/admin/pelatihan-personel/{user_id}', [PelatihanController::class, 'showPelatihan']);
 
 
