@@ -49,18 +49,21 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::post('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
     Route::delete('/admin/datapersonel/delete/{id}', [DataPersonelController::class, 'destroyData'])->name('datapersonel.destroy');
     Route::get('/admin/sertifikasi/add', [DataPersonelController::class, 'createSertifikasi'])->name('sertifikasi.create');
-//     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])
-//     ->name('profil.personel');
 
-//     Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])
-//     ->name('sertifikasi.personel');
+    //     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])
+    //     ->name('profil.personel');
 
-Route::post('/admin/store-sertifikasi', [DataPersonelController::class, 'storeSertifikasi'])
-    ->name('sertifikasi.store');
-Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])-> name('profil.personel');
-Route::post('/admin/sertifikasi-personel/{user_id}', [DataPersonelController::class, 'showSertifikasi'])->name('sertifikasi.personel');
-// Route::get('/admin/pelatihan-personel/{user_id}', [PelatihanController::class, 'showPelatihan']);
+    //     Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])
+    //     ->name('sertifikasi.personel');
 
+    Route::post('/admin/store-sertifikasi', [DataPersonelController::class, 'storeSertifikasi'])
+        ->name('sertifikasi.store');
+    Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])->name('profil.personel');
+    Route::get('/admin/sertifikasi-personel/{user_id}', [DataPersonelController::class, 'showSertifikasi'])->name('sertifikasi.personel');
+    // Route::get('/admin/pelatihan-personel/{user_id}', [PelatihanController::class, 'showPelatihan']);
+    Route::get('/admin/pelatihan/add/{user_id}', [DataPersonelController::class, 'createPelatihan'])->name('pelatihan.create');
+    Route::post('/admin/store-pelatihan', [DataPersonelController::class, 'storePelatihan'])->name('pelatihan.store');
+    Route::get('/admin/pelatihan-personel/{user_id}', [DataPersonelController::class, 'showPelatihan'])->name('pelatihan.personel');
 
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
 

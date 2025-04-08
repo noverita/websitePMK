@@ -44,10 +44,10 @@
                                         class="btn btn-primary btn-circle btn-sm">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    <a href="{{ route('datapersonel.edit', $p->id) }}"
+                                    {{-- <a href="{{ route('datapersonel.edit', $p->id) }}"
                                         class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-edit"></i>
-                                    </a>
+                                    </a> --}}
                                     <form action="{{ route('datapersonel.destroy', $p->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf

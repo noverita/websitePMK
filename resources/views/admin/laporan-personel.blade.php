@@ -2,7 +2,7 @@
 
 @section('title', 'Laporan Personel')
 @section('css')
-
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
     <div class="card border-bottom-primary shadow mb-4">
@@ -32,9 +32,9 @@
                                 <a href="" class="btn btn-primary btn-circle btn-sm">
                                     <i class="fas fa-eye"></i>
                                 </a>
-                                <a href="" class="btn btn-warning btn-circle btn-sm">
+                                {{-- <a href="" class="btn btn-warning btn-circle btn-sm">
                                     <i class="fas fa-edit"></i>
-                                </a>
+                                </a> --}}
 
                                 {{-- <a href="#" class="btn btn-danger btn-icon-split btn-sm">
                                     <span class="icon text-white-50">
@@ -58,12 +58,6 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "paging": true,
-                "searching": true
-            });
-        });
+
     </script>
 @endsection

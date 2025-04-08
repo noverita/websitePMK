@@ -2,7 +2,7 @@
 
 @section('title', 'Dashboard Personel')
 @section('css')
-
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
     {{-- s --}}
@@ -52,4 +52,6 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
+
+    </script>
 @endsection

@@ -41,7 +41,7 @@
                     <a class="nav-link" href="{{ route('sertifikasi.personel', $personel->user_id) }}">Sertifikasi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pelatihan</a>
+                    <a class="nav-link" href="{{ route('pelatihan.personel', $personel->user_id) }}">Pelatihan</a>
                 </li>
             </ul>
         </div>

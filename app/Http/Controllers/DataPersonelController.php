@@ -140,5 +140,46 @@ class DataPersonelController extends Controller
                      ->with('success', 'Sertifikasi berhasil ditambahkan!');
 }
 
+//pelatihan
+public function showPelatihan($user_id)
+{
+    $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
+
+    if (!$personel) {
+        return redirect()->back()->with('error', 'Personnel data not found.');
+    }
+
+    $pelatihans = DB::table('pelatihans')
+        ->where('user_id', $user_id)
+        ->get();
+
+    return view('admin.pelatihan-personel', compact('personel', 'pelatihans'));
+}
+public function createPelatihan($user_id)
+{
+    $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
+
+    if (!$personel) {
+        return redirect()->back()->with('error', 'Personnel data not found.');
+    }
+
+    return view('admin.create-pelatihan', compact('personel'));
+}
+
+public function storePelatihan(Request $request)
+{
+DB::table('pelatihans')->insert([
+    'user_id' => $request->user_id ?? 1,
+    'nama_pelatihan' => $request->nama_pelatihan,
+    'penyelanggara' => $request->penyelanggara,
+    'date_pelatihan' =>$request->date_pelatihan,
+    'created_at' => now(),
+]);
+
+return redirect()->route('pelatihan.personel', ['user_id' => $request->user_id])
+                 ->with('success', 'Pelatihan berhasil ditambahkan!');
+
+}
+
 
 }

@@ -2,7 +2,7 @@
 
 @section('title', 'Sertifikasi Personel')
 @section('css')
-
+<link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
     <div class="row justify-content-center">
@@ -47,13 +47,13 @@
                         href="{{ route('sertifikasi.personel', $personel->user_id) }}">Sertifikasi</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Pelatihan</a>
+                    <a class="nav-link" href="{{ route('pelatihan.personel', $personel->user_id) }}">Pelatihan</a>
                 </li>
             </ul>
         </div>
     </div>
     <hr>
-    <div class="row justify-content-center">
+    <div class="row">
         <div class="col-md-8">
     <a href="{{ route('sertifikasi.create') }}" class="btn btn-primary btn-icon-split mb-4">
         <span class="icon text-white-50">
@@ -113,12 +113,12 @@
     </div>
 @endsection
 @section('js')
-    <script>
-        $(document).ready(function() {
-            $('#example').DataTable({
-                "paging": true,
-                "searching": true
-            });
-        });
+    <!-- Page level plugins -->
+    <script src="{{ asset('assets/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
+
     </script>
 @endsection
