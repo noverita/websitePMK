@@ -5,13 +5,13 @@
 <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
-    <div class="card border-bottom-primary shadow mb-4">
-        <div class="card-header bg-gradient-primary py-3">
-            <h6 class="m-0 font-weight-bold text-white text-center">DAFTAR PERSONEL</h6>
+    <div class="card shadow mb-4">
+        <div class="card-header red py-3">
+            <h6 class="m-0 font-weight-bold text-white text-center">LAPORAN KESIAPAN PERSONEL</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="dataTable" class="table table-striped" width="100%" cellspacing="0">
+                <table id="dataTable" class="table table-striped" width="100%" cellspacing="0" style="text-align: center">
                     <thead>
                         <tr>
                             <th>Nama</th>

@@ -55,7 +55,7 @@
     <hr>
     <div class="row">
         <div class="col-md-8">
-    <a href="{{ route('sertifikasi.create') }}" class="btn btn-primary btn-icon-split mb-4">
+    <a href="{{ route('sertifikasi.create') }}" class="btn red text-white btn-icon-split mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
@@ -97,7 +97,7 @@
                                     </span></td>
                                 <td>
                                     <a href="{{ asset('storage/' . $sertifikasi->file_sertifikat) }}"
-                                        class="btn btn-primary btn-icon-split" download>
+                                        class="btn red text-white btn-icon-split" download>
                                         <span class="icon text-white-50">
                                             <i class="fas fa-download"></i>
                                         </span>

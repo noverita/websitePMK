@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'List Data Diri Personel')
+@section('title', 'Data Kesehatan Personel')
 
 @section('css')
     <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
@@ -12,43 +12,55 @@
     {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> --}}
-    <a href="{{ route('datapersonel.create') }}" class="btn red btn-icon-split text-white mb-4">
+    <a href="{{route('datakesehatan.create')}}" class="btn red btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
-        <span class="text">Tambah Personel</span>
+        <span class="text">Tambah Data</span>
     </a>
     <div class="card shadow mb-4">
         <div class="card-header red py-3">
-            <h6 class="m-0 font-weight-bold text-white text-center">DAFTAR PERSONEL</h6>
+            <h6 class="m-0 font-weight-bold text-white text-center">DATA KESEHATAN PERSONEL</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table id="dataTable" class="table table-striped" width="100%" cellspacing="0"  style="text-align: center">
                     <thead>
                         <tr>
-                            <th>Nama</th>
-                            <th>NIK</th>
-                            <th>Grade</th>
+                            <th>Nama Lengkap</th>
+                            <th>Tahun</th>
+                            <th>Hasil Cek Kesehatan</th>
+                            <th>Catatan</th>
+                            <th>Surat Keterangan Sehat</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($dataPersonels as $p)
+
                             <tr>
-                                <td>{{ $p->nama_lengkap }}</td>
-                                <td>{{ $p->nik }}</td>
-                                <td>{{ $p->grade }}</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
                                 <td>
-                                    <a href="{{ route('profil.personel', $p->id) }}"
+                                    <a href="{{ asset('storage/' ) }}"
+                                        class="btn red text-white btn-icon-split" download>
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-download"></i>
+                                        </span>
+                                        <span class="text">Download</span>
+                                    </a>
+                                </td>
+                                <td>
+                                    {{-- <a href="{{ route('profil.personel', $p->id) }}"
                                         class="btn btn-primary btn-circle btn-sm">
                                         <i class="fas fa-eye"></i>
-                                    </a>
+                                    </a> --}}
                                     {{-- <a href="{{ route('datapersonel.edit', $p->id) }}"
                                         class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a> --}}
-                                    <form action="{{ route('datapersonel.destroy', $p->id) }}" method="POST"
+                                    <form action="" method="POST"
                                         style="display:inline;">
                                         @csrf
                                         @method('DELETE')
@@ -65,7 +77,7 @@
                                 </a> --}}
                                 </td>
                             </tr>
-                        @endforeach
+
                     </tbody>
                 </table>
             </div>

@@ -33,7 +33,7 @@
 
     <div class="row justify-content-center">
         <div class="nav">
-            <ul class="nav nav-pills ">
+            <ul class="nav nav-pills">
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ route('profil.personel', $personel->id) }}">Profil</a>
                 </li>
@@ -49,7 +49,7 @@
     <hr>
     <div class="row justify-content-center">
         <div class="col-md-8">
-    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn btn-primary btn-icon-split mb-4">
+    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn red btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-edit"></i>
         </span>

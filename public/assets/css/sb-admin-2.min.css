@@ -10991,7 +10991,11 @@ a:focus {
 #wrapper #content-wrapper {
     background-color: #f8f9fc;
     width: 100%;
-    overflow-x: hidden
+    overflow-x: hidden;
+    /* margin-left: 6.5rem;
+    background-color: #f8f9fc;
+    width: calc(100% - 6.5rem);
+    overflow-x: hidden; */
 }
 
 #wrapper #content-wrapper #content {
@@ -11523,6 +11527,7 @@ a:focus {
 .sidebar {
     width: 6.5rem;
     min-height: 100vh;
+    background-color: #970747
 }
 
 .sidebar .nav-item {
@@ -12606,4 +12611,19 @@ footer.sticky-footer .copyright {
 
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
+}
+.red {
+    background-color: #970747;
+}
+.text-red {
+    color: #970747;
+}
+.btn:hover {
+background-color: rgb(189, 26, 100);
+}
+.form-kuesioner {
+    padding: 1rem;
+}
+.border-left-red {
+    border-left: solid 4px #970747;
 }

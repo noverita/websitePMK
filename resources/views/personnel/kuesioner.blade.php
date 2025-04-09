@@ -2,17 +2,12 @@
 
 @section('title', 'Dashboard Personel')
 @section('css')
-    <style>
-        .form-kuesioner {
-            padding: 1rem;
-        }
-    </style>
 @endsection
 @section('content')
     <!-- Page Heading -->
     {{-- <h3 class="text-center font-weight-bold"></h3> --}}
     {{-- <h1 class="h4 mb-2 text-gray-800">Form Survey</h1> --}}
-    <div class="card border-left-primary shadow mb-4">
+    <div class="card border-left-red shadow mb-4">
         <div class="form-kuesioner">
             <form>
                 <div class="row">
@@ -45,9 +40,9 @@
     </div>
 
     <!-- DataTales Example -->
-    <div class="card border-left-primary shadow mb-4">
-        <div class="card-header bg-primary-gradient py-3">
-            <h6 class="m-0 font-weight-bold text-primary">KONDISI UMUM</h6>
+    <div class="card border-left-red shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-red">KONDISI UMUM</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -320,9 +315,9 @@
 
     </div>
 
-    <div class="card border-left-primary shadow mb-4">
-        <div class="card-header bg-primary-gradient py-3">
-            <h6 class="m-0 font-weight-bold text-primary">JAM KERJA</h6>
+    <div class="card border-left-red shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-red">JAM KERJA</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -359,9 +354,9 @@
             </form>
         </div>
     </div>
-    <div class="card border-left-primary shadow mb-4">
-        <div class="card-header bg-primary-gradient py-3">
-            <h6 class="m-0 font-weight-bold text-primary"> KESEHATAN</h6>
+    <div class="card border-left-red shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-red"> KESEHATAN</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -687,7 +682,7 @@
                 </div><br>
                 <hr>
                 <div class="submitButton d-flex justify-content-center">
-                    <button type="submit" class="btn btn-primary" style="width: 10cm">Submit</button>
+                    <button type="submit" class="btn red text-white" style="width: 10cm">Submit</button>
                 </div>
                 {{-- <div class="card">
                     <div class="card-body">

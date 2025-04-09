@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<style>
+.text-red{
+   color: #970747;
+}
+    </style>
 <head>
 
     <meta charset="utf-8">
@@ -22,7 +27,7 @@
 
 </head>
 
-<body class="bg-gradient-primary">
+<body class="red">
 
     <div class="container">
 
@@ -39,7 +44,7 @@
                         {{-- <div class="col-lg-6"> --}}
                         <div class="p-5">
                             <div class="text-center">
-                                <img src="{{ asset('images/fire-fit.png') }}" class="Welcome Image mb-2"
+                                <img src="{{ asset('images/ff-merah.png') }}" class="Welcome Image mb-2"
                                     style="width:auto; height:100px">
                             </div>
                             <form class="user" action="{{ route('login') }}" method="POST">
@@ -59,7 +64,7 @@
                                             Me</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                                <button type="submit" class="btn red text-white btn-user btn-block">Login</button>
                                 {{-- <a href="" class="btn btn-primary btn-user btn-block">
                                             Login
                                         </a> --}}
@@ -73,10 +78,10 @@
                             </form>
                             <hr>
                             <div class="text-center">
-                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                <a class="small text-red" href="forgot-password.html">Forgot Password?</a>
                             </div>
                             <div class="text-center">
-                                <a class="small" href="register">Create an Account!</a>
+                                <a class="small  text-red" href="register">Create an Account!</a>
                             </div>
                         </div>
                     </div>

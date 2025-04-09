@@ -11,8 +11,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\KuesionerController;
 use App\Http\Controllers\LaporanPersonelController;
 use App\Http\Controllers\AuthenticatedSessionController;
-use App\Http\Controllers\DataPerOrangController;
-use App\Http\Controllers\SertifikasiController;
+use App\Http\Controllers\DataKesehatanController;
+use App\Http\Controllers\UserManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,8 +67,11 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
 
-    // Route::get('/admin/sertifikasi-personel', [DataPerOrangController::class, 'sertifikasipersonel'])->name('sertifikasi.personel');
-    // Route::get('/admin/pelatihan-personel', [DataPerOrangController::class, 'pelatihanpersonel'])->name('pelatihan.personel');
+    Route::get('/admin/user-management', [UserManagementController::class, 'showUserManagement'])->name('user.management');
+    Route::get('/admin/user-management/add', [UserManagementController::class, 'createUserManagement'])->name('usermgt.create');
+    Route::get('/admin/data-kesehatan-personel', [DataKesehatanController::class, 'showDataKesehatan'])->name('data.kesehatan');
+    Route::get('/admin/data-kesehatan-personel/add', [DataKesehatanController::class, 'createDataKesehatan'])->name('datakesehatan.create');
+
 });
 
 // Protecting personnel routes

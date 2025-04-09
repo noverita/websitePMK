@@ -6,19 +6,19 @@
 @endsection
 @section('content')
     {{-- s --}}
-    <a href="{{ route('personnel.kuesioner') }}" class="btn btn-primary btn-icon-split mb-4">
+    <a href="{{ route('personnel.kuesioner') }}" class="btn red btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
         <span class="text">Isi Survey</span>
     </a>
 
-    <div class="card border-bottom-primary shadow mb-4">
-        <div class="card-header bg-gradient-primary">
+    <div class="card shadow mb-4">
+        <div class="card-header red">
             <h6 class="m-0 font-weight-bold text-white text-center">DASHBOARD LAPORAN SAYA</h6>
         </div>
         <div class="card-body">
-            <table id="dataTable" class="table table-striped" width="100%" cellspacing="0">
+            <table id="dataTable" class="table table-striped text-center" width="100%" cellspacing="0">
                 <thead>
                     <tr>
                         <th>Tanggal Laporan</th>

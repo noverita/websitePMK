@@ -28,7 +28,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
@@ -62,6 +62,18 @@
                 <a class="nav-link" href="{{ route('laporan.personel') }}">
                     <i class="fas fa-fw fa-file-alt"></i>
                     <span>Laporan</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('data.kesehatan') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('data.kesehatan') }}">
+                    <i class="fas fa-medkit"></i>
+                    <span>Data Kesehatan</span>
+                </a>
+            </li>
+            <li class="nav-item {{ request()->routeIs('user.management') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('user.management') }}">
+                    <i class="fas fa-address-card"></i>
+                    <span>User Management</span>
                 </a>
             </li>
         @endif

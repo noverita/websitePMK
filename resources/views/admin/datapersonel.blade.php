@@ -5,7 +5,7 @@
 
 @endsection
 @section('content')
-    <div class="card border-left-primary shadow mb-4">
+    <div class="card shadow mb-4">
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -21,7 +21,7 @@
                 </ul>
             </div>
         @endif
-        <div class="card-header bg-gradient-primary py-3 text-white">
+        <div class="card-header red py-3 text-white">
             <h6 class="m-0 font-weight-bold text-center">DATA DIRI</h6>
         </div>
         <div class="card-body">
@@ -121,7 +121,7 @@
                         </div>
                     </div>
                     <div class="submitButton mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Tambahkan</button>
+                        <button type="submit" class="btn red btn:hover text-white">Tambahkan</button>
                     </div>
                 </form>
             </div>
