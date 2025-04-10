@@ -48,7 +48,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/datapersonel/edit/{id}', [DataPersonelController::class, 'editData'])->name('datapersonel.edit');
     Route::post('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
     Route::delete('/admin/datapersonel/delete/{id}', [DataPersonelController::class, 'destroyData'])->name('datapersonel.destroy');
-    Route::get('/admin/sertifikasi/add', [DataPersonelController::class, 'createSertifikasi'])->name('sertifikasi.create');
+    Route::get('/admin/sertifikasi/add/{id}', [DataPersonelController::class, 'createSertifikasi'])->name('sertifikasi.create');
 
     //     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])
     //     ->name('profil.personel');
@@ -63,7 +63,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     // Route::get('/admin/pelatihan-personel/{user_id}', [PelatihanController::class, 'showPelatihan']);
     Route::get('/admin/pelatihan/add/{user_id}', [DataPersonelController::class, 'createPelatihan'])->name('pelatihan.create');
     Route::post('/admin/store-pelatihan', [DataPersonelController::class, 'storePelatihan'])->name('pelatihan.store');
-    Route::get('/admin/pelatihan-personel/{user_id}', [DataPersonelController::class, 'showPelatihan'])->name('pelatihan.personel');
+    Route::get('/admin/pelatihan-personel/{id}', [DataPersonelController::class, 'showPelatihan'])->name('pelatihan.personel');
 
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
 

@@ -27,6 +27,7 @@
                 <table id="dataTable" class="table table-striped" width="100%" cellspacing="0"  style="text-align: center">
                     <thead>
                         <tr>
+                            <th>No</th>
                             <th>Nama</th>
                             <th>NIK</th>
                             <th>Grade</th>
@@ -34,13 +35,17 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $no=1;
+                        @endphp
                         @foreach ($dataPersonels as $p)
                             <tr>
+                                <td>{{$no++}}</td>
                                 <td>{{ $p->nama_lengkap }}</td>
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->grade }}</td>
                                 <td>
-                                    <a href="{{ route('profil.personel', $p->id) }}"
+                                    <a href="{{ route('profil.personel', $p->user_id) }}"
                                         class="btn btn-primary btn-circle btn-sm">
                                         <i class="fas fa-eye"></i>
                                     </a>

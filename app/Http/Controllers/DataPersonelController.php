@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use Illuminate\Support\Str;
 
 class DataPersonelController extends Controller
 {
@@ -91,25 +94,42 @@ class DataPersonelController extends Controller
     public function showProfile($id)
     {
         // Fetch personnel data based on ID
-        $personel = DB::table('data_personnels')->where('id', $id)->first();
+        $personel = DB::table('data_personnels')->where('user_id', $id)->first();
 
         // Check if personnel exists
         if (!$personel) {
             return redirect()->back()->with('error', 'Personnel data not found.');
         }
+        $sertifikat = DB::table('sertifikasis')
+        ->where('user_id', $id)
+        ->get()
+        ->map(function ($row) {
+            if (now()->gt($row->expired_date)) {
+                $row->status = 'Expired';
+            } elseif (now()->diffInDays($row->expired_date) <= 30) {
+                $row->status = 'Expiring Soon';
+            } else {
+                $row->status = 'Valid';
+            }
+            return $row;
+        });
 
-        return view('admin.profil-personel', compact('personel'));
+
+        $pelatihan = DB::table('pelatihans')
+        ->where('user_id', $id)
+        ->get();
+
+        return view('admin.profil-personel', compact('personel', 'sertifikat', 'pelatihan'));
     }
 
     //sertifikasi
     public function showSertifikasi($user_id)
     {
-    $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
-
+    $personel = DB::table('data_personnels')->where('id', $user_id)->first();
     if (!$personel) {
         return redirect()->back()->with('error', 'Personnel data not found.');
     }
-
+    // return $personel;
     $sertifikasis = DB::table('sertifikasis')
         ->where('user_id', $user_id)
         ->get()
@@ -120,66 +140,114 @@ class DataPersonelController extends Controller
 
     return view('admin.sertifikasi-personel', compact('personel', 'sertifikasis'));
 }
-    public function createSertifikasi()
+    public function createSertifikasi($id)
     {
-        return view('admin/create-sertifikasi');
+        return view('admin.create-sertifikasi', compact('id'));
     }
     public function storeSertifikasi(Request $request)
-{
-    DB::table('sertifikasis')->insert([
-        'user_id' => $request->user_id ?? 1,
-        'nama_sertifikasi' => $request->nama_sertifikasi,
-        'jenis_lisensi' => $request->jenis_lisensi,
-        'skp_pt' =>$request->skp_pt,
-        'expired_date' => $request->expired_date,
-        'file_sertifikat'=>$request->file_sertifikat,
-        'created_at' => now(),
-    ]);
+    {
 
-    return redirect()->route('sertifikasi.store', ['user_id' => $request->user_id])
-                     ->with('success', 'Sertifikasi berhasil ditambahkan!');
-}
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'nama_sertifikasi' => 'required|string|max:255',
+            'jenis_lisensi' => 'required|string|max:50',
+            'skp_pt' => 'required',
+            'expired_date' => 'required|date|after:today',
+            'file_sertifikat' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+        ]);
+        $userId = $validated['user_id'];
+        $user = DB::table('data_personnels')
+            ->select('nama_lengkap')
+            ->where('id', $userId)
+            ->first();
+        $userName = Str::slug($user->nama_lengkap ?? 'unknown_user');
 
-//pelatihan
-public function showPelatihan($user_id)
-{
-    $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
 
-    if (!$personel) {
-        return redirect()->back()->with('error', 'Personnel data not found.');
+        DB::beginTransaction();
+        try {
+
+            $timestamp = now()->format('Ymd_His');
+            $extension = $request->file('file_sertifikat')->getClientOriginalExtension();
+
+            $filename = "{$timestamp}_{$validated['nama_sertifikasi']}.{$extension}";
+            $path = $request->file('file_sertifikat')->storeAs("sertifikat/{$userName}", $filename, 'public');
+
+            DB::table('sertifikasis')->insert([
+                'user_id' => $validated['user_id'],
+                'nama_sertifikasi' => $validated['nama_sertifikasi'],
+                'jenis_lisensi' => $validated['jenis_lisensi'],
+                'skp_pt' => $validated['skp_pt'],
+                'expired_date' => $validated['expired_date'],
+                'file_sertifikat' => $path,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Data Sertifikasi berhasil disimpan!');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            // Hapus file jika upload sudah terjadi sebelum error
+            if (isset($path) && Storage::disk('public')->exists($path)) {
+                Storage::disk('public')->delete($path);
+            }
+
+            // Log error untuk debugging
+            Log::error('Gagal menyimpan sertifikat: '.$e->getMessage());
+
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
+        }
     }
 
-    $pelatihans = DB::table('pelatihans')
-        ->where('user_id', $user_id)
-        ->get();
+    //pelatihan
+    public function showPelatihan($user_id)
+    {
+        $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
 
-    return view('admin.pelatihan-personel', compact('personel', 'pelatihans'));
-}
-public function createPelatihan($user_id)
-{
-    $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
+        if (!$personel) {
+            return redirect()->back()->with('error', 'Personnel data not found.');
+        }
 
-    if (!$personel) {
-        return redirect()->back()->with('error', 'Personnel data not found.');
+        $pelatihans = DB::table('pelatihans')
+            ->where('user_id', $user_id)
+            ->get();
+
+        return view('admin.pelatihan-personel', compact('personel', 'pelatihans'));
+    }
+    public function createPelatihan($id){
+
+        return view('admin.create-pelatihan', compact('id'));
     }
 
-    return view('admin.create-pelatihan', compact('personel'));
-}
+    public function storePelatihan(Request $request)
+    {
 
-public function storePelatihan(Request $request)
-{
-DB::table('pelatihans')->insert([
-    'user_id' => $request->user_id ?? 1,
-    'nama_pelatihan' => $request->nama_pelatihan,
-    'penyelanggara' => $request->penyelanggara,
-    'date_pelatihan' =>$request->date_pelatihan,
-    'created_at' => now(),
-]);
+        $validated = $request->validate([
+            'user_id' => 'required|exists:users,id',
+            'nama_pelatihan' => 'required|string|max:255',
+            'penyelanggara' => 'required|string|max:50',
+            'date_pelatihan' => 'required|date',
+        ]);
 
-return redirect()->route('pelatihan.personel', ['user_id' => $request->user_id])
-                 ->with('success', 'Pelatihan berhasil ditambahkan!');
+        DB::beginTransaction();
 
-}
+        try {
+        DB::table('pelatihans')->insert([
+                'user_id' => $validated['user_id'],
+                'nama_pelatihan' => $validated['nama_pelatihan'],
+                'penyelanggara' => $validated['penyelanggara'],
+                'date_pelatihan' =>$validated['date_pelatihan'],
+                'created_at' => now(),
+                'updated_at' => now()
+            ]);
 
+            DB::commit();
+            return redirect()->back()->with('success', 'Data Pelatihan berhasil disimpan!');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
+        }
+
+    }
 
 }

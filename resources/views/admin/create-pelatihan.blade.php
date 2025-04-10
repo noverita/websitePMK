@@ -5,31 +5,43 @@
 
 @endsection
 @section('content')
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+        </div>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    @endif
+    @if (session('error'))
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="d-flex justify-content-end mb-2">
+        <a href="{{ route('profil.personel', $id) }}" class="btn btn-danger btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Kembali</span>
+        </a>
+    </div>
+
     <div class="card border-left-primary shadow">
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="card-header bg-gradient-primary py-3 text-white text-center">
             <h6 class="m-0 font-weight-bold">PELATIHAN</h6>
         </div>
         <div class="card-body ">
+            {{$id}}
             <div class="form-kuesioner">
                 <form action="{{ route('pelatihan.store')}}" method="POST">
                     @csrf
-                    <input type="hidden" name="user_id" value="{{ $personel->user_id }}">
+                    @method('POST')
+                    <input type="hidden" value="{{$id}}" name="user_id">
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Nama Pelatihan</b></label>

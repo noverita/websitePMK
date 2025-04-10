@@ -13,7 +13,6 @@ class ListPersonelController extends Controller
     	// Mengambil data dari tabel data_personnels
         $dataPersonels = DB::table('data_personnels')->get();
 
-        // Mengirim data personel ke view listperson
         return view('admin.listpersonel', ['dataPersonels' => $dataPersonels]);
 
     }

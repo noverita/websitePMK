@@ -5,31 +5,45 @@
 
 @endsection
 @section('content')
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+        </div>
+    @endif
+    <div class="d-flex justify-content-end mb-2">
+        <a href="{{ route('profil.personel', $id) }}" class="btn btn-danger btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Kembali</span>
+        </a>
+    </div>
     <div class="card border-left-primary shadow">
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
         <div class="card-header py-3 bg-gradient-primary text-white text-center">
             <h6 class="m-0 font-weight-bold">SERTIFIKASI</h6>
         </div>
         <div class="card-body ">
             <div class="form-kuesioner">
-                <form action="{{ route('sertifikasi.store')}}" method="POST">
+                <form action="{{ route('sertifikasi.store')}}" method="POST" enctype="multipart/form-data">
+                    @method('POST')
                     @csrf
                     <div class="row">
+                        <input type="hidden" value="{{$id}}" name="user_id">
                         <div class="col">
                             <label class="form-label"><b>Nama Sertifikasi</b></label>
                         </div>
@@ -62,20 +76,6 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            {{-- <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="skp_pt" value="1">
-                                <label class="form-check-label" for="skp_sudah">Sudah</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="skp_pt" value="0">
-                                <label class="form-check-label" for="skp_belum">Belum</label>
-                            </div>
-                        </div>
-                    </div> --}}
                             <select name="skp_pt" class="form-control">
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
@@ -95,22 +95,6 @@
                         </div>
                     </div>
                     <hr>
-
-                    {{-- <div class="row">
-                        <div class="col">
-                            <label class="form-label"><b>Status Sertifikat</b></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <select name="status_sertifikat" class="form-control">
-                                <option value="Aktif">Aktif</option>
-                                <option value="Tidak Berlaku">Tidak Berlaku</option>
-                            </select>
-                        </div>
-                    </div>
-                    <hr> --}}
-
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Masukkan File Sertifikat</b></label>
