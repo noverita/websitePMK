@@ -26,15 +26,15 @@
         </div>
     @endif
     <div class="d-flex justify-content-end mb-2">
-        <a href="{{ route('profil.personel', $id) }}" class="btn btn-danger btn-icon-split">
+        <a href="{{ route('profil.personel', $id) }}" class="btn red text-white btn-icon-split">
             <span class="icon text-white-50">
                 <i class="fas fa-arrow-left"></i>
             </span>
             <span class="text">Kembali</span>
         </a>
     </div>
-    <div class="card border-left-primary shadow">
-        <div class="card-header py-3 bg-gradient-primary text-white text-center">
+    <div class="card border-left-red shadow">
+        <div class="card-header py-3 red text-white text-center">
             <h6 class="m-0 font-weight-bold">SERTIFIKASI</h6>
         </div>
         <div class="card-body ">
@@ -107,7 +107,7 @@
                     </div>
 
                     <div class="submitButton mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Tambahkan</button>
+                        <button type="submit" class="btn red text-white">Tambahkan</button>
                     </div>
                 </form>
             </div>

@@ -23,7 +23,7 @@
         </div>
     @endif
     <div class="d-flex justify-content-end mb-2">
-        <a href="{{ route('profil.personel', $id) }}" class="btn btn-danger btn-icon-split">
+        <a href="{{ route('profil.personel', $id) }}" class="btn red text-white btn-icon-split">
             <span class="icon text-white-50">
                 <i class="fas fa-arrow-left"></i>
             </span>
@@ -31,8 +31,8 @@
         </a>
     </div>
 
-    <div class="card border-left-primary shadow">
-        <div class="card-header bg-gradient-primary py-3 text-white text-center">
+    <div class="card border-left-red shadow">
+        <div class="card-header red py-3 text-white text-center">
             <h6 class="m-0 font-weight-bold">PELATIHAN</h6>
         </div>
         <div class="card-body ">
@@ -41,8 +41,8 @@
                 <form action="{{ route('pelatihan.store')}}" method="POST">
                     @csrf
                     @method('POST')
-                    <input type="hidden" value="{{$id}}" name="user_id">
                     <div class="row">
+                        <input type="hidden" value="{{$id}}" name="user_id">
                         <div class="col">
                             <label class="form-label"><b>Nama Pelatihan</b></label>
                         </div>
@@ -77,7 +77,7 @@
                         </div>
                     </div><br>
                     <div class="submitButton mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Tambahkan</button>
+                        <button type="submit" class="btn red text-white">Tambahkan</button>
                     </div>
                 </form>
             </div>

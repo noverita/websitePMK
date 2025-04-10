@@ -71,6 +71,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/user-management/add', [UserManagementController::class, 'createUserManagement'])->name('usermgt.create');
     Route::get('/admin/data-kesehatan-personel', [DataKesehatanController::class, 'showDataKesehatan'])->name('data.kesehatan');
     Route::get('/admin/data-kesehatan-personel/add', [DataKesehatanController::class, 'createDataKesehatan'])->name('datakesehatan.create');
+    Route::post('/admin/store-data-kesehatan', [DataKesehatanController::class, 'storeDataKesehatan'])->name('datakesehatan.store');
+    Route::delete('/admin/data-kesehatan/{id}', [DataKesehatanController::class, 'destroyDataKesehatan'])->name('datakesehatan.destroy');
+
 
 });
 

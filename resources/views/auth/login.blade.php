@@ -38,10 +38,6 @@
 
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
-                        <!-- Nested Row within Card Body -->
-                        {{-- <div class="row"> --}}
-                        {{-- <div class="col-lg-6 d-none d-lg-block bg-login-image"></div> --}}
-                        {{-- <div class="col-lg-6"> --}}
                         <div class="p-5">
                             <div class="text-center">
                                 <img src="{{ asset('images/ff-merah.png') }}" class="Welcome Image mb-2"
@@ -65,16 +61,6 @@
                                     </div>
                                 </div>
                                 <button type="submit" class="btn red text-white btn-user btn-block">Login</button>
-                                {{-- <a href="" class="btn btn-primary btn-user btn-block">
-                                            Login
-                                        </a> --}}
-                                {{-- <hr> --}}
-                                {{-- <a href="index.html" class="btn btn-google btn-user btn-block">
-                                            <i class="fab fa-google fa-fw"></i> Login with Google
-                                        </a>
-                                        <a href="index.html" class="btn btn-facebook btn-user btn-block">
-                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a> --}}
                             </form>
                             <hr>
                             <div class="text-center">
@@ -85,9 +71,7 @@
                             </div>
                         </div>
                     </div>
-                    {{-- </div> --}}
-                    {{-- </div> --}}
-                </div>
+                   </div>
 
             </div>
 
@@ -125,7 +109,7 @@
                 icon: "error",
                 confirmButtonText: "Coba Lagi"
             });
-        </scrpipt>
+        </script>
     @endif
 </body>
 

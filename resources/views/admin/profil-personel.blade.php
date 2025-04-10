@@ -53,7 +53,7 @@
             <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="pills-sertfikat-tab" data-toggle="pill" href="#pills-sertifikat" role="tab" aria-controls="pills-sertifikat" aria-selected="false">Sertifkat</a>
+            <a class="nav-link" id="pills-sertfikat-tab" data-toggle="pill" href="#pills-sertifikat" role="tab" aria-controls="pills-sertifikat" aria-selected="false">Sertifikasi</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" id="pills-pelatihan-tab" data-toggle="pill" href="#pills-pelatihan" role="tab" aria-controls="pills-pelatihan" aria-selected="false">Pelatihan</a>
@@ -65,7 +65,7 @@
         <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn btn-primary btn-icon-split mb-4">
+                    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn red text-white btn-icon-split mb-4">
                         <span class="icon text-white-50">
                             <i class="fas fa-edit"></i>
                         </span>
