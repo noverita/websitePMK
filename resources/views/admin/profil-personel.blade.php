@@ -16,7 +16,7 @@
 
                         <!-- User Info -->
                         <div>
-                            <h3 class="mb-2 px-3">{{ $personel->nama_lengkap }} {{$personel->id}}</h3>
+                            <h3 class="mb-2 px-3">{{ $personel->nama_lengkap }} {{$personel->user_id}}</h3>
                             <p class="text-muted mb-1">
                                 <i class="fas fa-map-marker-alt px-3"></i> {{ $personel->grade }}
                             </p>

@@ -40,7 +40,7 @@
                         @endphp
                         @foreach ($dataPersonels as $p)
                             <tr>
-                                <td>{{$no++}}</td>
+                                <td>{{$p->user_id}}</td>
                                 <td>{{ $p->nama_lengkap }}</td>
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->grade }}</td>
@@ -49,10 +49,6 @@
                                         class="btn btn-primary btn-circle btn-sm">
                                         <i class="fas fa-eye"></i>
                                     </a>
-                                    {{-- <a href="{{ route('datapersonel.edit', $p->id) }}"
-                                        class="btn btn-warning btn-circle btn-sm">
-                                        <i class="fas fa-edit"></i>
-                                    </a> --}}
                                     <form action="{{ route('datapersonel.destroy', $p->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
