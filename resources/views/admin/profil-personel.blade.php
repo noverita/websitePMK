@@ -11,7 +11,7 @@
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <!-- Profile Picture -->
-                        <img src="{{ $personel->foto_diri }}" class="rounded-circle me-3 img-fluid"
+                        <img src="{{ asset('storage/' . $personel->foto_diri) }}" class="rounded-circle me-3 img-fluid"
                             style="width: 100px; height: 100px; object-fit: cover;">
 
                         <!-- User Info -->
@@ -98,7 +98,7 @@
                                     Role
                                 </div>
                                 <div class="col">
-
+                                    {{ $personel->role }}
                                 </div>
                             </div>
                             <hr>
@@ -125,7 +125,16 @@
                                     Email
                                 </div>
                                 <div class="col">
-
+                                    {{$personel->email}}
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col">
+                                    Status Pegawai
+                                </div>
+                                <div class="col">
+                                    {{$personel->status_pegawai}}
                                 </div>
                             </div>
                         </div>

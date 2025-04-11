@@ -126,10 +126,14 @@ class DataPersonelController extends Controller
     }
     public function showProfile($id)
     {
-        // Fetch personnel data based on ID
-        $personel = DB::table('data_personnels')->where('user_id', $id)->first();
 
-        // Check if personnel exists
+        $personel = DB::table('data_personnels')
+            ->join('users', 'data_personnels.user_id', '=', 'users.id')
+            ->where('data_personnels.user_id', $id)
+            ->select('data_personnels.*', 'users.email', 'users.role') // tambahkan kolom dari users jika perlu
+            ->first();
+
+
         if (!$personel) {
             return redirect()->back()->with('error', 'Personnel data not found.');
         }
