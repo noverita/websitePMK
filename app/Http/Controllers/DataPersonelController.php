@@ -38,7 +38,7 @@ class DataPersonelController extends Controller
     public function editData($id)
     {
         // Fetch the personnel record by ID
-        $personel = DB::table('data_personnels')->where('id', $id)->first();
+        $personel = DB::table('data_personnels')->where('user_id', $id)->first();
 
         if (!$personel) {
             return redirect('/admin/daftar-personel')->with('error', 'Data personel tidak ditemukan!');
@@ -47,34 +47,67 @@ class DataPersonelController extends Controller
         return view('admin.update-datapersonel', compact('personel'));
     }
 
-    // Method to update personnel data
     public function updateData(Request $request, $id)
     {
-        // Fetch the current personnel record
-        $personel = DB::table('data_personnels')->where('id', $id)->first();
+        $validated = $request->validate([
+            'nama_lengkap'   => 'required|string|max:255',
+            'nik'            => 'string|max:20',
+            'tanggal_lahir'  => 'date',
+            'grade'          => 'string|max:5',
+            'whatsapp'       => 'string|max:20',
+            'status_pegawai' => 'in:Organik,Non-Organik',
+            'foto_diri'      => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
 
-        // Check if a new file is uploaded
+        $personel = DB::table('data_personnels')->where('user_id', $id)->first();
+
+        if (!$personel) {
+            return redirect()->back()->with('error', 'Data profil tidak ditemukan.');
+        }
+
         if ($request->hasFile('foto_diri')) {
             $file = $request->file('foto_diri');
-            $fileName = time() . '_' . $file->getClientOriginalName();
+            $fileName = time() .$validated['nama_lengkap']. '_' . $file->getClientOriginalName();
             $filePath = $file->storeAs('profile_pictures', $fileName, 'public');
+
+            if ($personel->foto_diri && Storage::disk('public')->exists($personel->foto_diri)) {
+                Storage::disk('public')->delete($personel->foto_diri);
+            }
         } else {
-            // If no new file is uploaded, keep the old foto_diri
             $filePath = $personel->foto_diri;
         }
 
-        DB::table('data_personnels')->where('id', $id)->update([
-            'nama_lengkap' => $request->nama_lengkap,
-            'nik' => $request->nik,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'grade' => $request->grade,
-            'whatsapp' => $request->whatsapp,
-            'foto_diri' => $filePath, // Keeps old file if no new one is uploaded
-            'updated_at' => now(),
-        ]);
+        DB::beginTransaction();
 
-        return redirect('/admin/daftar-personel')->with('success', 'Data personel berhasil diperbarui!');
+        try {
+            $dataUpdate = [
+                'nama_lengkap'   => $validated['nama_lengkap'],
+                'nik'            => $validated['nik'],
+                'tanggal_lahir'  => $validated['tanggal_lahir'],
+                'grade'          => $validated['grade'],
+                'whatsapp'       => $validated['whatsapp'],
+                'status_pegawai' => $validated['status_pegawai'],
+                'foto_diri'      => $filePath,
+                'updated_at'     => now(),
+            ];
+
+            DB::table('data_personnels')->where('user_id', $id)->update($dataUpdate);
+
+            DB::commit();
+            return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+
+            if (isset($filePath) && Storage::disk('public')->exists($filePath)) {
+                Storage::disk('public')->delete($filePath);
+            }
+
+            Log::error('Gagal memperbarui profil: '.$e->getMessage());
+            Log::error('Error File Path: ' . $filePath);
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui profil.');
+        }
     }
+
     public function destroyData($id)
     {
         // Find the personnel record by ID
@@ -144,6 +177,7 @@ class DataPersonelController extends Controller
     {
         return view('admin.create-sertifikasi', compact('id'));
     }
+
     public function storeSertifikasi(Request $request)
     {
 
@@ -158,7 +192,7 @@ class DataPersonelController extends Controller
         $userId = $validated['user_id'];
         $user = DB::table('data_personnels')
             ->select('nama_lengkap')
-            ->where('id', $userId)
+            ->where('user_id', $userId)
             ->first();
         $userName = Str::slug($user->nama_lengkap ?? 'unknown_user');
 

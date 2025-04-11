@@ -46,7 +46,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/datapersonel/add', [DataPersonelController::class, 'create'])->name('datapersonel.create');
     Route::post('/admin/datapersonel/store', [DataPersonelController::class, 'storeData'])->name('datapersonel.store');
     Route::get('/admin/datapersonel/edit/{id}', [DataPersonelController::class, 'editData'])->name('datapersonel.edit');
-    Route::post('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
+    Route::put('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
     Route::delete('/admin/datapersonel/delete/{id}', [DataPersonelController::class, 'destroyData'])->name('datapersonel.destroy');
     Route::get('/admin/sertifikasi/add/{id}', [DataPersonelController::class, 'createSertifikasi'])->name('sertifikasi.create');
 
