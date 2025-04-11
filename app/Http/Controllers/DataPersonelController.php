@@ -90,9 +90,8 @@ class DataPersonelController extends Controller
                 'foto_diri'      => $filePath,
                 'updated_at'     => now(),
             ];
-
             DB::table('data_personnels')->where('user_id', $id)->update($dataUpdate);
-
+            DB::table('users')->where('id', $id)->update(['name'   => $validated['nama_lengkap']]);
             DB::commit();
             return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
         } catch (\Throwable $e) {
@@ -225,12 +224,9 @@ class DataPersonelController extends Controller
             return redirect()->back()->with('success', 'Data Sertifikasi berhasil disimpan!');
         } catch (\Throwable $e) {
             DB::rollBack();
-            // Hapus file jika upload sudah terjadi sebelum error
             if (isset($path) && Storage::disk('public')->exists($path)) {
                 Storage::disk('public')->delete($path);
             }
-
-            // Log error untuk debugging
             Log::error('Gagal menyimpan sertifikat: '.$e->getMessage());
 
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
