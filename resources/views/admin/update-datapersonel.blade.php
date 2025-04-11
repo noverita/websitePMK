@@ -91,7 +91,7 @@
                             <label class="form-label"><b>Status Pegawai</b></label>
                             <select name="status_pegawai" id="" class="form-control">
                                 <option value="Organik" {{ old('status_pegawai', $personel->status_pegawai) == 'Organik' ? 'selected' : '' }}>Organik</option>
-                                <option value="on-Organik" {{ old('status_pegawai', $personel->status_pegawai) == 'Non-Organik' ? 'selected' : '' }}>Non-Organik</option>
+                                <option value="Non-Organik" {{ old('status_pegawai', $personel->status_pegawai) == 'Non-Organik' ? 'selected' : '' }}>Non-Organik</option>
                             </select>
                         </div>
                     </div>

@@ -51,7 +51,7 @@ class DataPersonelController extends Controller
     {
         $validated = $request->validate([
             'nama_lengkap'   => 'required|string|max:255',
-            'nik'            => 'string|max:20',
+            'nik'            => 'string|max:25',
             'tanggal_lahir'  => 'date',
             'grade'          => 'string|max:5',
             'whatsapp'       => 'string|max:20',
@@ -67,7 +67,7 @@ class DataPersonelController extends Controller
 
         if ($request->hasFile('foto_diri')) {
             $file = $request->file('foto_diri');
-            $fileName = time() .$validated['nama_lengkap']. '_' . $file->getClientOriginalName();
+            $fileName = date('Ymd') .$validated['nama_lengkap']. '_' . $file->getClientOriginalName();
             $filePath = $file->storeAs('profile_pictures', $fileName, 'public');
 
             if ($personel->foto_diri && Storage::disk('public')->exists($personel->foto_diri)) {
@@ -204,7 +204,7 @@ class DataPersonelController extends Controller
         DB::beginTransaction();
         try {
 
-            $timestamp = now()->format('Ymd_His');
+            $timestamp = now()->format('Ymd');
             $extension = $request->file('file_sertifikat')->getClientOriginalExtension();
 
             $filename = "{$timestamp}_{$validated['nama_sertifikasi']}.{$extension}";
