@@ -77,6 +77,7 @@
                     <div class="row">
                         <div class="col">
                             <select name="skp_pt" class="form-control">
+                                <option value=""selected>Pilih Salah Satu</option>
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>

@@ -19,14 +19,16 @@ class DataPersonelController extends Controller
 
     public function storeData(Request $request)
     {
+        dd($request->all());
         DB::table('data_personnels')->insert([
-            'user_id' => $request->user_id ?? 1, // Default user_id = 1 if not provided
+            'user_id' => $request->user_id,
             'nama_lengkap' => $request->nama_lengkap,
             'nik' => $request->nik,
             'tanggal_lahir' => $request->tanggal_lahir,
             'foto_diri' => $request->foto_diri,
             'grade' => $request->grade,
             'whatsapp' => $request->whatsapp,
+            'status_pegawai' => $request->status_pegawai,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
@@ -125,14 +127,12 @@ class DataPersonelController extends Controller
     }
     public function showProfile($id)
     {
-
+        // Fetch personnel data based on ID
         $personel = DB::table('data_personnels')
-            ->join('users', 'data_personnels.user_id', '=', 'users.id')
-            ->where('data_personnels.user_id', $id)
-            ->select('data_personnels.*', 'users.email', 'users.role') // tambahkan kolom dari users jika perlu
-            ->first();
+                    ->join('users', 'users.id', 'data_personnels.user_id')
+                    ->where('data_personnels.user_id', $id)->first();
 
-
+        // Check if personnel exists
         if (!$personel) {
             return redirect()->back()->with('error', 'Personnel data not found.');
         }
@@ -161,11 +161,11 @@ class DataPersonelController extends Controller
     //sertifikasi
     public function showSertifikasi($user_id)
     {
-    $personel = DB::table('data_personnels')->where('id', $user_id)->first();
-    if (!$personel) {
-        return redirect()->back()->with('error', 'Personnel data not found.');
-    }
-    // return $personel;
+        $personel = DB::table('data_personnels')->where('id', $user_id)->first();
+        if (!$personel) {
+            return redirect()->back()->with('error', 'Personnel data not found.');
+        }
+
     $sertifikasis = DB::table('sertifikasis')
         ->where('user_id', $user_id)
         ->get()
@@ -203,7 +203,7 @@ class DataPersonelController extends Controller
         DB::beginTransaction();
         try {
 
-            $timestamp = now()->format('Ymd');
+            $timestamp = now()->format('Ymd_His');
             $extension = $request->file('file_sertifikat')->getClientOriginalExtension();
 
             $filename = "{$timestamp}_{$validated['nama_sertifikasi']}.{$extension}";
@@ -224,9 +224,12 @@ class DataPersonelController extends Controller
             return redirect()->back()->with('success', 'Data Sertifikasi berhasil disimpan!');
         } catch (\Throwable $e) {
             DB::rollBack();
+            // Hapus file jika upload sudah terjadi sebelum error
             if (isset($path) && Storage::disk('public')->exists($path)) {
                 Storage::disk('public')->delete($path);
             }
+
+            // Log error untuk debugging
             Log::error('Gagal menyimpan sertifikat: '.$e->getMessage());
 
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');

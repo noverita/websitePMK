@@ -53,10 +53,10 @@
             <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Profile</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="pills-sertfikat-tab" data-toggle="pill" href="#pills-sertifikat" role="tab" aria-controls="pills-sertifikat" aria-selected="false">Sertifikasi</a>
+            <a class="nav-link " id="pills-sertfikat-tab" data-toggle="pill" href="#pills-sertifikat" role="tab" aria-controls="pills-sertifikat" aria-selected="false">Sertifikasi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" id="pills-pelatihan-tab" data-toggle="pill" href="#pills-pelatihan" role="tab" aria-controls="pills-pelatihan" aria-selected="false">Pelatihan</a>
+            <a class="nav-link " id="pills-pelatihan-tab" data-toggle="pill" href="#pills-pelatihan" role="tab" aria-controls="pills-pelatihan" aria-selected="false">Pelatihan</a>
           </li>
         </ul>
     </div>
@@ -145,11 +145,11 @@
         <div class="tab-pane fade" id="pills-sertifikat" role="tabpanel" aria-labelledby="pills-sertifikat-tab">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ route('sertifikasi.create', ['id' => $personel->user_id]) }}" class="btn btn-primary btn-icon-split mb-4">
+                    <a href="{{ route('sertifikasi.create', ['id' => $personel->user_id]) }}" class="btn btn-red red text-white btn-icon-split mb-4">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="text">Tambah Sertifikasi</span>
+                        <span class="text">Tambah Sertifikat</span>
                     </a>
                 </div>
                 <div class="col-md-12">
@@ -188,11 +188,8 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="{{ asset('storage/' . $row->file_sertifikat) }}" class="btn btn-primary btn-icon-split" download>
-                                                    <span class="icon text-white-50">
-                                                        <i class="fas fa-download"></i>
-                                                    </span>
-                                                    <span class="text">Download</span>
+                                                <a href="{{ asset('storage/' . $row->file_sertifikat) }}" class="btn btn-primary btn-sm" download>
+                                                    <i class="fas fa-download"></i> &nbsp;Download
                                                 </a>
                                             </td>
                                         </tr>
@@ -208,7 +205,7 @@
         <div class="tab-pane fade" id="pills-pelatihan" role="tabpanel" aria-labelledby="pills-pelatihan-tab">
             <div class="row">
                 <div class="col-md-8">
-                    <a href="{{ route('pelatihan.create', $personel->user_id) }}" class="btn btn-primary btn-icon-split mb-4">
+                    <a href="{{ route('pelatihan.create', $personel->user_id) }}" class="btn btn-red red text-white btn-icon-split mb-4">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>

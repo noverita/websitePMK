@@ -28,6 +28,8 @@
             <div class="form-kuesioner">
                 <form action="{{ route('datapersonel.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('POST')
+                    <input type="text" value="{{$personel->user_id}}" class="form-control" name="user_id" hidden>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Nama Lengkap</b></label>
@@ -105,6 +107,21 @@
                         <div class="col">
                             <input type="text" class="form-control" name="whatsapp"
                                 placeholder="Isikan No. Whatsapp . . ." required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label"><b>Status Pegawai</b></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select name="status_pegawai" class="form-control" id="">
+                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
+                                <option value="Organik">Organik</option>
+                                <option value="Non-Organik">Non-Organik</option>
+                            </select>
                         </div>
                     </div>
                     <hr>
