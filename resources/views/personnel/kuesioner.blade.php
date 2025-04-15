@@ -7,13 +7,13 @@
     <!-- Page Heading -->
     {{-- <h3 class="text-center font-weight-bold"></h3> --}}
     {{-- <h1 class="h4 mb-2 text-gray-800">Form Survey</h1> --}}
-    <a href="{{ route('personnel.dashboard') }}" class="btn btn-primary btn-icon-split mb-3">
+    <a href="{{ route('personnel.dashboard') }}" class="btn teal text-white btn-icon-split mb-3">
         <span class="icon text-white-50">
             <i class="fas fa-arrow-left"></i>
         </span>
         <span class="text">Kembali</span>
     </a>
-    <div class="card border-left-primary shadow mb-4">
+    <div class="card border-left-red shadow mb-4">
         <div class="form-kuesioner">
             <form>
                 <div class="row">
@@ -688,7 +688,7 @@
                 </div><br>
                 <hr>
                 <div class="submitButton d-flex justify-content-center">
-                    <button type="submit" class="btn red text-white" style="width: 10cm">Submit</button>
+                    <button type="submit" class="btn grey text-white" style="width: 10cm">Submit</button>
                 </div>
                 {{-- <div class="card">
                     <div class="card-body">

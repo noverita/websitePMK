@@ -11,7 +11,7 @@
     <div class="row">
         <!-- Welcome Card -->
         <div class="col-md-6">
-            <div class="text-center card shadow text-white mb-4 p-3" style="background-color: #970747">
+            <div class="text-center card shadow text-white mb-4 p-3 red">
                 <h5 class="greetings">Selamat Datang, {{ Auth::user()->name }} <i class="fas fa-smile-wink"></i></h5>
                 <p class="text-center">
                     <span class="badge badge-success">
@@ -24,7 +24,7 @@
         <!-- Statistics -->
         <div class="col-md-6">
             <div class="text-center card shadow mb-4">
-                <div class="card-header red">
+                <div class="card-header yellow">
                     <h6 class="m-0 font-weight-bold text-white">STATISTIK</h6>
                 </div>
                 <div class="card-body">
@@ -79,7 +79,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card border-left-red shadow mb-4 py-2">
+            <div class="card border-left-dark shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -100,30 +100,13 @@
     <div class="row mt-3 justify-content-center">
         <div class="col-md-6">
             <div class="card shadow mb-4">
-                <div class="card-header red">
+                <div class="card-header yellow">
                     <h6 class="m-0 font-weight-bold text-white text-center">SHIFT PEGAWAI</h6>
                 </div>
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
 
-                            {{-- <div class="font-weight-bold text-primary text-uppercase mb-1 text-center">
-                    SHIFT PEGAWAI</div> --}}
-                            {{-- <nav class="navbar navbar-expand-lg navbar-light justify-content-center mb-2">
-                                <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item ">
-                                            <a class="nav-link active" href="#">PAGI</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">SIANG</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">MALAM</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </nav> --}}
                             <select name="shift" class="form-control" style="width: 25%">
                                 <option value="">--Pilih Shift--</option>
                                 <option value="pagi">Pagi</option>

@@ -10,14 +10,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 :root {
-    --blue: #4e73df;
+    --blue: #24366c;
     --indigo: #6610f2;
     --purple: #6f42c1;
     --pink: #e83e8c;
-    --red: #e74a3b;
+    --red: #ff2929;
     --orange: #fd7e14;
     --yellow: #f6c23e;
-    --green: #1cc88a;
+    --green: #36c81c;
     --teal: #20c9a6;
     --cyan: #36b9cc;
     --white: #fff;
@@ -4501,7 +4501,7 @@ input[type=submit].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #970747
+    background-color: #fbbd08
 }
 
 .nav-fill .nav-item,
@@ -11527,7 +11527,7 @@ a:focus {
 .sidebar {
     width: 6.5rem;
     min-height: 100vh;
-    background-color: #970747
+    background-color: #ce2029
 }
 
 .sidebar .nav-item {
@@ -12612,18 +12612,46 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
 }
-.red {
-    background-color: #970747;
+.yellow {
+    /* background-color: #970747; */
+    background-color: #fbbd08;
 }
 .text-red {
     color: #970747;
 }
 .btn:hover {
-background-color: rgb(189, 26, 100);
+background-color: #878787;
 }
 .form-kuesioner {
     padding: 1rem;
 }
-.border-left-red {
-    border-left: solid 4px #970747;
+.border-left-yellow {
+    border-left: solid 4px #fbbd08;
+}
+.blue {
+    background-color: #24366c;
+}
+.grey{
+    background-color:#333333;
+}
+.teal{
+    background-color: #008080;
+}
+.btn-teal{
+    background-color: #0b9898;
+}
+.red{
+    background-color: #ce2029;
+}
+.border-right-yellow {
+    border-right: solid 4px #fbbd08;
+}
+.border-left-red{
+    border-left: solid 4px #ce2029;
+}
+.border-bottom-yellow{
+    border-bottom: solid 2px #fbbd08;
+}
+.border-top-yellow{
+    border-top: solid 2px #fbbd08;
 }

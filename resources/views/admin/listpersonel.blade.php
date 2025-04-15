@@ -12,14 +12,14 @@
     {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> --}}
-    <a href="{{ route('datapersonel.create') }}" class="btn red btn-icon-split text-white mb-4">
+    <a href="{{ route('datapersonel.create') }}" class="btn teal btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
         <span class="text">Tambah Personel</span>
     </a>
     <div class="card shadow mb-4">
-        <div class="card-header red py-3">
+        <div class="card-header yellow py-3">
             <h6 class="m-0 font-weight-bold text-white text-center">DAFTAR PERSONEL</h6>
         </div>
         <div class="card-body">
@@ -31,6 +31,7 @@
                             <th>Nama</th>
                             <th>NIK</th>
                             <th>Grade</th>
+                            <th>Status</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -44,12 +45,16 @@
                                 <td>{{ $p->nama_lengkap }}</td>
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->grade }}</td>
+                                <td></td>
                                 <td>
                                     <a href="{{ route('profil.personel', $p->user_id) }}"
-                                        class="btn btn-primary btn-circle btn-sm">
-                                        <i class="fas fa-eye"></i>
+                                        class="btn grey text-white btn-icon-split btn-sm">
+                                        <span class="icon text-white-50">
+                                            <i class="fas fa-eye"></i>
+                                        </span>
+                                        <span class="text">Lihat</span>
                                     </a>
-                                    <form action="{{ route('datapersonel.destroy', $p->user_id) }}" method="POST"
+                                    {{-- <form action="{{ route('datapersonel.destroy', $p->user_id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
                                         @method('DELETE')
@@ -57,7 +62,7 @@
                                             onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                    </form>
+                                    </form> --}}
                                     {{-- <a href="#" class="btn btn-danger btn-icon-split btn-sm">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>

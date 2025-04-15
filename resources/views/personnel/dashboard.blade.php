@@ -6,11 +6,11 @@
 @endsection
 @section('content')
     {{-- s --}}
-    <a href="{{ route('personnel.kuesioner') }}" class="btn red btn-icon-split text-white mb-4">
+    <a href="{{ route('personnel.kuesioner') }}" class="btn teal btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
-        <span class="text">Isi Survey</span>
+        <span class="text">Isi Survei</span>
     </a>
 
     <div class="card shadow mb-4">
@@ -24,7 +24,7 @@
                         <th>Tanggal Laporan</th>
                         <th>Shift</th>
                         <th>Hasil</th>
-                        <th>Status</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -32,13 +32,13 @@
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+
                     </tr>
                     <tr>
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td></td>
+
                     </tr>
                 </tbody>
             </table>

@@ -5,7 +5,7 @@
 
 @endsection
 @section('content')
-    <div class="card shadow mb-4">
+    <div class="card shadow border-left-yellow mb-4">
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -21,7 +21,7 @@
                 </ul>
             </div>
         @endif
-        <div class="card-header red py-3 text-white">
+        <div class="card-header yellow py-3 text-white">
             <h6 class="m-0 font-weight-bold text-center">DATA DIRI</h6>
         </div>
         <div class="card-body">
@@ -29,7 +29,7 @@
                 <form action="{{ route('datapersonel.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
-                    <input type="text" value="{{$personel->user_id}}" class="form-control" name="user_id" hidden>
+                    <input type="text" value="" class="form-control" name="user_id" hidden>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Nama Lengkap</b></label>
@@ -112,7 +112,7 @@
                     <hr>
                     <div class="row">
                         <div class="col">
-                            <label class="form-label"><b>Status Pegawai</b></label>
+                            <label class="form-label"><b>Tipe Pegawai</b></label>
                         </div>
                     </div>
                     <div class="row">
@@ -121,6 +121,21 @@
                                 <option value="" disabled selected hidden>Pilih Salah Satu</option>
                                 <option value="Organik">Organik</option>
                                 <option value="Non-Organik">Non-Organik</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label"><b>Status</b></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <select name="status_akun" class="form-control" id="">
+                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Non-Aktif">Tidak Aktif</option>
                             </select>
                         </div>
                     </div>
@@ -138,7 +153,7 @@
                         </div>
                     </div>
                     <div class="submitButton mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn red btn:hover text-white">Tambahkan</button>
+                        <button type="submit" class="btn grey btn-grey:hover text-white">Tambahkan</button>
                     </div>
                 </form>
             </div>

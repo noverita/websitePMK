@@ -22,8 +22,8 @@
             </div>
         @endif
 
-        <div class="card-header py-3 red text-white text-center">
-            <h6 class="m-0 font-weight-bold">Tambah User</h6>
+        <div class="card-header py-3 yellow text-white text-center">
+            <h6 class="m-0 font-weight-bold">TAMBAH USER</h6>
         </div>
         <div class="card-body ">
             <div class="form-kuesioner">
@@ -85,7 +85,7 @@
 
                     <hr>
                     <div class="submitButton mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn red text-white">Tambahkan</button>
+                        <button type="submit" class="btn grey text-white">Tambahkan</button>
                     </div>
                 </form>
             </div>

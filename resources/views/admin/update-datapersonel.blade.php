@@ -25,16 +25,16 @@
               </button>
         </div>
     @endif
-    <div class="d-flex justify-content-end mb-2">
-        <a href="{{route('profil.personel', $personel->user_id)}}" class="btn red text-white btn-icon-split">
+    <div class="d-flex mb-2">
+        <a href="{{route('profil.personel', $personel->user_id)}}" class="btn teal text-white btn-icon-split">
             <span class="icon text-white-50">
                 <i class="fas fa-arrow-left"></i>
             </span>
             <span class="text">Kembali</span>
         </a>
     </div>
-    <div class="card border-left-red shadow">
-        <div class="card-header py-3 red text-white text-center">
+    <div class="card border-left-yellow shadow">
+        <div class="card-header py-3 yellow text-white text-center">
             <h6 class="m-0 font-weight-bold">DATA DIRI</h6>
         </div>
         <div class="card-body ">
@@ -85,13 +85,22 @@
                         </div>
                     </div>
                     <hr>
-
                     <div class="row">
                         <div class="col">
-                            <label class="form-label"><b>Status Pegawai</b></label>
+                            <label class="form-label"><b>Tipe Pegawai</b></label>
                             <select name="status_pegawai" id="" class="form-control">
                                 <option value="Organik" {{ old('status_pegawai', $personel->status_pegawai) == 'Organik' ? 'selected' : '' }}>Organik</option>
                                 <option value="Non-Organik" {{ old('status_pegawai', $personel->status_pegawai) == 'Non-Organik' ? 'selected' : '' }}>Non-Organik</option>
+                            </select>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label"><b>Status Pegawai</b></label>
+                            <select name="status_akun" id="" class="form-control">
+                                <option value="Aktif">Aktif</option>
+                                <option value="Non-Aktif">Tidak Aktif</option>
                             </select>
                         </div>
                     </div>
@@ -118,7 +127,7 @@
                     </div>
                     <hr>
                     <div class="submitButton mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn btn-primary">Perbarui</button>
+                        <button type="submit" class="btn grey text-white">Perbarui</button>
                     </div>
                 </form>
             </div>

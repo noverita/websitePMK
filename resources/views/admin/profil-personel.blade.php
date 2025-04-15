@@ -7,7 +7,7 @@
 @section('content')
     <div class="row justify-content-center">
         <div class="col-md-8"> <!-- Adjust column width -->
-            <div class="card shadow">
+            <div class="card border-right-yellow shadow">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <!-- Profile Picture -->
@@ -50,13 +50,13 @@
     <div class="d-flex justify-content-center mb-3">
         <ul class="nav nav-pills" id="pills-tab" role="tablist">
           <li class="nav-item">
-            <a class="nav-link active" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Profile</a>
+            <a class="nav-link active" id="pills-profile-tab"  style="color: black" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">Profil</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " id="pills-sertfikat-tab" data-toggle="pill" href="#pills-sertifikat" role="tab" aria-controls="pills-sertifikat" aria-selected="false">Sertifikasi</a>
+            <a class="nav-link " id="pills-sertfikat-tab"  style="color: black" data-toggle="pill" href="#pills-sertifikat" role="tab" aria-controls="pills-sertifikat" aria-selected="false">Sertifikasi</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link " id="pills-pelatihan-tab" data-toggle="pill" href="#pills-pelatihan" role="tab" aria-controls="pills-pelatihan" aria-selected="false">Pelatihan</a>
+            <a class="nav-link " id="pills-pelatihan-tab"  style="color: black" data-toggle="pill" href="#pills-pelatihan" role="tab" aria-controls="pills-pelatihan" aria-selected="false">Pelatihan</a>
           </li>
         </ul>
     </div>
@@ -65,7 +65,7 @@
         <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn red text-white btn-icon-split mb-4">
+                    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn teal text-white btn-icon-split mb-4">
                         <span class="icon text-white-50">
                             <i class="fas fa-edit"></i>
                         </span>
@@ -145,26 +145,27 @@
         <div class="tab-pane fade" id="pills-sertifikat" role="tabpanel" aria-labelledby="pills-sertifikat-tab">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ route('sertifikasi.create', ['id' => $personel->user_id]) }}" class="btn btn-red red text-white btn-icon-split mb-4">
+                    <a href="{{ route('sertifikasi.create', ['id' => $personel->user_id]) }}" class="btn teal text-white btn-icon-split mb-4">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
-                        <span class="text">Tambah Sertifikat</span>
+                        <span class="text">Tambah Sertifikasi</span>
                     </a>
                 </div>
                 <div class="col-md-12">
                     <div class="card shadow">
                         <div class="card-body">
-                            <table id="dataSertifikat" class="table table-striped" width="100%" cellspacing="0">
+                            <table id="dataSertifikat" class="table table-striped text-center" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
-                                        <th>No.</th>
+
                                         <th>Nama Sertifikasi</th>
                                         <th>Jenis Lisensi</th>
                                         <th>Memiliki SKP PT</th>
                                         <th>Berlaku Hingga</th>
                                         <th>Status Sertifikasi</th>
                                         <th>File Sertifikat</th>
+                                        <th>Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -173,7 +174,7 @@
                                     @endphp
                                     @foreach ($sertifikat as $row)
                                         <tr>
-                                            <td>{{$no++}}</td>
+
                                             <td>{{ $row->nama_sertifikasi }}</td>
                                             <td>{{ $row->jenis_lisensi }}</td>
                                             <td>{{ $row->skp_pt == 1 ? 'Ya' : 'Tidak' }}</td>
@@ -188,8 +189,16 @@
                                                 </span>
                                             </td>
                                             <td>
-                                                <a href="{{ asset('storage/' . $row->file_sertifikat) }}" class="btn btn-primary btn-sm" download>
+                                                <a href="{{ asset('storage/' . $row->file_sertifikat) }}" class="btn text-white grey btn-sm" download>
                                                     <i class="fas fa-download"></i> &nbsp;Download
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a href="#" class="btn red btn-icon-split text-white btn-sm">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">Hapus</span>
                                                 </a>
                                             </td>
                                         </tr>
@@ -205,7 +214,7 @@
         <div class="tab-pane fade" id="pills-pelatihan" role="tabpanel" aria-labelledby="pills-pelatihan-tab">
             <div class="row">
                 <div class="col-md-8">
-                    <a href="{{ route('pelatihan.create', $personel->user_id) }}" class="btn btn-red red text-white btn-icon-split mb-4">
+                    <a href="{{ route('pelatihan.create', $personel->user_id) }}" class="btn teal text-white btn-icon-split mb-4">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -215,12 +224,13 @@
                 <div class="col-md-12">
                     <div class="card shadow">
                         <div class="card-body">
-                            <table id="dataPelatihan" class="table table-striped" width="100%" cellspacing="0">
+                            <table id="dataPelatihan" class="table table-striped text-center" width="100%" cellspacing="0">
                                 <thead>
                                     <tr>
                                         <th>Nama Pelatihan</th>
                                         <th>Penyelenggara</th>
                                         <th>Tanggal Pelatihan</th>
+                                        <th>Opsi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -228,7 +238,15 @@
                                         <tr>
                                             <td>{{ $p->nama_pelatihan }}</td>
                                             <td>{{ $p->penyelanggara }}</td>
-                                            <td>{{ $p->date_pelatihan }}</td>
+                                            <td>{{ \Carbon\Carbon::parse($p->date_pelatihan)->translatedFormat('d F Y') }}</td>
+                                            <td>
+                                                <a href="#" class="btn red btn-icon-split text-white btn-sm">
+                                                    <span class="icon text-white-50">
+                                                        <i class="fas fa-trash"></i>
+                                                    </span>
+                                                    <span class="text">Hapus</span>
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
