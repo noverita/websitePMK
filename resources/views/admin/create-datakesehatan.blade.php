@@ -5,6 +5,14 @@
 
 @endsection
 @section('content')
+<div class="d-flex mb-2">
+    <a href="{{ route('data.kesehatan') }}" class="btn teal text-white btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-arrow-left"></i>
+        </span>
+        <span class="text">Kembali</span>
+    </a>
+</div>
     <div class="card border-left-yellow shadow">
         @if (session('success'))
             <div class="alert alert-success">
@@ -21,6 +29,8 @@
                 </ul>
             </div>
         @endif
+
+
 
         <div class="card-header py-3 yellow text-white text-center">
             <h6 class="m-0 font-weight-bold">TAMBAH DATA KESEHATAN PERSONEL</h6>

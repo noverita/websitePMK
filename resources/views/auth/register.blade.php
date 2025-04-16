@@ -22,10 +22,10 @@
 
 </head>
 
-<body class="bg-gradient-primary">
-    <?php
+<body style="background-color: #fbbe085a">
+    {{-- <?php
         dump(session()->all()); // Debugging session flash
-    ?>
+    ?> --}}
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-8">

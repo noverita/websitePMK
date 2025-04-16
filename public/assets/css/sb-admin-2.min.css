@@ -16,7 +16,7 @@
     --pink: #e83e8c;
     --red: #ff2929;
     --orange: #fd7e14;
-    --yellow: #f6c23e;
+    --yellow: #fbbd08;
     --green: #36c81c;
     --teal: #20c9a6;
     --cyan: #36b9cc;
@@ -12612,46 +12612,60 @@ footer.sticky-footer .copyright {
 body.sidebar-toggled footer.sticky-footer {
     width: 100%
 }
+
 .yellow {
     /* background-color: #970747; */
     background-color: #fbbd08;
 }
+
 .text-red {
-    color: #970747;
+    color: #ce2029;
 }
-.btn:hover {
-background-color: #878787;
-}
+
+/* .btn:hover {
+    background-color: #878787;
+} */
+
 .form-kuesioner {
     padding: 1rem;
 }
+
 .border-left-yellow {
     border-left: solid 4px #fbbd08;
 }
+
 .blue {
     background-color: #24366c;
 }
-.grey{
-    background-color:#333333;
+
+.grey {
+    background-color: #333333;
 }
-.teal{
+
+.teal {
     background-color: #008080;
 }
-.btn-teal{
+
+.btn-teal {
     background-color: #0b9898;
 }
-.red{
+
+.red {
     background-color: #ce2029;
 }
+
 .border-right-yellow {
     border-right: solid 4px #fbbd08;
 }
-.border-left-red{
+
+.border-left-red {
     border-left: solid 4px #ce2029;
 }
-.border-bottom-yellow{
+
+.border-bottom-yellow {
     border-bottom: solid 2px #fbbd08;
 }
-.border-top-yellow{
+
+.border-top-yellow {
     border-top: solid 2px #fbbd08;
 }

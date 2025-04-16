@@ -107,13 +107,12 @@
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
 
-                            <select name="shift" class="form-control" style="width: 25%">
-                                <option value="">--Pilih Shift--</option>
+                            <select name="shift" class="form-control mb-4" style="width: 25%">
+                                <option value="" selected hidden disabled>Pilih Shift</option>
                                 <option value="pagi">Pagi</option>
                                 <option value="siang">Siang</option>
                                 <option value="malam">Malam</option>
                             </select>
-                            <br>
                             <ul>
                                 <i class="fas fa-chevron-circle-right text-gray-300"></i>
                                 <a>Muhammad John Doe</a>

@@ -69,7 +69,7 @@ class DataPersonelController extends Controller
 
         if ($request->hasFile('foto_diri')) {
             $file = $request->file('foto_diri');
-            $fileName = date('Ymd') .$validated['nama_lengkap']. '_' . $file->getClientOriginalName();
+            $fileName = date('Ymd') . $validated['nama_lengkap'] . '_' . $file->getClientOriginalName();
             $filePath = $file->storeAs('profile_pictures', $fileName, 'public');
 
             if ($personel->foto_diri && Storage::disk('public')->exists($personel->foto_diri)) {
@@ -103,7 +103,7 @@ class DataPersonelController extends Controller
                 Storage::disk('public')->delete($filePath);
             }
 
-            Log::error('Gagal memperbarui profil: '.$e->getMessage());
+            Log::error('Gagal memperbarui profil: ' . $e->getMessage());
             Log::error('Error File Path: ' . $filePath);
             return redirect()->back()->with('error', 'Terjadi kesalahan saat memperbarui profil.');
         }
@@ -125,35 +125,37 @@ class DataPersonelController extends Controller
         // Redirect back to the personnel list with a success message
         return redirect('/admin/daftar-personel')->with('success', 'Data personel berhasil dihapus!');
     }
+
     public function showProfile($id)
     {
+
         // Fetch personnel data based on ID
         $personel = DB::table('data_personnels')
-                    ->join('users', 'users.id', 'data_personnels.user_id')
-                    ->where('data_personnels.user_id', $id)->first();
+            ->join('users', 'users.id', 'data_personnels.user_id')
+            ->where('data_personnels.user_id', $id)->first();
 
         // Check if personnel exists
         if (!$personel) {
             return redirect()->back()->with('error', 'Personnel data not found.');
         }
         $sertifikat = DB::table('sertifikasis')
-        ->where('user_id', $id)
-        ->get()
-        ->map(function ($row) {
-            if (now()->gt($row->expired_date)) {
-                $row->status = 'Expired';
-            } elseif (now()->diffInDays($row->expired_date) <= 30) {
-                $row->status = 'Expiring Soon';
-            } else {
-                $row->status = 'Valid';
-            }
-            return $row;
-        });
+            ->where('user_id', $id)
+            ->get()
+            ->map(function ($row) {
+                if (now()->gt($row->expired_date)) {
+                    $row->status = 'Expired';
+                } elseif (now()->diffInDays($row->expired_date) <= 30) {
+                    $row->status = 'Expiring Soon';
+                } else {
+                    $row->status = 'Valid';
+                }
+                return $row;
+            });
 
 
         $pelatihan = DB::table('pelatihans')
-        ->where('user_id', $id)
-        ->get();
+            ->where('user_id', $id)
+            ->get();
 
         return view('admin.profil-personel', compact('personel', 'sertifikat', 'pelatihan'));
     }
@@ -166,16 +168,17 @@ class DataPersonelController extends Controller
             return redirect()->back()->with('error', 'Personnel data not found.');
         }
 
-    $sertifikasis = DB::table('sertifikasis')
-        ->where('user_id', $user_id)
-        ->get()
-        ->map(function ($sertifikasi) {
-            $sertifikasi->status = Carbon::parse($sertifikasi->expired_date)->isFuture() ? 'Berlaku' : 'Tidak Berlaku';
-            return $sertifikasi;
-        });
+        $sertifikasis = DB::table('sertifikasis')
+            ->where('user_id', $user_id)
+            ->get()
+            ->map(function ($sertifikasi) {
+                $sertifikasi->status = Carbon::parse($sertifikasi->expired_date)->isFuture() ? 'Berlaku' : 'Tidak Berlaku';
+                return $sertifikasi;
+            });
 
-    return view('admin.sertifikasi-personel', compact('personel', 'sertifikasis'));
-}
+        return view('admin.sertifikasi-personel', compact('personel', 'sertifikasis'));
+    }
+
     public function createSertifikasi($id)
     {
         return view('admin.create-sertifikasi', compact('id'));
@@ -230,7 +233,7 @@ class DataPersonelController extends Controller
             }
 
             // Log error untuk debugging
-            Log::error('Gagal menyimpan sertifikat: '.$e->getMessage());
+            Log::error('Gagal menyimpan sertifikat: ' . $e->getMessage());
 
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
         }
@@ -251,7 +254,9 @@ class DataPersonelController extends Controller
 
         return view('admin.pelatihan-personel', compact('personel', 'pelatihans'));
     }
-    public function createPelatihan($id){
+
+    public function createPelatihan($id)
+    {
 
         return view('admin.create-pelatihan', compact('id'));
     }
@@ -269,11 +274,11 @@ class DataPersonelController extends Controller
         DB::beginTransaction();
 
         try {
-        DB::table('pelatihans')->insert([
+            DB::table('pelatihans')->insert([
                 'user_id' => $validated['user_id'],
                 'nama_pelatihan' => $validated['nama_pelatihan'],
                 'penyelanggara' => $validated['penyelanggara'],
-                'date_pelatihan' =>$validated['date_pelatihan'],
+                'date_pelatihan' => $validated['date_pelatihan'],
                 'created_at' => now(),
                 'updated_at' => now()
             ]);
@@ -284,7 +289,5 @@ class DataPersonelController extends Controller
             DB::rollBack();
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
         }
-
     }
-
 }

@@ -5,6 +5,14 @@
 
 @endsection
 @section('content')
+<div class="d-flex mb-2">
+    <a href="{{ route('user.management') }}" class="btn teal text-white btn-icon-split">
+        <span class="icon text-white-50">
+            <i class="fas fa-arrow-left"></i>
+        </span>
+        <span class="text">Kembali</span>
+    </a>
+</div>
     <div class="card shadow">
         @if (session('success'))
             <div class="alert alert-success">

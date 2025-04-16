@@ -27,7 +27,7 @@
 
 </head>
 
-<body class="red">
+<body class="" style="background-color: #fbbe0843">
 
     <div class="container">
 
@@ -60,7 +60,7 @@
                                             Me</label>
                                     </div>
                                 </div>
-                                <button type="submit" class="btn red text-white btn-user btn-block">Login</button>
+                                <button type="submit" class="btn grey text-white btn-user btn-block">Login</button>
                             </form>
                             <hr>
                             <div class="text-center">
