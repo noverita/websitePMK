@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Add User')
+@section('title', 'Tambah Data Kesehatan Personel')
 @section('css')
 
 @endsection
@@ -29,9 +29,6 @@
                 </ul>
             </div>
         @endif
-
-
-
         <div class="card-header py-3 yellow text-white text-center">
             <h6 class="m-0 font-weight-bold">TAMBAH DATA KESEHATAN PERSONEL</h6>
         </div>
@@ -52,7 +49,6 @@
                                     <option value="{{ $personnel->id }}">{{ $personnel->nama_lengkap }}</option>
                                 @endforeach
                             </select>
-
                         </div>
                     </div>
                     <hr>
@@ -106,21 +102,18 @@
                             <label class="form-label"><b>Catatan</b></label>
                         </div>
                     </div>
-                    <div class="row">
+                    <div class="row mb-4">
                         <div class="col">
                             <textarea type="text-area" class="form-control" name="catatan_kesehatan"
                                 placeholder="Masukkan Catatan . . ."></textarea>
                         </div>
                     </div>
-                    <hr>
                     <div class="submitButton mb-4 d-flex justify-content-center">
                         <button type="submit" class="btn grey text-white" style="width=10cm">Tambahkan</button>
                     </div>
                 </form>
             </div>
         </div>
-
-
     </div>
 @endsection
 @section('js')

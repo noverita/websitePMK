@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Add User')
+@section('title', 'Tambah Data User Management')
 @section('css')
 
 @endsection

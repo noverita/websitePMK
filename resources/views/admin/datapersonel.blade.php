@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Data Personnel')
+@section('title', 'Tambah Data Personnel')
 @section('css')
 
 @endsection

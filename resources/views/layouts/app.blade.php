@@ -35,7 +35,6 @@
                 {{-- <div class="sidebar-brand-icon rotate-n-15"> --}}
                     <img src="{{ asset('images/firefit2.png') }}" class="logo-image" style="width:auto; height:30px">
                                 {{-- </div> --}}
-
             </a>
 
             <!-- Divider -->

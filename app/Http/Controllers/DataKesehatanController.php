@@ -23,17 +23,18 @@ class DataKesehatanController extends Controller
         $personnels = DB::table('data_personnels')->get();
         return view('admin.create-datakesehatan', compact('personnels'));
     }
-    public function storeDataKesehatan(Request $request){
+
+    public function storeDataKesehatan(Request $request)
+    {
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'year' => 'required|string',
             'hasil_kesehatan' => 'required|string',
-            'catatan_kesehatan' => 'required|string',
+            'catatan_kesehatan' => 'nullable|string',
             'surat_keterangan' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
         ]);
 
-        // Store uploaded file
-        $filePath = $request->file('surat_keterangan')->store('kesehatan_files', 'public');
+        $filePath = $request->file('surat_keterangan')->store('surat_keterangan', 'public');
 
         DB::table('kesehatans')->insert([
             'user_id' => $request->user_id,
@@ -45,12 +46,7 @@ class DataKesehatanController extends Controller
             'updated_at' => now(),
         ]);
 
-        return redirect()->route('datakesehatan.show')->with('success', 'Data kesehatan berhasil ditambahkan.');
+        return redirect()->route('kesehatan.create')->with('success', 'Data berhasil ditambahkan!');
     }
-    public function destroyDataKesehatan($id)
-{
-    DB::table('kesehatans')->where('id', $id)->delete();
-    return redirect()->back()->with('success', 'Data berhasil dihapus.');
-}
 
 }
