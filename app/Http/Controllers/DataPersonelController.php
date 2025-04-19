@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
 class DataPersonelController extends Controller
@@ -19,21 +21,69 @@ class DataPersonelController extends Controller
 
     public function storeData(Request $request)
     {
-        dd($request->all());
-        DB::table('data_personnels')->insert([
-            'user_id' => $request->user_id,
-            'nama_lengkap' => $request->nama_lengkap,
-            'nik' => $request->nik,
-            'tanggal_lahir' => $request->tanggal_lahir,
-            'foto_diri' => $request->foto_diri,
-            'grade' => $request->grade,
-            'whatsapp' => $request->whatsapp,
-            'status_pegawai' => $request->status_pegawai,
-            'created_at' => now(),
-            'updated_at' => now(),
+        // Validasi input
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'nama_lengkap' => 'required|string|max:255',
+            'nik' => 'required|string|max:20|unique:data_personnels,nik',
+            'tanggal_lahir' => 'nullable|date',
+            'foto_diri' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'grade' => 'nullable|string|max:50',
+            'whatsapp' => 'nullable|string|max:20',
+            'status_pegawai' => 'nullable|in:Organik,Non-Organik',
         ]);
 
-        return redirect('/admin/daftar-personel')->with('success', 'Data personel berhasil disimpan!');
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        $validatedData = $validator->validated();
+
+        try {
+            DB::beginTransaction();
+
+            // Generate password dari NIK
+            $generatedPassword = bcrypt($validatedData['nik']);
+
+            // Simpan user
+            $userId = DB::table('users')->insertGetId([
+                'name' => $validatedData['nama_lengkap'],
+                'email' => $validatedData['email'],
+                'password' => $generatedPassword,
+                'role' => 'personnel',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            // Upload foto jika ada
+            $fotoPath = null;
+            if ($request->hasFile('foto_diri')) {
+                $fotoPath = $request->file('foto_diri')->store('personnel_photos', 'public');
+            }
+
+            // Simpan ke data_personnels
+            DB::table('data_personnels')->insert([
+                'user_id' => $userId,
+                'nama_lengkap' => $validatedData['nama_lengkap'],
+                'nik' => $validatedData['nik'],
+                'tanggal_lahir' => $validatedData['tanggal_lahir'] ?? null,
+                'foto_diri' => $fotoPath,
+                'grade' => $validatedData['grade'] ?? null,
+                'whatsapp' => $validatedData['whatsapp'] ?? null,
+                'status_pegawai' => $validatedData['status_pegawai'] ?? null,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+
+            DB::commit();
+
+            return redirect()->back()->with('success', 'Data personel berhasil disimpan!');
+        } catch (\Exception $e) {
+            DB::rollBack();
+            Log::error('Gagal menyimpan data user dan personnel: ' . $e->getMessage());
+
+            return response()->json(['error' => 'Terjadi kesalahan saat menyimpan data'], 500);
+        }
     }
 
     // Method to show edit form

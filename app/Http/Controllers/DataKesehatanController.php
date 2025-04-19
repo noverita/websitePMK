@@ -26,6 +26,7 @@ class DataKesehatanController extends Controller
 
     public function storeDataKesehatan(Request $request)
     {
+        return $request;
         $request->validate([
             'user_id' => 'required|exists:users,id',
             'year' => 'required|string',

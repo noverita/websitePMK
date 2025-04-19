@@ -46,7 +46,7 @@
                             <select name="user_id" class="form-control" required>
                                 <option value=""disabled selected hidden>Pilih Nama Lengkap</option>
                                 @foreach($personnels as $personnel)
-                                    <option value="{{ $personnel->id }}">{{ $personnel->nama_lengkap }}</option>
+                                    <option value="{{ $personnel->user_id }}">{{ $personnel->nama_lengkap }}</option>
                                 @endforeach
                             </select>
                         </div>

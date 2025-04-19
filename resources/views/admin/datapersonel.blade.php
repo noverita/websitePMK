@@ -29,7 +29,7 @@
                 <form action="{{ route('datapersonel.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('POST')
-                    <input type="text" value="" class="form-control" name="user_id" hidden>
+
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Nama Lengkap</b></label>
@@ -39,6 +39,18 @@
                         <div class="col">
                             <input type="text" class="form-control" name="nama_lengkap"
                                 placeholder="Isikan Nama Lengkap . . ." required>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label"><b>Email</b></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="email" class="form-control" name="email"
+                                placeholder="Isikan email . . ." required>
                         </div>
                     </div>
                     <hr>
@@ -124,13 +136,13 @@
                             </select>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
+                    {{-- <hr> --}}
+                    {{-- <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Status</b></label>
                         </div>
-                    </div>
-                    <div class="row">
+                    </div> --}}
+                    {{-- <div class="row">
                         <div class="col">
                             <select name="status_akun" class="form-control" id="">
                                 <option value="" disabled selected hidden>Pilih Salah Satu</option>
@@ -138,7 +150,7 @@
                                 <option value="Non-Aktif">Tidak Aktif</option>
                             </select>
                         </div>
-                    </div>
+                    </div> --}}
                     <hr>
                     <div class="row ">
                         <div class="col">
