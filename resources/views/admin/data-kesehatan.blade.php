@@ -12,6 +12,27 @@
     {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> --}}
+
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+    @endif
     <a href="{{route('datakesehatan.create')}}" class="btn teal btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
@@ -24,9 +45,10 @@
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="dataTable" class="table table-striped" width="100%" cellspacing="0"  style="text-align: center">
+                <table id="dataTable" class="table table-striped" width="100%" cellspacing="0">
                     <thead>
                         <tr>
+                            <th>No.</th>
                             <th>Nama Lengkap</th>
                             <th>Tahun</th>
                             <th>Hasil Cek Kesehatan</th>
@@ -36,15 +58,21 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $no=1;
+                        @endphp
                         @foreach ($data as $kesehatan)
                             <tr>
+                                <td>
+                                    {{$no++}}
+                                </td>
                                 <td>{{ $kesehatan->nama_lengkap }}</td>
                                 <td>{{ $kesehatan->year }}</td>
                                 <td>{{ $kesehatan->hasil_kesehatan }}</td>
                                 <td>{{ $kesehatan->catatan_kesehatan }}</td>
                                 <td>
                                     <a href="{{ asset('storage/' . $kesehatan->surat_keterangan) }}"
-                                        class="btn red text-white btn-icon-split" download>
+                                        class="btn red text-white btn-icon-split btn-sm" download>
                                          <span class="icon text-white-50">
                                              <i class="fas fa-download"></i>
                                          </span>
@@ -61,15 +89,41 @@
                                         <i class="fas fa-edit"></i>
                                     </a> --}}
                                     {{-- Delete Form --}}
-                <form action="{{ route('datakesehatan.destroy', $kesehatan->id) }}" method="POST"
-                    style="display:inline;">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                        onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
-                        <i class="fas fa-trash"></i>
-                    </button>
-                </form>
+                                    <form action="{{ route('datakesehatan.destroy', $kesehatan->id) }}" method="POST"
+                                        style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button" class="btn btn-danger btn-circle btn-sm"
+                                            data-toggle="modal" data-target="#confirmDeleteModal"
+                                            data-id="{{ $kesehatan->id }}"
+                                            data-action="{{ route('datakesehatan.destroy', $kesehatan->id) }}">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </form>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <form method="POST" id="deleteForm">
+                                            @csrf
+                                            @method('DELETE')
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Apakah data ini yakin dihapus ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                            </div>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
                                     {{-- <a href="#" class="btn btn-danger btn-icon-split btn-sm">
                                     <span class="icon text-white-50">
                                         <i class="fas fa-trash"></i>
@@ -78,7 +132,7 @@
                                 </a> --}}
                                 </td>
                             </tr>
-@endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>
@@ -94,4 +148,13 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
+    <script>
+        $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var action = button.data('action')
+
+            var modal = $(this)
+            modal.find('#deleteForm').attr('action', action)
+        })
+    </script>
 @endsection

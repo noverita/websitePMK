@@ -39,7 +39,6 @@
             <h6 class="m-0 font-weight-bold">PELATIHAN</h6>
         </div>
         <div class="card-body ">
-            {{$id}}
             <div class="form-kuesioner">
                 <form action="{{ route('pelatihan.store')}}" method="POST">
                     @csrf

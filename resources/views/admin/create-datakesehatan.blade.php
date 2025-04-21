@@ -5,37 +5,44 @@
 
 @endsection
 @section('content')
-<div class="d-flex mb-2">
-    <a href="{{ route('data.kesehatan') }}" class="btn teal text-white btn-icon-split">
-        <span class="icon text-white-50">
-            <i class="fas fa-arrow-left"></i>
-        </span>
-        <span class="text">Kembali</span>
-    </a>
-</div>
-    <div class="card border-left-yellow shadow">
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
+@if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {{ session('success') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+    </div>
+@endif
+@if ($errors->any())
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        <ul class="mb-0">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+    </div>
+@endif
+    <div class="d-flex mb-2">
+        <a href="{{ route('data.kesehatan') }}" class="btn teal text-white btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Kembali</span>
+        </a>
+    </div>
 
-        @if (session('error'))
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
+    <div class="card border-left-yellow shadow">
         <div class="card-header py-3 yellow text-white text-center">
             <h6 class="m-0 font-weight-bold">TAMBAH DATA KESEHATAN PERSONEL</h6>
         </div>
         <div class="card-body ">
             <div class="form-kuesioner">
-                <form action="{{route('datakesehatan.store')}}" method="POST">
+                <form action="{{route('datakesehatan.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf
+                    @method('POST')
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Nama Personel</b></label>
