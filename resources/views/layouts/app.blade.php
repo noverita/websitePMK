@@ -69,12 +69,12 @@
                     <span>Data Kesehatan</span>
                 </a>
             </li>
-            <li class="nav-item {{ request()->routeIs('user.management') ? 'active' : '' }}">
+            {{-- <li class="nav-item {{ request()->routeIs('user.management') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('user.management') }}">
                     <i class="fas fa-address-card"></i>
                     <span>User Management</span>
                 </a>
-            </li>
+            </li> --}}
         @endif
             <!-- Divider -->
             <hr class="sidebar-divider">

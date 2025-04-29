@@ -52,7 +52,7 @@
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
                                         <div class="modal-content">
                                             <div class="modal-header yellow text-white">
                                                 <h5 class="modal-title" id="exampleModalLongTitle"><strong>DETAIL
@@ -91,6 +91,8 @@
                                                       </li>
                                                     </ul>
                                                 </div><hr>
+
+                                                {{-- kondisi umum --}}
                                                 <div class="tab-content" id="pills-tabContent">
                                                     <div class="tab-pane fade show active" id="pills-kondisiumum" role="tabpanel" aria-labelledby="pills-kondisiumum-tab">
                                                         <div class="row ml-2 mr-2">
@@ -159,6 +161,7 @@
 
                                                     </div>
 
+                                                    {{-- jam kerja --}}
                                                     <div class="tab-pane fade" id="pills-jamkerja" role="tabpanel" aria-labelledby="pills-jamkerja-tab">
                                                         <div class="row ml-2 mr-2">
                                                             <p><b>Berapa lama Anda bekerja hari sebelumnya?</b></p>
@@ -175,13 +178,14 @@
                                                         <div class="row ml-2 mr-2">
                                                             <p><b>Keluhan yang Dirasakan Saat ini:</b></p>
                                                         </div>
-                                                        <div class="row border-bottom-yellow">
+                                                        <div class="row">
                                                             <ul>
                                                                 <i class="fas fa-angle-double-right text-gray-500"></i>
                                                                 <a>12 jam</a>
                                                             </ul>
-                                                        </div>
+                                                        </div><hr>
 
+                                                        {{-- kesehatan --}}
                                                         <div class="row ml-2 mr-2 py-2">
                                                             <p><b>A1 : Berjalan Keluar Garis</b></p>
                                                         </div>
@@ -248,12 +252,12 @@
                                                         <div class="row ml-2 mr-2">
                                                             <p><b>A8 : Tidak mampu menghitung/salah hitungan langkah saat jalan</b></p>
                                                         </div>
-                                                        <div class="row border-bottom-yellow">
+                                                        <div class="row">
                                                             <ul>
                                                                 <i class="fas fa-angle-double-right text-gray-500"></i>
                                                                 <a>12 jam</a>
                                                             </ul>
-                                                        </div>
+                                                        </div><hr>
                                                         <div class="row ml-2 mr-2 py-2">
                                                             <p><b>B1 : Selalu bergoyang / tidak seimbang</b></p>
                                                         </div>
@@ -291,14 +295,15 @@
                                                             </ul>
                                                         </div>
                                                     </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn grey text-white"
+                                                            data-dismiss="modal">Kembali</button>
+                                                    </div>
+                                                    </div>
 
 
 
-                                                </div>
-                                                <div class="modal-footer">
-                                                    <button type="button" class="btn grey text-white"
-                                                        data-dismiss="modal">Kembali</button>
-                                                </div>
+
 
 
 

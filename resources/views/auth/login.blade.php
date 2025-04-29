@@ -27,7 +27,7 @@
 
 </head>
 
-<body class="" style="background-color: #fbbe0843">
+<body class="">
 
     <div class="container">
 
