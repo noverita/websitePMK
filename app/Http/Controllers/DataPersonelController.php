@@ -24,6 +24,7 @@ class DataPersonelController extends Controller
         // Validasi input
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
+            'role' => 'required|nullable|in:admin,personel',
             'nama_lengkap' => 'required|string|max:255',
             'nik' => 'required|string|max:20|unique:data_personnels,nik',
             'tanggal_lahir' => 'nullable|date',
@@ -31,6 +32,7 @@ class DataPersonelController extends Controller
             'grade' => 'nullable|string|max:50',
             'whatsapp' => 'nullable|string|max:20',
             'status_pegawai' => 'nullable|in:Organik,Non-Organik',
+            'status_akun' => 'nullable|in:Aktif,Tidak Aktif',
         ]);
 
         if ($validator->fails()) {
@@ -50,7 +52,7 @@ class DataPersonelController extends Controller
                 'name' => $validatedData['nama_lengkap'],
                 'email' => $validatedData['email'],
                 'password' => $generatedPassword,
-                'role' => 'personnel',
+                'role' => $validatedData['role'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -71,6 +73,7 @@ class DataPersonelController extends Controller
                 'grade' => $validatedData['grade'] ?? null,
                 'whatsapp' => $validatedData['whatsapp'] ?? null,
                 'status_pegawai' => $validatedData['status_pegawai'] ?? null,
+                'status_akun' => $validatedData['status_akun'] ?? null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -90,7 +93,11 @@ class DataPersonelController extends Controller
     public function editData($id)
     {
         // Fetch the personnel record by ID
-        $personel = DB::table('data_personnels')->where('user_id', $id)->first();
+        $personel = DB::table('data_personnels')
+        ->join('users', 'users.id', '=', 'data_personnels.user_id')
+        ->select('data_personnels.*', 'users.role') // include role
+        ->where('data_personnels.user_id', $id)
+        ->first();
 
         if (!$personel) {
             return redirect('/admin/daftar-personel')->with('error', 'Data personel tidak ditemukan!');
@@ -105,10 +112,11 @@ class DataPersonelController extends Controller
             'nama_lengkap'   => 'required|string|max:255',
             'nik'            => 'string|max:25',
             'tanggal_lahir'  => 'date',
-            'grade'          => 'string|max:5',
+            'grade'          => 'string|max:255',
             'whatsapp'       => 'string|max:20',
             'status_pegawai' => 'in:Organik,Non-Organik',
-            'foto_diri'      => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'status_akun'      => 'in:Aktif,Tidak Aktif',
+            'foto_diri'      => 'nullable|image|mimes:jpg,jpeg,png',
         ]);
 
         $personel = DB::table('data_personnels')->where('user_id', $id)->first();
@@ -139,11 +147,13 @@ class DataPersonelController extends Controller
                 'grade'          => $validated['grade'],
                 'whatsapp'       => $validated['whatsapp'],
                 'status_pegawai' => $validated['status_pegawai'],
+                'status_akun' => $validated['status_akun'],
                 'foto_diri'      => $filePath,
                 'updated_at'     => now(),
             ];
+
             DB::table('data_personnels')->where('user_id', $id)->update($dataUpdate);
-            DB::table('users')->where('id', $id)->update(['name'   => $validated['nama_lengkap']]);
+            DB::table('users')->where('id', $id)->update(['name'   => $validated['nama_lengkap'], 'role' => $request->input('role')]);
             DB::commit();
             return redirect()->back()->with('success', 'Profil berhasil diperbarui!');
         } catch (\Throwable $e) {
@@ -161,19 +171,36 @@ class DataPersonelController extends Controller
 
     public function destroyData($id)
     {
-        // Find the personnel record by ID
-        $personel = DB::table('data_personnels')->where('id', $id)->first();
+        DB::beginTransaction();
 
-        // If personnel not found, return with an error message
-        if (!$personel) {
-            return redirect('/admin/daftar-personel')->with('error', 'Data personel tidak ditemukan!');
+        try {
+            // Fetch the personnel data
+            $personel = DB::table('data_personnels')->where('user_id', $id)->first();
+
+            if (!$personel) {
+                return redirect()->back()->with('error', 'Data personel tidak ditemukan.');
+            }
+
+            // Delete profile photo if exists
+            if ($personel->foto_diri && Storage::disk('public')->exists($personel->foto_diri)) {
+                Storage::disk('public')->delete($personel->foto_diri);
+            }
+
+            // Delete related training and certification data
+            DB::table('sertifikasis')->where('user_id', $id)->delete();
+            DB::table('pelatihans')->where('user_id', $id)->delete();
+
+            // Delete personnel and user
+            DB::table('data_personnels')->where('user_id', $id)->delete();
+            DB::table('users')->where('id', $id)->delete();
+
+            DB::commit();
+            return redirect()->back()->with('success', 'Data personel berhasil dihapus.');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            Log::error('Gagal menghapus data personel: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');
         }
-
-        // Delete the record from the database
-        DB::table('data_personnels')->where('id', $id)->delete();
-
-        // Redirect back to the personnel list with a success message
-        return redirect('/admin/daftar-personel')->with('success', 'Data personel berhasil dihapus!');
     }
 
     public function showProfile($id)

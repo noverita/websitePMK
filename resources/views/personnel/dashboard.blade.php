@@ -6,7 +6,7 @@
 @endsection
 @section('content')
     {{-- s --}}
-    <a href="{{ route('personnel.kuesioner') }}" class="btn teal btn-icon-split text-white mb-4">
+    <a href="{{ route('personnel.kuesioner') }}" class="btn navy btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
@@ -14,8 +14,8 @@
     </a>
 
     <div class="card shadow mb-4">
-        <div class="card-header red">
-            <h6 class="m-0 font-weight-bold text-white text-center">DASHBOARD LAPORAN SAYA</h6>
+        <div class="card-header">
+            <h6 class="m-0 text-center">DASHBOARD LAPORAN SAYA</h6>
         </div>
         <div class="card-body">
             <table id="dataTable" class="table table-striped text-center" width="100%" cellspacing="0">

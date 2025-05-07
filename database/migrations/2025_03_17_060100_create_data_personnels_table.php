@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('grade')->nullable();
             $table->string('whatsapp')->nullable();
             $table->enum('status_pegawai', ['Organik', 'Non-Organik'])->nullable();
+            $table->enum('status_akun', ['Aktif', 'Tidak Aktif'])->nullable();
             $table->timestamps();
         });
     }

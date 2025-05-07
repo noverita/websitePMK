@@ -7,13 +7,13 @@
     <!-- Page Heading -->
     {{-- <h3 class="text-center font-weight-bold"></h3> --}}
     {{-- <h1 class="h4 mb-2 text-gray-800">Form Survey</h1> --}}
-    <a href="{{ route('personnel.dashboard') }}" class="btn teal text-white btn-icon-split mb-3">
+    <a href="{{ route('personnel.dashboard') }}" class="btn navy text-white btn-icon-split mb-3">
         <span class="icon text-white-50">
             <i class="fas fa-arrow-left"></i>
         </span>
         <span class="text">Kembali</span>
     </a>
-    <div class="card border-left-red shadow mb-4">
+    <div class="card border-left-navy shadow mb-4">
         <div class="form-kuesioner">
             <form>
                 <div class="row">
@@ -46,9 +46,9 @@
     </div>
 
     <!-- DataTales Example -->
-    <div class="card border-left-red shadow mb-4">
+    <div class="card border-left-navy shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-red">KONDISI UMUM</h6>
+            <h6 class="m-0 text-center">KONDISI UMUM</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -142,8 +142,8 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">
-                        <input type="text" class="form-control" placeholder="Isikan Obat yang Anda Minum...">
+                    <div class="col-4">
+                        <textarea type="text-area" class="form-control" placeholder="Isikan Obat yang Anda Minum..."></textarea>
                     </div>
                 </div>
                 <hr>
@@ -321,9 +321,9 @@
 
     </div>
 
-    <div class="card border-left-red shadow mb-4">
+    <div class="card border-left-navy shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-red">JAM KERJA</h6>
+            <h6 class="m-0 text-center">JAM KERJA</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -360,9 +360,9 @@
             </form>
         </div>
     </div>
-    <div class="card border-left-red shadow mb-4">
+    <div class="card border-left-navy shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-red"> KESEHATAN</h6>
+            <h6 class="m-0 text-center">KESEHATAN</h6>
         </div>
         <div class="form-kuesioner">
             <form>
@@ -392,7 +392,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option"><strong>b.</strong> Mengantuk</label>
+                        <label class="form-label-option"><strong>b.</strong>Mengantuk</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -409,7 +409,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option"><strong>c.</strong> Lemas</label>
+                        <label class="form-label-option"><strong>c.</strong>Lemas</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -426,7 +426,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option"><strong>d.</strong> Mual Muntah</label>
+                        <label class="form-label-option"><strong>d.</strong>Mual Muntah</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -443,7 +443,7 @@
                 </div>
                 <div class="row mb-2">
                     <div class="col-md">
-                        <label class="form-label-option"><strong>e.</strong> Flu dan Meriang</label>
+                        <label class="form-label-option"><strong>e.</strong>Flu dan Meriang</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">
@@ -591,8 +591,7 @@
                 <div class="row mb-2">
                     <div class="col-md">
                         <label class="form-label-option"><strong>A8 :</strong> Tidak mampu menghitung/salah hitungan
-                            langkah saat
-                            jalan</label>
+                            langkah saat jalan</label>
                     </div>
                     <div class="col-md">
                         <div class="form-check form-check-inline">

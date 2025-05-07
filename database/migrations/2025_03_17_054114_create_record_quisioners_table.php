@@ -19,7 +19,7 @@ return new class extends Migration
             foreach (['Q1', 'Q2', 'Q3', 'Q4', 'QO1', 'QO2', 'QO3', 'QO4', 'QO5', 'Q5', 'Q6', 'Q7', 'QK1', 'QK2', 'QK3', 'QK4', 'QK5', 'QA1', 'QA2', 'QA3', 'QA4', 'QA5', 'QA6', 'QA7', 'QA8', 'QB1', 'QB2', 'QB3', 'QB4'] as $column) {
                 $table->string($column)->nullable();
             }
-            $table->enum('tingkat_kebugaran', ['excellent', 'good', 'kurang fit'])->nullable();
+            $table->enum('tingkat_kebugaran', ['Excellent', 'Good', 'Kurang fit'])->nullable();
             $table->timestamps();
         });
     }

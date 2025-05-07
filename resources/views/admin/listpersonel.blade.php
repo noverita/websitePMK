@@ -12,15 +12,15 @@
     {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> --}}
-    <a href="{{ route('datapersonel.create') }}" class="btn teal btn-icon-split text-white mb-4">
+    <a href="{{ route('datapersonel.create') }}" class="btn navy btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
         <span class="text">Tambah Personel</span>
     </a>
     <div class="card shadow mb-4">
-        <div class="card-header yellow py-3">
-            <h6 class="m-0 font-weight-bold text-white text-center">DAFTAR PERSONEL</h6>
+        <div class="card-header py-3">
+            <h6 class="m-0 text-center ">Daftar Personel</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -45,30 +45,48 @@
                                 <td>{{ $p->nama_lengkap }}</td>
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->grade }}</td>
-                                <td></td>
+                                <td>{{ $p->status_akun }}</td>
                                 <td>
                                     <a href="{{ route('profil.personel', $p->user_id) }}"
-                                        class="btn grey text-white btn-icon-split btn-sm">
-                                        <span class="icon text-white-50">
+                                        class="btn navy text-white btn-circle btn-sm">
+                                        <span class="icon text-white-300">
                                             <i class="fas fa-eye"></i>
                                         </span>
-                                        <span class="text">Lihat</span>
+                                        {{-- <span class="text">Lihat</span> --}}
                                     </a>
-                                    {{-- <form action="{{ route('datapersonel.destroy', $p->user_id) }}" method="POST"
-                                        style="display:inline;">
+                                    <form action="{{ route('datapersonel.destroy', $p->user_id) }}" method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-circle btn-sm"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')">
+                                        <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#confirmDeleteModal"
+                                        data-id="{{ $p->user_id}}"
+                                        data-action="{{ route('datakesehatan.destroy', $p->user_id) }}">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                    </form> --}}
-                                    {{-- <a href="#" class="btn btn-danger btn-icon-split btn-sm">
-                                    <span class="icon text-white-50">
-                                        <i class="fas fa-trash"></i>
-                                    </span>
-                                    <span class="text">Hapus</span>
-                                </a> --}}
+                                    </form>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                        <form method="POST" id="deleteForm">
+                                            @csrf
+                                            @method('DELETE')
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Apakah data ini yakin dihapus ?
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                            </div>
+                                            </div>
+                                        </form>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
                         @endforeach

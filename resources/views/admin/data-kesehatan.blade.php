@@ -33,19 +33,19 @@
                 </button>
         </div>
     @endif
-    <a href="{{route('datakesehatan.create')}}" class="btn teal btn-icon-split text-white mb-4">
+    <a href="{{route('datakesehatan.create')}}" class="btn navy btn-icon-split text-white mb-4">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
         <span class="text">Tambah Data</span>
     </a>
     <div class="card shadow mb-4">
-        <div class="card-header yellow py-3">
-            <h6 class="m-0 font-weight-bold text-white text-center">DATA KESEHATAN PERSONEL</h6>
+        <div class="card-header py-3">
+            <h6 class="m-0 text-center">Data Kesehatan Personel</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
-                <table id="dataTable" class="table table-striped" width="100%" cellspacing="0">
+                <table id="dataTable" class="table table-striped text-center" width="100%" cellspacing="0">
                     <thead>
                         <tr>
                             <th>No.</th>
@@ -72,11 +72,11 @@
                                 <td>{{ $kesehatan->catatan_kesehatan }}</td>
                                 <td>
                                     <a href="{{ asset('storage/' . $kesehatan->surat_keterangan) }}"
-                                        class="btn red text-white btn-icon-split btn-sm" download>
-                                         <span class="icon text-white-50">
+                                        class="btn grey btn-circle btn-sm text-white" download>
+
                                              <i class="fas fa-download"></i>
-                                         </span>
-                                         <span class="text">Download</span>
+
+
                                      </a>
                                 </td>
                                 <td>

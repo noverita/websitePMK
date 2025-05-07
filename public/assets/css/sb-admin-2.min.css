@@ -94,7 +94,7 @@ h4,
 h5,
 h6 {
     margin-top: 0;
-    margin-bottom: .5rem
+    margin-bottom: .5rem;
 }
 
 p {
@@ -259,7 +259,7 @@ textarea {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
-    line-height: inherit
+    line-height: inherit;
 }
 
 button,
@@ -2125,7 +2125,7 @@ pre code {
     width: 100%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: 13px;
     font-weight: 400;
     line-height: 1.5;
     color: #6e707e;
@@ -2133,7 +2133,8 @@ pre code {
     background-clip: padding-box;
     border: 1px solid #d1d3e2;
     border-radius: .35rem;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    background-color: #f8f9fc;
 }
 
 @media (prefers-reduced-motion:reduce) {
@@ -2654,7 +2655,7 @@ textarea.form-control.is-invalid {
     background-color: transparent;
     border: 1px solid transparent;
     padding: .375rem .75rem;
-    font-size: 1rem;
+    font-size: 13px;
     line-height: 1.5;
     border-radius: .35rem;
     transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
@@ -3788,7 +3789,7 @@ input[type=submit].btn-block {
     flex: 1 1 auto;
     width: 1%;
     min-width: 0;
-    margin-bottom: 0
+    margin-bottom: 0;
 }
 
 .input-group>.custom-file+.custom-file,
@@ -4467,7 +4468,7 @@ input[type=submit].btn-block {
     margin-bottom: -1px;
     border: 1px solid transparent;
     border-top-left-radius: .35rem;
-    border-top-right-radius: .35rem
+    border-top-right-radius: .35rem;
 }
 
 .nav-tabs .nav-link:focus,
@@ -4501,7 +4502,7 @@ input[type=submit].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show>.nav-link {
     color: #fff;
-    background-color: #fbbd08
+    background-color: navy
 }
 
 .nav-fill .nav-item,
@@ -5000,7 +5001,8 @@ input[type=submit].btn-block {
     background-color: #fff;
     background-clip: border-box;
     border: 1px solid #e3e6f0;
-    border-radius: .35rem
+    border-radius: 15px;
+    overflow: hidden;
 }
 
 .card>hr {
@@ -5058,9 +5060,11 @@ input[type=submit].btn-block {
 }
 
 .card-header {
-    padding: .75rem 1.25rem;
-    margin-bottom: 0;
-    border-bottom: 1px solid #e3e6f0
+    padding: 0.75rem 1.25rem;
+  /* margin-bottom: 0; */
+  background-color: #f8f9fc;
+  border-bottom: 1px solid #e3e6f0;
+  border-radius: 15px;
 }
 
 .card-header:first-child {
@@ -11527,7 +11531,7 @@ a:focus {
 .sidebar {
     width: 6.5rem;
     min-height: 100vh;
-    background-color: #ce2029
+    background-color: navy
 }
 
 .sidebar .nav-item {
@@ -12615,7 +12619,7 @@ body.sidebar-toggled footer.sticky-footer {
 
 .yellow {
     /* background-color: #970747; */
-    background-color: #fbbd08;
+    background-color: #d4af37
 }
 
 .text-red {
@@ -12668,4 +12672,107 @@ body.sidebar-toggled footer.sticky-footer {
 
 .border-top-yellow {
     border-top: solid 2px #fbbd08;
+}
+.navy {
+    background-color: navy;
+}
+.border-left-navy {
+    border-left: solid 4px navy;
+}
+body{
+    background-color: #dee9ff;
+}
+
+.registration-form{
+	padding: 50px 0;
+}
+
+.registration-form form{
+    background-color: #fff;
+    max-width: 600px;
+    margin: auto;
+    padding: 50px 70px;
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .form-icon{
+	text-align: center;
+    background-color: navy;
+    border-radius: 50%;
+    font-size: 40px;
+    color: white;
+    width: 100px;
+    height: 100px;
+    margin: auto;
+    margin-bottom: 10px;
+    line-height: 100px;
+}
+
+.registration-form .item{
+	border-radius: 20px;
+    margin-bottom: 25px;
+    padding: 10px 20px;
+}
+
+.registration-form .create-account{
+    border-radius: 30px;
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: navy;
+    border: none;
+    color: white;
+    margin-top: 20px;
+}
+
+.registration-form .social-media{
+    max-width: 600px;
+    background-color: #fff;
+    margin: auto;
+    padding: 35px 0;
+    text-align: center;
+    border-bottom-left-radius: 30px;
+    border-bottom-right-radius: 30px;
+    color: #9fadca;
+    border-top: 1px solid #dee9ff;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.registration-form .social-icons{
+    margin-top: 30px;
+    margin-bottom: 16px;
+}
+
+.registration-form .social-icons a{
+    font-size: 23px;
+    margin: 0 3px;
+    color: #5691ff;
+    border: 1px solid;
+    border-radius: 50%;
+    width: 45px;
+    display: inline-block;
+    height: 45px;
+    text-align: center;
+    background-color: #fff;
+    line-height: 45px;
+}
+
+.registration-form .social-icons a:hover{
+    text-decoration: none;
+    opacity: 0.6;
+}
+
+@media (max-width: 576px) {
+    .registration-form form{
+        padding: 50px 20px;
+    }
+
+    .registration-form .form-icon{
+        width: 70px;
+        height: 70px;
+        font-size: 30px;
+        line-height: 70px;
+    }
 }

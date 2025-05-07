@@ -11,21 +11,21 @@
     <div class="row">
         <!-- Welcome Card -->
         <div class="col-md-6">
-            <div class="text-center card shadow text-white mb-4 p-3 red">
-                <h5 class="greetings">Selamat Datang, {{ Auth::user()->name }} <i class="fas fa-smile-wink"></i></h5>
+            <div class="text-center card shadow text-white mb-4 p-3 navy">
+                <h6 class="greetings">Selamat Datang, {{ Auth::user()->name }} <i class="fas fa-smile-wink"></i></h6>
                 <p class="text-center">
                     <span class="badge badge-success">
                     Excellent</span>
                 </p>
-                <a href="{{ route('laporan.personel') }}" class="btn bg-white btn-sm text-red"><strong>Lihat Laporan</strong></a>
+                <a href="{{ route('laporan.personel') }}" class="btn bg-white btn-sm"><strong>Lihat Laporan</strong></a>
             </div>
         </div>
 
         <!-- Statistics -->
         <div class="col-md-6">
             <div class="text-center card shadow mb-4">
-                <div class="card-header yellow">
-                    <h6 class="m-0 font-weight-bold text-white">STATISTIK</h6>
+                <div class="card-header">
+                    <h6 class="m-0">Statistik</h6>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -45,7 +45,7 @@
     <!-- Health & Reports -->
     <div class="row mt-3">
         <div class="col-md-4">
-            <div class="card border-left-red shadow mb-4 py-2">
+            <div class="card border-left-navy shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -62,7 +62,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card border-left-warning shadow mb-4 py-2">
+            <div class="card border-left-navy shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -79,7 +79,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card border-left-dark shadow mb-4 py-2">
+            <div class="card border-left-navy shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -100,8 +100,8 @@
     <div class="row mt-3 justify-content-center">
         <div class="col-md-6">
             <div class="card shadow mb-4">
-                <div class="card-header yellow">
-                    <h6 class="m-0 font-weight-bold text-white text-center">SHIFT PEGAWAI</h6>
+                <div class="card-header">
+                    <h6 class="m-0 text-center">Shift Pegawai</h6>
                 </div>
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
@@ -130,36 +130,11 @@
                                Kurang Fit
                             </span>
                         </ul>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- <div class="col-md-6">
-            <div class="card shadow mb-4">
-                <div class="card-header bg-gradient-primary">
-                    <h6 class="m-0 font-weight-bold text-white text-center">PEGAWAI TERSEDIA</h6>
-                </div><br>
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-
-                            <ul class="available">
-                                <li>Hartin Alfina - <span class="status-excellent">Excellent</span></li>
-                                <hr>
-                                <li>Arvi Arinal Khaqqo - <span class="status-excellent">Excellent</span></li>
-                                <hr>
-                                <li>Ryan Priyatna - <span class="status-good">Good</span></li>
-                                <hr>
-                                <li>Kasamuna Tedi R. - <span class="status-unfit">Kurang Fit</span></li>
-                                <hr>
-                            </ul>
-                        </div><br>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
     </div>
 @endsection
 @section('js')

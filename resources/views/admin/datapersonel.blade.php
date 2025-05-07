@@ -5,7 +5,7 @@
 
 @endsection
 @section('content')
-    <div class="card shadow border-left-yellow mb-4">
+
         @if (session('success'))
             <div class="alert alert-success">
                 {{ session('success') }}
@@ -21,8 +21,17 @@
                 </ul>
             </div>
         @endif
-        <div class="card-header yellow py-3 text-white">
-            <h6 class="m-0 font-weight-bold text-center">DATA DIRI</h6>
+        <div class="d-flex mb-2">
+            <a href="{{ route('list.personel') }}" class="btn navy text-white btn-icon-split">
+                <span class="icon text-white-50">
+                    <i class="fas fa-arrow-left"></i>
+                </span>
+                <span class="text">Kembali</span>
+            </a>
+        </div>
+        <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <h6 class="m-0 text-center">Data Diri</h6>
         </div>
         <div class="card-body">
             <div class="form-kuesioner">
@@ -41,7 +50,7 @@
                                 placeholder="Isikan Nama Lengkap . . ." required>
                         </div>
                     </div>
-                    <hr>
+<br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Email</b></label>
@@ -53,7 +62,7 @@
                                 placeholder="Isikan email . . ." required>
                         </div>
                     </div>
-                    <hr>
+<br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>NIK</b></label>
@@ -65,39 +74,53 @@
                                 required>
                         </div>
                     </div>
-                    <hr>
+<br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Tanggal Lahir</b></label>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-2">
-                            <input type="date" class="form-control" name="tanggal_lahir" required>
+                        <div class="col">
+                            <label class="form-label"><b>Status Pegawai</b></label>
                         </div>
                     </div>
-                    <hr>
-                    {{-- <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Role</b></label>
+                    <div class="row">
+                        <div class="col">
+                            <input type="date" class="form-control" name="tanggal_lahir" required>
+                        </div>
+                        <div class="col">
+                            <select name="status_akun" class="form-control">
+                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
+                                <option value="Aktif">Aktif</option>
+                                <option value="Tidak Aktif">Tidak Aktif</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="role">
-                        <label class="form-check-label" for="role">Administrator</label>
+<br>
+                    <div class="row">
+                        <div class="col">
+                            <label class="form-label"><b>Tipe Pegawai</b></label>
+                        </div>
+                        <div class="col">
+                            <label class="form-label"><b>Role</b></label>
+                        </div>
                     </div>
-                </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" type="radio" name="role" id="role">
-                        <label class="form-check-label" for="role">Personnel</label>
+                    <div class="row">
+                        <div class="col">
+                            <select name="status_pegawai" class="form-control" id="">
+                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
+                                <option value="Organik">Organik</option>
+                                <option value="Non-Organik">Non-Organik</option>
+                            </select>
+                        </div>
+                        <div class="col">
+                            <select name="role" class="form-control" id="">
+                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
+                                <option value="admin">Admin</option>
+                                <option value="personel">Personel</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
-                </div><hr> --}}
+<br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Grade</b></label>
@@ -109,7 +132,7 @@
                                 required>
                         </div>
                     </div>
-                    <hr>
+<br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Whatsapp</b></label>
@@ -121,37 +144,8 @@
                                 placeholder="Isikan No. Whatsapp . . ." required>
                         </div>
                     </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
-                            <label class="form-label"><b>Tipe Pegawai</b></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
-                            <select name="status_pegawai" class="form-control" id="">
-                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
-                                <option value="Organik">Organik</option>
-                                <option value="Non-Organik">Non-Organik</option>
-                            </select>
-                        </div>
-                    </div>
-                    {{-- <hr> --}}
-                    {{-- <div class="row">
-                        <div class="col">
-                            <label class="form-label"><b>Status</b></label>
-                        </div>
-                    </div> --}}
-                    {{-- <div class="row">
-                        <div class="col">
-                            <select name="status_akun" class="form-control" id="">
-                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
-                                <option value="Aktif">Aktif</option>
-                                <option value="Non-Aktif">Tidak Aktif</option>
-                            </select>
-                        </div>
-                    </div> --}}
-                    <hr>
+<br>
+
                     <div class="row ">
                         <div class="col">
                             <label class="form-label"><b>Foto Diri</b></label>
@@ -165,7 +159,7 @@
                         </div>
                     </div>
                     <div class="submitButton mb-4 d-flex justify-content-center">
-                        <button type="submit" class="btn grey btn-grey:hover text-white">Tambahkan</button>
+                        <button type="submit" class="btn navy btn-grey:hover text-white">Tambahkan</button>
                     </div>
                 </form>
             </div>
