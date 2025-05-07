@@ -203,9 +203,39 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a href="#" class="btn red text-white btn-circle btn-sm">
-                                                    <i class="fas fa-trash"></i>
-                                                    </a>
+                                                <form action="{{ route('sertifikasi.destroy', $row->user_id) }}" method="POST" style="display:inline;">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#confirmDeleteModal"
+                                                    data-id="{{ $row->user_id}}"
+                                                    data-action="{{ route('sertifikasi.destroy', $row->user_id) }}">
+                                                        <i class="fas fa-trash"></i>
+                                                    </button>
+                                                </form>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                    <form method="POST" id="deleteForm">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title">Konfirmasi Hapus</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Tutup">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            Apakah data ini yakin dihapus ?
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                                            <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+                                                        </div>
+                                                        </div>
+                                                    </form>
+                                                    </div>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -284,4 +314,14 @@
             });
         });
     </script>
+
+<script>
+    $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var action = button.data('action')
+
+        var modal = $(this)
+        modal.find('#deleteForm').attr('action', action)
+    })
+</script>
 @endsection

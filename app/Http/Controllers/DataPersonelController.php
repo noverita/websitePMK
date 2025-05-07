@@ -24,7 +24,7 @@ class DataPersonelController extends Controller
         // Validasi input
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
-            'role' => 'required|nullable|in:admin,personel',
+            'role' => 'required|nullable|in:admin,personnel',
             'nama_lengkap' => 'required|string|max:255',
             'nik' => 'required|string|max:20|unique:data_personnels,nik',
             'tanggal_lahir' => 'nullable|date',
@@ -314,7 +314,28 @@ class DataPersonelController extends Controller
 
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
         }
-    }
+            }
+
+            public function destroySertifikasi($id)
+            {
+                DB::beginTransaction();
+
+                try {
+                    // Fetch the sertifikasi
+                    $sertifikasi = DB::table('sertifikasis')->where('user_id', $id)->first();
+
+                    if (!$sertifikasi) {
+                        return redirect()->back()->with('error', 'Data personel tidak ditemukan.');
+                    }
+
+                    DB::commit();
+                    return redirect()->back()->with('success', 'Data personel berhasil dihapus.');
+                } catch (\Throwable $e) {
+                    DB::rollBack();
+                    Log::error('Gagal menghapus data personel: ' . $e->getMessage());
+                    return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');
+                }
+            }
 
     //pelatihan
     public function showPelatihan($user_id)

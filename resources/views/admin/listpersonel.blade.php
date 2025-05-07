@@ -59,7 +59,7 @@
                                         @method('DELETE')
                                         <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#confirmDeleteModal"
                                         data-id="{{ $p->user_id}}"
-                                        data-action="{{ route('datakesehatan.destroy', $p->user_id) }}">
+                                        data-action="{{ route('datapersonel.destroy', $p->user_id) }}">
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </form>
@@ -106,5 +106,13 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
 
+    <script>
+        $('#confirmDeleteModal').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget)
+            var action = button.data('action')
+
+            var modal = $(this)
+            modal.find('#deleteForm').attr('action', action)
+        })
     </script>
 @endsection

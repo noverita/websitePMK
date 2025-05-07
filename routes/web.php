@@ -60,6 +60,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
         ->name('sertifikasi.store');
     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])->name('profil.personel');
     Route::get('/admin/sertifikasi-personel/{user_id}', [DataPersonelController::class, 'showSertifikasi'])->name('sertifikasi.personel');
+    Route::get('/admin/sertifikasi-personel/delete/{user_id}', [DataPersonelController::class, 'destroySertifikasi'])->name('sertifikasi.destroy');
     // Route::get('/admin/pelatihan-personel/{user_id}', [PelatihanController::class, 'showPelatihan']);
     Route::get('/admin/pelatihan/add/{user_id}', [DataPersonelController::class, 'createPelatihan'])->name('pelatihan.create');
     Route::post('/admin/store-pelatihan', [DataPersonelController::class, 'storePelatihan'])->name('pelatihan.store');

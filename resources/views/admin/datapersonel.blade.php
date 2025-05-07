@@ -6,30 +6,30 @@
 @endsection
 @section('content')
 
-        @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
-        @endif
-
-        @if (session('error'))
-            <div class="alert alert-danger">
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-        <div class="d-flex mb-2">
-            <a href="{{ route('list.personel') }}" class="btn navy text-white btn-icon-split">
-                <span class="icon text-white-50">
-                    <i class="fas fa-arrow-left"></i>
-                </span>
-                <span class="text">Kembali</span>
-            </a>
+    @if (session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
         </div>
-        <div class="card shadow mb-4">
+    @endif
+
+    @if (session('error'))
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <div class="d-flex mb-2">
+        <a href="{{ route('list.personel') }}" class="btn navy text-white btn-icon-split">
+            <span class="icon text-white-50">
+                <i class="fas fa-arrow-left"></i>
+            </span>
+            <span class="text">Kembali</span>
+        </a>
+    </div>
+    <div class="card shadow mb-4">
         <div class="card-header py-3">
             <h6 class="m-0 text-center">Data Diri</h6>
         </div>
@@ -50,7 +50,7 @@
                                 placeholder="Isikan Nama Lengkap . . ." required>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Email</b></label>
@@ -58,11 +58,11 @@
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input type="email" class="form-control" name="email"
-                                placeholder="Isikan email . . ." required>
+                            <input type="email" class="form-control" name="email" placeholder="Isikan email . . ."
+                                required>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>NIK</b></label>
@@ -74,7 +74,7 @@
                                 required>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Tanggal Lahir</b></label>
@@ -95,7 +95,7 @@
                             </select>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Tipe Pegawai</b></label>
@@ -116,11 +116,11 @@
                             <select name="role" class="form-control" id="">
                                 <option value="" disabled selected hidden>Pilih Salah Satu</option>
                                 <option value="admin">Admin</option>
-                                <option value="personel">Personel</option>
+                                <option value="personnel">Personel</option>
                             </select>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Grade</b></label>
@@ -132,7 +132,7 @@
                                 required>
                         </div>
                     </div>
-<br>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Whatsapp</b></label>
@@ -144,7 +144,7 @@
                                 placeholder="Isikan No. Whatsapp . . ." required>
                         </div>
                     </div>
-<br>
+                    <br>
 
                     <div class="row ">
                         <div class="col">
@@ -154,7 +154,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-check form-check-inline">
-                                <input type="file" class="form-check-input mb-4" name="foto_diri" required>
+                                <input type="file" class="form-check-input mb-4" name="foto_diri">
                             </div>
                         </div>
                     </div>
