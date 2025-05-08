@@ -64,97 +64,70 @@
     <div class="tab-content" id="pills-tabContent">
         <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
             <div class="row">
-                <div class="col-md-12">
-                    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn navy text-white btn-icon-split mb-4">
+                <div class="col-2">
+                </div>
+                <div class="col-md-8">
+                    <a href="{{ route('datapersonel.edit', $personel->user_id) }}" class="btn navy text-white btn-icon-split mb-2">
                         <span class="icon text-white-50">
                             <i class="fas fa-edit"></i>
                         </span>
                         <span class="text">Edit Profil</span>
                     </a>
                 </div>
-                <div class="col-md-12">
-                    <div class="card shadow">
+                <div class="col-2">
+                </div>
+<div class="col-2">
+</div>
+                <div class="col-md-8">
+                    <div class="card shadow mb-4">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col">
-                                    Nama Lengkap
-                                </div>
-                                <div class="col">
-                                    {{ $personel->nama_lengkap }}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    NIK
-                                </div>
-                                <div class="col">
-                                    {{ $personel->nik }}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    Role
-                                </div>
-                                <div class="col">
-                                    {{ $personel->role }}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    Grade
-                                </div>
-                                <div class="col">
-                                    {{ $personel->grade }}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    No. Whatsapp
-                                </div>
-                                <div class="col">
-                                    {{ $personel->whatsapp }}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    Email
-                                </div>
-                                <div class="col">
-                                    {{$personel->email}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                    Tipe Pegawai
-                                </div>
-                                <div class="col">
-                                    {{$personel->status_pegawai}}
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="row">
-                                <div class="col">
-                                   Status Pegawai
-                                </div>
-                                <div class="col">
-                                    {{$personel->status_akun}}
-                                </div>
-                            </div>
+                            <table class="table table-striped">
+                                <tbody>
+                                    <tr>
+                                        <th scope="row">Nama Lengkap</th>
+                                        <td>{{ $personel->nama_lengkap }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">NIK</th>
+                                        <td>{{ $personel->nik }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Grade</th>
+                                        <td>{{ $personel->grade }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Tipe Pegawai</th>
+                                        <td>{{ $personel->status_pegawai }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">No. Whatsapp</th>
+                                        <td>{{ $personel->whatsapp }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Email</th>
+                                        <td>{{ $personel->email }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Role</th>
+                                        <td>{{ $personel->role }}</td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">Status Pegawai</th>
+                                        <td>{{ $personel->status_akun }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="col-2">
+        </div>
         <div class="tab-pane fade" id="pills-sertifikat" role="tabpanel" aria-labelledby="pills-sertifikat-tab">
             <div class="row">
                 <div class="col-md-12">
-                    <a href="{{ route('sertifikasi.create', ['id' => $personel->user_id]) }}" class="btn navy text-white btn-icon-split mb-4">
+                    <a href="{{ route('sertifikasi.create', ['id' => $personel->user_id]) }}" class="btn navy text-white btn-icon-split mb-2">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -203,12 +176,14 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <form action="{{ route('sertifikasi.destroy', $row->user_id) }}" method="POST" style="display:inline;">
+                                                <form action="{{ route('sertifikasi.destroy', $row->id) }}" method="POST"
+                                                    style="display:inline;">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="button" class="btn btn-danger btn-circle btn-sm" data-toggle="modal" data-target="#confirmDeleteModal"
-                                                    data-id="{{ $row->user_id}}"
-                                                    data-action="{{ route('sertifikasi.destroy', $row->user_id) }}">
+                                                    <button type="button" class="btn btn-danger btn-circle btn-sm"
+                                                        data-toggle="modal" data-target="#confirmDeleteModal"
+                                                        data-id="{{ $row->id }}"
+                                                        data-action="{{ route('sertifikasi.destroy', $row->id) }}">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
                                                 </form>
@@ -250,7 +225,7 @@
         <div class="tab-pane fade" id="pills-pelatihan" role="tabpanel" aria-labelledby="pills-pelatihan-tab">
             <div class="row">
                 <div class="col-md-8">
-                    <a href="{{ route('pelatihan.create', $personel->user_id) }}" class="btn navy text-white btn-icon-split mb-4">
+                    <a href="{{ route('pelatihan.create', $personel->user_id) }}" class="btn navy text-white btn-icon-split mb-2">
                         <span class="icon text-white-50">
                             <i class="fas fa-plus"></i>
                         </span>
@@ -277,10 +252,7 @@
                                             <td>{{ \Carbon\Carbon::parse($p->date_pelatihan)->translatedFormat('d F Y') }}</td>
                                             <td>
                                                 <a href="#" class="btn red btn-circle text-white btn-sm">
-
                                                         <i class="fas fa-trash"></i>
-
-
                                                 </a>
                                             </td>
                                         </tr>

@@ -33,7 +33,7 @@
                 </button>
         </div>
     @endif
-    <a href="{{route('datakesehatan.create')}}" class="btn navy btn-icon-split text-white mb-4">
+    <a href="{{route('datakesehatan.create')}}" class="btn navy btn-icon-split text-white mb-2">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>
@@ -148,6 +148,18 @@
 
     <!-- Page level custom scripts -->
     <script src="{{ asset('assets/js/demo/datatables-demo.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('#dataSertifikat').DataTable({
+                paging: true,
+                searching: true
+            });
+            $('#dataPelatihan').DataTable({
+                paging: true,
+                searching: true
+            });
+        });
+    </script>
     <script>
         $('#confirmDeleteModal').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget)

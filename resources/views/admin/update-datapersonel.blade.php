@@ -60,12 +60,12 @@
                     <hr>
 
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Tanggal Lahir</b></label>
                             <input type="date" class="form-control" name="tanggal_lahir"
                                 value="{{ $personel->tanggal_lahir }}" required>
                         </div>
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Status Pegawai</b></label>
                             <select name="status_akun" class="form-control">
                                 <option value="" disabled selected hidden>Pilih Salah Satu</option>
@@ -76,7 +76,7 @@
                     </div>
                     <hr>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Tipe Pegawai</b></label>
                             <select name="status_pegawai" id="" class="form-control">
                                 <option value="Organik"
@@ -87,7 +87,7 @@
                                     Non-Organik</option>
                             </select>
                         </div>
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Role</b></label>
                             <select name="role" class="form-control">
                                 <option value="admin" {{ old('role', $personel->role ?? '') == 'admin' ? 'selected' : '' }}>Admin</option>

@@ -76,18 +76,18 @@
                     </div>
                     <br>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Tanggal Lahir</b></label>
                         </div>
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Status Pegawai</b></label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <input type="date" class="form-control" name="tanggal_lahir" required>
                         </div>
-                        <div class="col">
+                        <div class="col-6">
                             <select name="status_akun" class="form-control">
                                 <option value="" disabled selected hidden>Pilih Salah Satu</option>
                                 <option value="Aktif">Aktif</option>
@@ -149,6 +149,7 @@
                     <div class="row ">
                         <div class="col">
                             <label class="form-label"><b>Foto Diri</b></label>
+                            <label style="font-size: 10px">(Ukuran file tidak lebih dari 2 MB, bentuk .jpeg, .jpg, .png)</label>
                         </div>
                     </div>
                     <div class="row">

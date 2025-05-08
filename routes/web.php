@@ -49,33 +49,21 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::put('/admin/datapersonel/update/{id}', [DataPersonelController::class, 'updateData'])->name('datapersonel.update');
     Route::delete('/admin/datapersonel/delete/{id}', [DataPersonelController::class, 'destroyData'])->name('datapersonel.destroy');
     Route::get('/admin/sertifikasi/add/{id}', [DataPersonelController::class, 'createSertifikasi'])->name('sertifikasi.create');
-
-    //     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])
-    //     ->name('profil.personel');
-
-    //     Route::get('/admin/sertifikasi-personel/{user_id}', [SertifikasiController::class, 'showSertifikasi'])
-    //     ->name('sertifikasi.personel');
-
     Route::post('/admin/store-sertifikasi', [DataPersonelController::class, 'storeSertifikasi'])
         ->name('sertifikasi.store');
     Route::get('/admin/profil-personel/{id}', [DataPersonelController::class, 'showProfile'])->name('profil.personel');
     Route::get('/admin/sertifikasi-personel/{user_id}', [DataPersonelController::class, 'showSertifikasi'])->name('sertifikasi.personel');
-    Route::get('/admin/sertifikasi-personel/delete/{user_id}', [DataPersonelController::class, 'destroySertifikasi'])->name('sertifikasi.destroy');
-    // Route::get('/admin/pelatihan-personel/{user_id}', [PelatihanController::class, 'showPelatihan']);
+    Route::delete('/admin/profil-personel/sertifikasi/delete/{id}', [DataPersonelController::class, 'destroySertifikasi'])->name('sertifikasi.destroy');
     Route::get('/admin/pelatihan/add/{user_id}', [DataPersonelController::class, 'createPelatihan'])->name('pelatihan.create');
     Route::post('/admin/store-pelatihan', [DataPersonelController::class, 'storePelatihan'])->name('pelatihan.store');
     Route::get('/admin/pelatihan-personel/{id}', [DataPersonelController::class, 'showPelatihan'])->name('pelatihan.personel');
-
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
-
-    Route::get('/admin/user-management', [UserManagementController::class, 'showUserManagement'])->name('user.management');
-    Route::get('/admin/user-management/add', [UserManagementController::class, 'createUserManagement'])->name('usermgt.create');
+    // Route::get('/admin/user-management', [UserManagementController::class, 'showUserManagement'])->name('user.management');
+    // Route::get('/admin/user-management/add', [UserManagementController::class, 'createUserManagement'])->name('usermgt.create');
     Route::get('/admin/data-kesehatan-personel', [DataKesehatanController::class, 'showDataKesehatan'])->name('data.kesehatan');
     Route::get('/admin/data-kesehatan-personel/add', [DataKesehatanController::class, 'createDataKesehatan'])->name('datakesehatan.create');
     Route::post('/admin/store-data-kesehatan', [DataKesehatanController::class, 'storeDataKesehatan'])->name('datakesehatan.store');
     Route::delete('/admin/data-kesehatan/{id}', [DataKesehatanController::class, 'destroyDataKesehatan'])->name('datakesehatan.destroy');
-
-
 });
 
 // Protecting personnel routes

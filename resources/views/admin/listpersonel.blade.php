@@ -12,7 +12,7 @@
     {{-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank"
                             href="https://datatables.net">official DataTables documentation</a>.</p> --}}
-    <a href="{{ route('datapersonel.create') }}" class="btn navy btn-icon-split text-white mb-4">
+    <a href="{{ route('datapersonel.create') }}" class="btn navy btn-icon-split text-white mb-2">
         <span class="icon text-white-50">
             <i class="fas fa-plus"></i>
         </span>

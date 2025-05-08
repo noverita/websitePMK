@@ -45,40 +45,29 @@
                     @method('POST')
                     <div class="row">
                         <input type="hidden" value="{{$id}}" name="user_id">
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Nama Pelatihan</b></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
                             <input type="text" class="form-control" name="nama_pelatihan"
                                 placeholder="Isikan Nama Pelatihan . . ." required>
                         </div>
-                    </div>
-                    <hr>
-                    <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Penyelenggara</b></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col">
                             <input type="text" class="form-control" name="penyelanggara"
-                                placeholder="Isikan Nama Penyelenggara . . ." required>
+                            placeholder="Isikan Nama Penyelenggara . . ." required>
                         </div>
-                    </div>
-                    <hr>
+                    </div> <br>
+
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Tanggal Pelatihan</b></label>
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-4">
+                        <div class="col-6">
                             <input type="date" class="form-control" name="date_pelatihan">
                         </div>
                     </div><br>
-                    <div class="submitButton mb-4 d-flex justify-content-center">
+                    <div class="submitButton mt-4 mb-4 d-flex justify-content-center">
                         <button type="submit" class="btn navy text-white">Tambahkan</button>
                     </div>
                 </form>

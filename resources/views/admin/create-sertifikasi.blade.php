@@ -54,7 +54,7 @@
                                 placeholder="Isikan Nama Sertifikasi . . .">
                         </div>
                     </div>
-                    <hr>
+                    <br>
 
                     <div class="row">
                         <div class="col">
@@ -67,43 +67,32 @@
                                 placeholder="Isikan Jenis Lisensi . . .">
                         </div>
                     </div>
-                    <hr>
+                    <br>
 
                     <div class="row">
-                        <div class="col">
-                            <label class="form-label"><b>Apakah sudah memiliki SKP PT?</b></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
+                        <div class="col-6">
+                            <label class="form-label"><b>Memiliki SKP PT?</b></label>
                             <select name="skp_pt" class="form-control">
                                 <option value=""selected>Pilih Salah Satu</option>
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>
-
                         </div>
-                    </div><hr>
-
-                    <div class="row">
-                        <div class="col">
+                        <div class="col-6">
                             <label class="form-label"><b>Tanggal Expired</b></label>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-4">
                             <input type="date" class="form-control" name="expired_date">
                         </div>
                     </div>
-                    <hr>
+                    <br>
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Masukkan File Sertifikat</b></label>
+                            <label style="font-size: 10px">(Ukuran file tidak lebih dari 2 MB, bentuk .jpeg, .jpg, .png)</label>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <input class="form-control mb-4" type="file" name="file_sertifikat">
+                            <input class="mb-4" type="file" name="file_sertifikat">
                         </div>
                     </div>
 
@@ -113,8 +102,6 @@
                 </form>
             </div>
         </div>
-
-
     </div>
 @endsection
 @section('js')
