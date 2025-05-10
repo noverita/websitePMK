@@ -94,10 +94,10 @@ class DataPersonelController extends Controller
     {
         // Fetch the personnel record by ID
         $personel = DB::table('data_personnels')
-        ->join('users', 'users.id', '=', 'data_personnels.user_id')
-        ->select('data_personnels.*', 'users.role') // include role
-        ->where('data_personnels.user_id', $id)
-        ->first();
+            ->join('users', 'users.id', '=', 'data_personnels.user_id')
+            ->select('data_personnels.*', 'users.role') // include role
+            ->where('data_personnels.user_id', $id)
+            ->first();
 
         if (!$personel) {
             return redirect('/admin/daftar-personel')->with('error', 'Data personel tidak ditemukan!');
@@ -110,10 +110,10 @@ class DataPersonelController extends Controller
     {
         $validated = $request->validate([
             'nama_lengkap'   => 'required|string|max:255',
-            'nik'            => 'string|max:25',
-            'tanggal_lahir'  => 'date',
-            'grade'          => 'string|max:255',
-            'whatsapp'       => 'string|max:20',
+            'nik'            => 'nullable|string|max:25',
+            'tanggal_lahir'  => 'nullable|date',
+            'grade'          => 'nullable|string|max:255',
+            'whatsapp'       => 'nullable|string|max:20',
             'status_pegawai' => 'in:Organik,Non-Organik',
             'status_akun'      => 'in:Aktif,Tidak Aktif',
             'foto_diri'      => 'nullable|image|mimes:jpg,jpeg,png',
@@ -127,7 +127,7 @@ class DataPersonelController extends Controller
 
         if ($request->hasFile('foto_diri')) {
             $file = $request->file('foto_diri');
-            $fileName = date('Ymd') . $validated['nama_lengkap'] . '_' . $file->getClientOriginalName();
+            $fileName = date('Ymd') . '_' . Str::slug($validated['nama_lengkap']) . '_' . $file->getClientOriginalName();
             $filePath = $file->storeAs('profile_pictures', $fileName, 'public');
 
             if ($personel->foto_diri && Storage::disk('public')->exists($personel->foto_diri)) {
@@ -314,28 +314,28 @@ class DataPersonelController extends Controller
 
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
         }
+    }
+
+    public function destroySertifikasi($id)
+    {
+        DB::beginTransaction();
+
+        try {
+            // Fetch the sertifikasi
+            DB::table('sertifikasis')->where('id', $id)->delete();
+
+            if (!$id) {
+                return redirect()->back()->with('error', 'Data tidak ditemukan.');
             }
 
-            public function destroySertifikasi($id)
-            {
-                DB::beginTransaction();
-
-                try {
-                    // Fetch the sertifikasi
-                    $sertifikasi = DB::table('sertifikasis')->where('user_id', $id)->first();
-
-                    if (!$sertifikasi) {
-                        return redirect()->back()->with('error', 'Data personel tidak ditemukan.');
-                    }
-
-                    DB::commit();
-                    return redirect()->back()->with('success', 'Data personel berhasil dihapus.');
-                } catch (\Throwable $e) {
-                    DB::rollBack();
-                    Log::error('Gagal menghapus data personel: ' . $e->getMessage());
-                    return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');
-                }
-            }
+            DB::commit();
+            return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            Log::error('Gagal menghapus data personel: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');
+        }
+    }
 
     //pelatihan
     public function showPelatihan($user_id)
@@ -386,6 +386,27 @@ class DataPersonelController extends Controller
         } catch (\Throwable $e) {
             DB::rollBack();
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
+        }
+    }
+
+    public function destroyPelatihan($id)
+    {
+        DB::beginTransaction();
+
+        try {
+            // Fetch the pelatihan
+            DB::table('pelatihans')->where('id', $id)->delete();
+
+            if (!$id) {
+                return redirect()->back()->with('error', 'Data tidak ditemukan.');
+            }
+
+            DB::commit();
+            return redirect()->back()->with('success', 'Data berhasil dihapus.');
+        } catch (\Throwable $e) {
+            DB::rollBack();
+            Log::error('Gagal menghapus data personel: ' . $e->getMessage());
+            return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');
         }
     }
 }

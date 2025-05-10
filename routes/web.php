@@ -57,6 +57,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/pelatihan/add/{user_id}', [DataPersonelController::class, 'createPelatihan'])->name('pelatihan.create');
     Route::post('/admin/store-pelatihan', [DataPersonelController::class, 'storePelatihan'])->name('pelatihan.store');
     Route::get('/admin/pelatihan-personel/{id}', [DataPersonelController::class, 'showPelatihan'])->name('pelatihan.personel');
+    Route::delete('/admin/profil-personel/pelatihan/delete/{id}', [DataPersonelController::class, 'destroyPelatihan'])->name('pelatihan.destroy');
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
     // Route::get('/admin/user-management', [UserManagementController::class, 'showUserManagement'])->name('user.management');
     // Route::get('/admin/user-management/add', [UserManagementController::class, 'createUserManagement'])->name('usermgt.create');

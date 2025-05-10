@@ -73,7 +73,7 @@
                         <div class="col-6">
                             <label class="form-label"><b>Memiliki SKP PT?</b></label>
                             <select name="skp_pt" class="form-control">
-                                <option value=""selected>Pilih Salah Satu</option>
+                                <option value=""selected hidden disabled>Pilih Salah Satu</option>
                                 <option value="1">Ya</option>
                                 <option value="0">Tidak</option>
                             </select>
@@ -87,7 +87,7 @@
                     <div class="row">
                         <div class="col">
                             <label class="form-label"><b>Masukkan File Sertifikat</b></label>
-                            <label style="font-size: 10px">(Ukuran file tidak lebih dari 2 MB, bentuk .jpeg, .jpg, .png)</label>
+                            <label style="font-size: 10px">(Ukuran file tidak lebih dari 2 MB, format: .pdf,.jpeg,.jpg,.png)</label>
                         </div>
                     </div>
                     <div class="row">

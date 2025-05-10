@@ -76,7 +76,7 @@
                         </div>
                         <div class="col-6">
                             <label class="form-label"><b>Surat Keterangan Sehat</b></label>
-                            <label style="font-size: 10px">(Ukuran file tidak lebih dari 2 MB, bentuk .jpeg, .jpg, .png)</label>
+                            <label style="font-size: 10px">(Ukuran file tidak lebih dari 2 MB, format: .pdf,.jpeg,.jpg,.png)</label>
                             <div class="row">
                             <input type="file" name="surat_keterangan">
                         </div>

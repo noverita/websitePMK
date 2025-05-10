@@ -173,7 +173,6 @@
                                 </ul>
                             </div>
                         </div>
-
                         <div class="tab-pane fade" id="pills-kesehatan" role="tabpanel"
                             aria-labelledby="pills-kesehatan-tab">
                             <div class="row ml-2 mr-2">
@@ -187,7 +186,9 @@
                             </div>
                             <hr>
 
-
+                            <div class="row ml-2 mr-2 py-2">
+                                <h6><b>Tes WAT</b></h6>
+                            </div>
                             <div class="row ml-2 mr-2 py-2">
                                 <p><b>A1 : Berjalan Keluar Garis</b></p>
                             </div>
@@ -261,6 +262,10 @@
                                 </ul>
                             </div>
                             <hr>
+                            <div class="row ml-2 mr-2 py-2">
+                                <h6><b>Tes WAT</b></h6>
+                            </div>
+
                             <div class="row ml-2 mr-2 py-2">
                                 <p><b>B1 : Selalu bergoyang / tidak seimbang</b></p>
                             </div>

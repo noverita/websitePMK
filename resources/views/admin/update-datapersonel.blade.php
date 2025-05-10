@@ -33,9 +33,9 @@
             <span class="text">Kembali</span>
         </a>
     </div>
-    <div class="card shadow">
+    <div class="card shadow mb-4">
         <div class="card-header py-3 text-center">
-            <h6 class="m-0 font-weight-bold">Data Diri</h6>
+            <h6 class="m-0"> Edit Data Diri</h6>
         </div>
         <div class="card-body ">
             <div class="form-kuesioner">
@@ -67,10 +67,13 @@
                         </div>
                         <div class="col-6">
                             <label class="form-label"><b>Status Pegawai</b></label>
-                            <select name="status_akun" class="form-control">
-                                <option value="" disabled selected hidden>Pilih Salah Satu</option>
-                                <option value="Aktif">Aktif</option>
-                                <option value="Tidak Aktif">Tidak Aktif</option>
+                            <select name="status_akun" id="" class="form-control">
+                                <option value="Aktif"
+                                    {{ old('status_akun', $personel->status_akun) == 'Aktif' ? 'selected' : '' }}>
+                                    Aktif</option>
+                                <option value="Tidak Aktif"
+                                    {{ old('status_akun', $personel->status_akun) == 'Tidak Aktif' ? 'selected' : '' }}>
+                                    Tidak Aktif</option>
                             </select>
                         </div>
                     </div>
@@ -113,6 +116,7 @@
                     <div class="row ">
                         <div class="col">
                             <label class="form-label"><b>Foto Diri</b></label>
+                            <label style="font-size: 10px">(Ukuran file tidak lebih dari 2 MB, format: .jpeg,.jpg,.png)</label>
                         </div>
                     </div>
                     <div class="row">
