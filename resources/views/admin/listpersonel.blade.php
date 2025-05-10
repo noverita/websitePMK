@@ -45,7 +45,7 @@
                                 <td>{{ $p->nama_lengkap }}</td>
                                 <td>{{ $p->nik }}</td>
                                 <td>{{ $p->grade }}</td>
-                                <td>{{ $p->status_akun }}</td>
+                                <td>{{$p->status_akun}}</td>
                                 <td>
                                     <a href="{{ route('profil.personel', $p->user_id) }}"
                                         class="btn navy text-white btn-circle btn-sm">

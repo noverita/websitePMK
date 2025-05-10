@@ -145,7 +145,17 @@
                         </div>
                     </div>
                     <br>
-
+                    <div class="row">
+                       <div class="col">
+                            <label class="form-label"><b>Password</b></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="password" class="form-control" name="password" required>
+                        </div>
+                    </div>
+                    <br>
                     <div class="row ">
                         <div class="col">
                             <label class="form-label"><b>Foto Diri</b></label>

@@ -22,8 +22,10 @@ class DataPersonelController extends Controller
     public function storeData(Request $request)
     {
         // Validasi input
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
+            'password' => 'required|min:8',
             'role' => 'required|nullable|in:admin,personnel',
             'nama_lengkap' => 'required|string|max:255',
             'nik' => 'required|string|max:20|unique:data_personnels,nik',
@@ -44,15 +46,13 @@ class DataPersonelController extends Controller
         try {
             DB::beginTransaction();
 
-            // Generate password dari NIK
-            $generatedPassword = bcrypt($validatedData['nik']);
-
             // Simpan user
             $userId = DB::table('users')->insertGetId([
                 'name' => $validatedData['nama_lengkap'],
                 'email' => $validatedData['email'],
-                'password' => $generatedPassword,
+                'password' => bcrypt($validatedData['password']),
                 'role' => $validatedData['role'],
+                'status_akun' => $validatedData['status_akun'],
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
@@ -73,7 +73,6 @@ class DataPersonelController extends Controller
                 'grade' => $validatedData['grade'] ?? null,
                 'whatsapp' => $validatedData['whatsapp'] ?? null,
                 'status_pegawai' => $validatedData['status_pegawai'] ?? null,
-                'status_akun' => $validatedData['status_akun'] ?? null,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
