@@ -26,7 +26,7 @@ class DataPersonelController extends Controller
         $validator = Validator::make($request->all(), [
             'email' => 'required|email',
             'password' => 'required|min:8',
-            'role' => 'required|nullable|in:admin,personnel',
+            'role' => 'required|in:admin,personnel',
             'nama_lengkap' => 'required|string|max:255',
             'nik' => 'required|string|max:20|unique:data_personnels,nik',
             'tanggal_lahir' => 'nullable|date',
@@ -121,7 +121,7 @@ class DataPersonelController extends Controller
         $personel = DB::table('data_personnels')->where('user_id', $id)->first();
 
         if (!$personel) {
-            return redirect()->back()->with('error', 'Data profil tidak ditemukan.');
+            return redirect()->back()->with('error', 'Data tidak ditemukan.');
         }
 
         if ($request->hasFile('foto_diri')) {
@@ -269,7 +269,7 @@ class DataPersonelController extends Controller
             'jenis_lisensi' => 'required|string|max:50',
             'skp_pt' => 'required',
             'expired_date' => 'required|date|after:today',
-            'file_sertifikat' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'file_sertifikat' => 'required|file|mimes:pdf|max:2048',
         ]);
         $userId = $validated['user_id'];
         $user = DB::table('data_personnels')
@@ -342,7 +342,7 @@ class DataPersonelController extends Controller
         $personel = DB::table('data_personnels')->where('user_id', $user_id)->first();
 
         if (!$personel) {
-            return redirect()->back()->with('error', 'Personnel data not found.');
+            return redirect()->back()->with('error', 'Data Personel tidak ditemukan');
         }
 
         $pelatihans = DB::table('pelatihans')

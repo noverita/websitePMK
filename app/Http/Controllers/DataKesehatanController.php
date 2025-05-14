@@ -33,7 +33,7 @@ class DataKesehatanController extends Controller
             'year' => 'required|string',
             'hasil_kesehatan' => 'required|string',
             'catatan_kesehatan' => 'nullable|string',
-            'surat_keterangan' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'surat_keterangan' => 'required|file|mimes:pdf|max:2048',
         ]);
         if ($validator->fails()) {
             return response()->json(['errors' => $validator->errors()], 422);
