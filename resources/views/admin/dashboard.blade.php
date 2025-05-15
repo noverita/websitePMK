@@ -45,7 +45,7 @@
     <!-- Health & Reports -->
     <div class="row mt-3">
         <div class="col-md-4">
-            <div class="card border-left-navy shadow mb-4 py-2">
+            <div class="card shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -62,7 +62,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card border-left-navy shadow mb-4 py-2">
+            <div class="card shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
@@ -79,7 +79,7 @@
         </div>
 
         <div class="col-md-4">
-            <div class="card border-left-navy shadow mb-4 py-2">
+            <div class="card shadow mb-4 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">

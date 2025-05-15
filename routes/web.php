@@ -65,6 +65,18 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/data-kesehatan-personel/add', [DataKesehatanController::class, 'createDataKesehatan'])->name('datakesehatan.create');
     Route::post('/admin/store-data-kesehatan', [DataKesehatanController::class, 'storeDataKesehatan'])->name('datakesehatan.store');
     Route::delete('/admin/data-kesehatan/{id}', [DataKesehatanController::class, 'destroyDataKesehatan'])->name('datakesehatan.destroy');
+Route::get('/file/view/{path}', function ($path) {
+    $decoded = base64_decode($path); // Encode paths to pass them safely in URL
+    $fullPath = storage_path('app/public/' . $decoded);
+
+    if (!file_exists($fullPath)) {
+        abort(404, 'File not found');
+    }
+
+    return response()->file($fullPath);
+})->where('path', '.*')->name('file.view');
+
+
 });
 
 // Protecting personnel routes

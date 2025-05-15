@@ -23,7 +23,7 @@
                             </p>
                             <p class="text-muted mb-0">
                                 <i class="fas fa-calendar-alt px-3"></i>
-                                {{\Carbon\Carbon::parse($personel->tanggal_lahir)->translatedFormat('d F Y') }}
+                                {{ \Carbon\Carbon::parse($personel->tanggal_lahir)->translatedFormat('d F Y') }}
                             </p>
                         </div>
                     </div>
@@ -134,10 +134,9 @@
                                         <tr>
                                             <th>Nama Sertifikasi</th>
                                             <th>Jenis Lisensi</th>
-                                            <th>Memiliki SKP PT?</th>
+                                            <th>Memiliki SKP-PT?</th>
                                             <th>Berlaku Hingga</th>
                                             <th>Status Sertifikasi</th>
-                                            <th>File Sertifikat</th>
                                             <th>Opsi</th>
                                         </tr>
                                     </thead>
@@ -162,13 +161,19 @@
                                                         {{ $row->status }}
                                                     </span>
                                                 </td>
+
                                                 <td>
-                                                    <a href="{{ asset('storage/' . $row->file_sertifikat) }}"
+                                                    <a class="btn text-white grey btn-circle btn-sm"
+                                                        href="{{ route('file.view', base64_encode($row->file_sertifikat)) }}"
+                                                        target="_blank">
+                                                        <i class="fas fa-eye"></i>
+                                                    </a>
+
+
+                                                    {{-- <a href="{{ asset('storage/' . $row->file_sertifikat) }}"
                                                         class="btn text-white grey btn-circle btn-sm" download>
                                                         <i class="fas fa-download"></i>
-                                                    </a>
-                                                </td>
-                                                <td>
+                                                    </a> --}}
                                                     <form action="{{ route('sertifikasi.destroy', $row->id) }}"
                                                         method="POST" style="display:inline;">
                                                         @csrf
@@ -279,7 +284,7 @@
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                     </div>
-                                                                    <div class="modal-body">Apakah data ini yakin dihapus ?
+                                                                    <div class="modal-body">Apakah yakin untuk menghapus file sertifikat ini?
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary"

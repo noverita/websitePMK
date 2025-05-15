@@ -53,7 +53,6 @@
                             <th>Tahun</th>
                             <th>Hasil Cek Kesehatan</th>
                             <th>Catatan</th>
-                            <th>Surat Keterangan Sehat</th>
                             <th>Opsi</th>
                         </tr>
                     </thead>
@@ -71,15 +70,6 @@
                                 <td>{{ $kesehatan->hasil_kesehatan }}</td>
                                 <td>{{ $kesehatan->catatan_kesehatan }}</td>
                                 <td>
-                                    <a href="{{ asset('storage/' . $kesehatan->surat_keterangan) }}"
-                                        class="btn grey btn-circle btn-sm text-white" download>
-
-                                             <i class="fas fa-download"></i>
-
-
-                                     </a>
-                                </td>
-                                <td>
                                     {{-- <a href="{{ route('profil.personel', $p->id) }}"
                                         class="btn btn-primary btn-circle btn-sm">
                                         <i class="fas fa-eye"></i>
@@ -88,6 +78,11 @@
                                         class="btn btn-warning btn-circle btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a> --}}
+                                    <a class="btn text-white grey btn-circle btn-sm" href="{{ route('file.view', base64_encode($kesehatan->surat_keterangan)) }}" target="_blank">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+
+
                                     {{-- Delete Form --}}
                                     <form action="{{ route('datakesehatan.destroy', $kesehatan->id) }}" method="POST"
                                         style="display:inline;">
