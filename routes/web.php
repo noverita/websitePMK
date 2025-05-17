@@ -65,16 +65,17 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/data-kesehatan-personel/add', [DataKesehatanController::class, 'createDataKesehatan'])->name('datakesehatan.create');
     Route::post('/admin/store-data-kesehatan', [DataKesehatanController::class, 'storeDataKesehatan'])->name('datakesehatan.store');
     Route::delete('/admin/data-kesehatan/{id}', [DataKesehatanController::class, 'destroyDataKesehatan'])->name('datakesehatan.destroy');
-Route::get('/file/view/{path}', function ($path) {
-    $decoded = base64_decode($path); // Encode paths to pass them safely in URL
-    $fullPath = storage_path('app/public/' . $decoded);
 
-    if (!file_exists($fullPath)) {
-        abort(404, 'File not found');
-    }
+    Route::get('/file/view/{path}', function ($path) {
+        $decoded = base64_decode($path); // Encode paths to pass them safely in URL
+        $fullPath = storage_path('app/public/' . $decoded);
 
-    return response()->file($fullPath);
-})->where('path', '.*')->name('file.view');
+        if (!file_exists($fullPath)) {
+            abort(404, 'File not found');
+        }
+
+        return response()->file($fullPath);
+    })->where('path', '.*')->name('file.view');
 
 
 });
@@ -83,6 +84,7 @@ Route::get('/file/view/{path}', function ($path) {
 Route::middleware(['auth', 'personnel'])->group(function () {
     Route::get('/personnel/dashboard', [PersonnelController::class, 'index'])->name('personnel.dashboard');
     Route::get('/personnel/kuesioner', [KuesionerController::class, 'index'])->name('personnel.kuesioner');
+    Route::post('/personnel/store-kuesioner', [KuesionerController::class, 'storeKuesioner'])->name('personnel.store.kuesioner');
     Route::get('/personnel/profile', [PersonnelController::class, 'profile'])->name('personnel.profile');
 });
 

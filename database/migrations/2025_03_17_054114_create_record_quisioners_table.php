@@ -16,7 +16,11 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->date('date');
             $table->string('shift');
-            foreach (['Q1', 'Q2', 'Q3', 'Q4', 'QO1', 'QO2', 'QO3', 'QO4', 'QO5', 'Q5', 'Q6', 'Q7', 'QK1', 'QK2', 'QK3', 'QK4', 'QK5', 'QA1', 'QA2', 'QA3', 'QA4', 'QA5', 'QA6', 'QA7', 'QA8', 'QB1', 'QB2', 'QB3', 'QB4'] as $column) {
+            foreach ([
+                'keluhan1', 'keluhan2', 'keluhan3', 'keluhan4', 'keluhan5',
+                'wat1', 'wat2', 'wat3', 'wat4', 'wat5', 'wat6', 'wat7', 'wat8',
+                'ols1', 'ols2', 'ols3', 'ols4'
+            ] as $column) {
                 $table->string($column)->nullable();
             }
             $table->enum('tingkat_kebugaran', ['Excellent', 'Good', 'Kurang fit'])->nullable();

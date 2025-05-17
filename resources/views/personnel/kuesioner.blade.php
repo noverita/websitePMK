@@ -365,7 +365,9 @@
             <h6 class="m-0 text-center">KESEHATAN</h6>
         </div>
         <div class="form-kuesioner">
-            <form>
+            <form method="post" action="{{route('personnel.store.kuesioner')}}">
+                @csrf
+                @method("POST")
                 <div class="row">
                     <div class="col-md-4">
                         <label class="form-label"><b>Keluhan yang Dirasakan Saat ini:</b></label>
