@@ -5,14 +5,6 @@
 <link href="{{ asset('assets/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 @endsection
 @section('content')
-    {{-- s --}}
-    <a href="{{ route('personnel.kuesioner') }}" class="btn navy btn-icon-split text-white mb-4">
-        <span class="icon text-white-50">
-            <i class="fas fa-plus"></i>
-        </span>
-        <span class="text">Isi Survei</span>
-    </a>
-
     <div class="card shadow mb-4">
         <div class="card-header">
             <h6 class="m-0 text-center">DASHBOARD LAPORAN SAYA</h6>

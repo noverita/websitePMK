@@ -2,735 +2,314 @@
 
 @section('title', 'Dashboard Personel')
 @section('css')
+<style>
+    .title{
+        font-weight: bold;
+    }
+</style>
 @endsection
 @section('content')
     <!-- Page Heading -->
     {{-- <h3 class="text-center font-weight-bold"></h3> --}}
     {{-- <h1 class="h4 mb-2 text-gray-800">Form Survey</h1> --}}
+    @if (session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <ul class="mb-0">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+        </div>
+    @endif
+
     <a href="{{ route('personnel.dashboard') }}" class="btn navy text-white btn-icon-split mb-3">
         <span class="icon text-white-50">
             <i class="fas fa-arrow-left"></i>
         </span>
         <span class="text">Kembali</span>
     </a>
-    <div class="card border-left-navy shadow mb-4">
-        <div class="form-kuesioner">
-            <form>
-                <div class="row">
-                    <div class="col-md">
-                        <label class="form-label"><b>Tanggal Pengisian</b></label>
+    <form method="post" action="{{route('personnel.store.kuesioner')}}">
+        @csrf
+        @method("POST")
+            <div class="card border-left-navy shadow mb-4">
+                <div class="form-kuesioner mb-3">
+                    <div class="row">
+                        <div class="col-md">
+                            <label class="form-label"><b>Tanggal Pengisian</b></label>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <input type="date" class="form-control">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="date" class="form-control" name="date">
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col-md">
+                            <label class="form-label"><b>Shift</b></label>
+                        </div>
                     </div>
-                </div><br>
-                <div class="row">
-                    <div class="col-md">
-                        <label class="form-label"><b>Shift</b></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <select class="form-control" id="shift">
-                            <option value="pagi">Pagi</option>
-                            <option value="siang">Siang</option>
-                            <option value="malam">Malam</option>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <select class="form-control" id="shift" name="shift">
+                                <option value="pagi">Pagi</option>
+                                <option value="siang">Siang</option>
+                                <option value="malam">Malam</option>
 
-                        </select>
+                            </select>
+                        </div>
                     </div>
-                </div><br>
-            </form>
-        </div>
-    </div>
+                </div>
+            </div>
 
-    <!-- DataTales Example -->
-    <div class="card border-left-navy shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 text-center">KONDISI UMUM</h6>
-        </div>
-        <div class="form-kuesioner">
-            <form>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Berapa lama anda tidur dalam 24 jam terakhir?</b></label>
-                    </div>
+            <!-- DataTales Example -->
+            <div class="card border-left-navy shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 text-center">KONDISI UMUM</h6>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tidur24" id="inlineRadio1">
-                            <label class="form-check-label" for="inlineRadio1">7 jam atau lebih</label>
+                <div class="form-kuesioner mb-3">
+                    <div class="mb-3">
+                        <label class="form-label title">Berapa lama Anda tidur dalam 24 jam terakhir?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tidur24" id="tidur24_1" value="3">
+                            <label class="form-check-label" for="tidur24_1">
+                                7 jam atau lebih
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tidur24" id="tidur24_2" value="2">
+                            <label class="form-check-label" for="tidur24_2">
+                                5-7 jam
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tidur24" id="tidur24_3" value="1">
+                            <label class="form-check-label" for="tidur24_3">
+                                Kurang dari 5 jam
+                            </label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tidur24" id="inlineRadio2">
-                            <label class="form-check-label" for="inlineRadio2">5-7 jam</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tidur24" id="inlineRadio3">
-                            <label class="form-check-label" for="inlineRadio3">kurang dari 5 jam</label>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Berapa lama anda tidur dalam 48 jam terakhir?</b></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tidur48" id="inlineRadio4">
-                            <label class="form-check-label" for="inlineRadio4">14 jam atau lebih</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tidur48" id="inlineRadio5">
-                            <label class="form-check-label" for="inlineRadio5">12-13 jam</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="tidur48" id="inlineRadio6">
-                            <label class="form-check-label" for="inlineRadio6">kurang dari 12 jam</label>
-                        </div>
-                    </div>
-                </div>
-                <hr>
+                    <hr>
+                    <div class="mb-3">
+                        <label class="form-label title">Berapa lama Anda tidur dalam 48 jam terakhir?</label>
 
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Apakah Anda mengkonsumsi obat tertentu?</b></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="obat" id="inlineRadio7" value="option1">
-                            <label class="form-check-label" for="inlineRadio7">Ya</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tidur48" id="tidur48_1" value="3">
+                            <label class="form-check-label" for="tidur48_1">14 jam atau lebih</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tidur48" id="tidur48_2" value="2">
+                            <label class="form-check-label" for="tidur48_2">12–13 jam</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="tidur48" id="tidur48_3" value="1">
+                            <label class="form-check-label" for="tidur48_3">Kurang dari 12 jam</label>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="obat" id="inlineRadio8"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio8">Tidak</label><br>
+                    <hr>
+                    <div class="mb-3">
+                        <label class="form-label title">Apakah Anda mengkonsumsi obat tertentu?</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="obat" id="obat_ya" value="1">
+                            <label class="form-check-label" for="obat_ya">Ya</label>
+                        </div>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="obat" id="obat_tidak" value="0">
+                            <label class="form-check-label" for="obat_tidak">Tidak</label>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Jika Ya, Sebutkan obat yang Anda minum!</b></label>
+                    <hr>
+
+                    <div class="mb-3">
+                        <label for="keterangan_obat" class="form-label title">Jika Ya, sebutkan obat yang Anda minum!</label>
+                        <textarea class="form-control" id="keterangan_obat" name="keterangan_obat" rows="3" placeholder="Isikan obat yang Anda minum..."></textarea>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-4">
-                        <textarea type="text-area" class="form-control" placeholder="Isikan Obat yang Anda Minum..."></textarea>
+                    <hr>
+                    <div class="mb-3">
+                        <label class="form-label title">Efek Samping Obat:</label>
+                        @foreach ($sideEffects as $effect)
+                            <div class="row mb-1">
+                                <div class="col-md-5">
+                                    <label class="form-label">{{ $effect['label'] }}</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="{{ $effect['name'] }}"
+                                            id="{{ $effect['id'] }}_ya" value="1">
+                                        <label class="form-check-label" for="{{ $effect['id'] }}_ya">Ya</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="{{ $effect['name'] }}"
+                                            id="{{ $effect['id'] }}_tidak" value="0">
+                                        <label class="form-check-label" for="{{ $effect['id'] }}_tidak">Tidak</label>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
                     </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label"><b>Efek Samping Obat:</b></label>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label-option"><strong>a.</strong> Sedatif</label>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect1" id="inlineRadio9"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio9">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect1" id="inlineRadio10"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio10">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label-option"><strong>b.</strong> Kepala Berputar (Dizziness)</label>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect2" id="inlineRadio11"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio11">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect2" id="inlineRadio12"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio12">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label-option"><strong>c.</strong> Mual</label>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect3" id="inlineRadio13"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio13">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect3" id="inlineRadio14"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio14">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label-option"><strong>d.</strong> Hilang Konsentrasi</label>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect4" id="inlineRadio15"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio15">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect4" id="inlineRadio16"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio16">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label-option"><strong>e.</strong> Tidak Ada Efek Samping</label>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect5" id="inlineRadio17"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio17">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="sideeffect5" id="inlineRadio18"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio18">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Apakah Anda Waspada?</b></label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio19">
+
+                    <hr>
+                    <div class="mb-3">
+                        <label class="form-label title">Apakah Anda Waspada?</label>
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio19" value="5">
                             <label class="form-check-label" for="inlineRadio19">Merasa Aktif dan Waspada</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio20">
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio20" value="4">
                             <label class="form-check-label" for="inlineRadio20">Berfungsi pada tingkat yang baik, tapi
                                 tidak di puncak, bisa
                                 berkonsentrasi</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio21">
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio21" value="3">
                             <label class="form-check-label" for="inlineRadio21">OK, tapi tidak sepenuhnya waspada</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio22">
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio22" value="2">
                             <label class="form-check-label" for="inlineRadio22">Sedikit grogi, sulit
                                 berkonsentrasi</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio23">
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio23" value="1">
                             <label class="form-check-label" for="inlineRadio23">Mengantuk, grogi, ingin berbaring</label>
                         </div>
                     </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col">
-                        <label class="form-label"><b>Apakah Anda memiliki stres, masalah kesehatan atau
-                                masalah pribadi lainnya yang secara signifikan mempengaruhi konsentrasi dan
-                                / atau tidur Anda?</b>
-                        </label>
+                    <hr>
+                    <div class="mb-3">
+                            <label class="form-label title">Apakah Anda memiliki stres, masalah kesehatan atau
+                                    masalah pribadi lainnya yang secara signifikan mempengaruhi konsentrasi dan
+                                    / atau tidur Anda?
+                            </label>
+                            <div class="form-check mb-1">
+                                <input class="form-check-input" type="radio" name="stress1" id="inlineRadio24"
+                                    value="1">
+                                <label class="form-check-label" for="1">Ya</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="stress1" id="inlineRadio25"
+                                    value="0">
+                                <label class="form-check-label" for="inlineRadio25">Tidak</label>
+                            </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stress1" id="inlineRadio24"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio24">Ya</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="stress1" id="inlineRadio25"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio25">Tidak</label>
-                        </div>
-                    </div>
-                </div><br>
 
-            </form>
-        </div>
+            </div>
 
-    </div>
-
-    <div class="card border-left-navy shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 text-center">JAM KERJA</h6>
-        </div>
-        <div class="form-kuesioner">
-            <form>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label"><b>Berapa lama Anda bekerja hari sebelumnya?</b></label>
-                    </div>
+            <div class="card border-left-navy shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 text-center">JAM KERJA</h6>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio26">
+                <div class="form-kuesioner">
+                    <div class="mb-3">
+                        <label class="form-label title">Berapa lama Anda bekerja hari sebelumnya?</label>
+                        <div class="form-check mb-1">
+                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio26" value="1">
                             <label class="form-check-label" for="inlineRadio26">Masuk kerja lebih dari 12 jam</label>
                         </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio27">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio27" value="0">
                             <label class="form-check-label" for="inlineRadio27">Masuk kerja lebih dari 8 jam - 12
                                 jam</label>
                         </div>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio28">
-                            <label class="form-check-label" for="inlineRadio28">Mengantuk, grogi, ingin berbaring</label>
-                        </div>
-                    </div>
-                </div><br>
-            </form>
-        </div>
-    </div>
-    <div class="card border-left-navy shadow mb-4">
-        <div class="card-header py-3">
-            <h6 class="m-0 text-center">KESEHATAN</h6>
-        </div>
-        <div class="form-kuesioner">
-            <form method="post" action="{{route('personnel.store.kuesioner')}}">
-                @csrf
-                @method("POST")
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label"><b>Keluhan yang Dirasakan Saat ini:</b></label>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
+            </div>
+            <div class="card border-left-navy shadow mb-4">
+                <div class="card-header py-3">
+                    <h6 class="m-0 text-center">KESEHATAN</h6>
                 </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>a.</strong> Pusing</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan1" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan1" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>b.</strong>Mengantuk</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan2" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan2" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>c.</strong>Lemas</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan3" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan3" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>d.</strong>Mual Muntah</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan4" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan4" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>e.</strong>Flu dan Meriang</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan5" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="keluhan5" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label"><b>Tes Kesiapan Berkendara (Tes WAT)</b></label><br>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A1 :</strong> Berjalan Keluar Garis</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat1" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat1" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A2 :</strong> Tidak seimbang / sempoyongan</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat2" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat2" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A3 : </strong>Berhenti untuk menyeimbangkan diri</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat3" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat3" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A4 :</strong> Tidak seimbang ketika ada stimulus suara
-                            perintah</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat4" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat4" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A5 :</strong> Tumit & ujung kaki tidak rapat saat
-                            berjalan</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat5" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat5" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A6 :</strong> Merentangkan tangan untuk menjaga
-                            keseimbangan</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat6" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat6" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A7 :</strong> Tidak mampu memutar pada satu kaki</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat7" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat7" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>A8 :</strong> Tidak mampu menghitung/salah hitungan
-                            langkah saat jalan</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat8" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="wat8" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <hr>
-                <div class="row">
-                    <div class="col-md-4">
-                        <label class="form-label"><b>Tes Kesiapan Berkendara (Tes OLS)</b></label><br>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>B1 : </strong>Selalu bergoyang / tidak seimbang</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols1" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols1" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>B2 :</strong> Merentangkan tangan untuk menjaga
-                            keseimbangan</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols2" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols2" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>B3 :</strong> Kaki tumpuan bergerak secara tidak
-                            teratur</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols3" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols3" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mb-2">
-                    <div class="col-md">
-                        <label class="form-label-option"><strong>B4 :</strong> Kaki yang di angkat jatuh sebelum 20
-                            detik</label>
-                    </div>
-                    <div class="col-md">
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols4" id="inlineRadio1"
-                                value="option1">
-                            <label class="form-check-label" for="inlineRadio1">Ya</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="ols4" id="inlineRadio2"
-                                value="option2">
-                            <label class="form-check-label" for="inlineRadio2">Tidak</label>
-                        </div>
-                    </div>
-                </div><br>
-                <hr>
-                <div class="submitButton d-flex justify-content-center">
-                    <button type="submit" class="btn grey text-white" style="width: 10cm">Submit</button>
-                </div>
-                {{-- <div class="card">
-                    <div class="card-body">
-                        <h5><strong>Tes Kesiapan Berkendara (Tes OLS)</strong></h5>
+                <div class="form-kuesioner ">
+                    <div class="mb-3">
+                    <label class="form-label title">Keluhan yang dirasakan saat ini:</label>
 
-                        <div class="row mb-2">
-                            <div class="col-md-8">
-                                <p><strong>B1:</strong> Selalu bergoyang/tidak seimbang</p>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="radio" name="b1" value="ya"> Ya
-                                <input type="radio" name="b1" value="tidak"> Tidak
-                            </div>
+                    @foreach($keluhan as $index => $item)
+                    <div class="row mb-1">
+                        <div class="col-md-5">
+                            <label class="form-label">{{ $item['label'] }}</label>
                         </div>
-
-                        <div class="row mb-2">
-                            <div class="col-md-8">
-                                <p><strong>B2:</strong> Merentangkan tangan untuk menjaga keseimbangan</p>
+                        <div class="col-md-5">
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="keluhan{{ $index + 1 }}" id="{{ $item['key'] }}_ya" value="1">
+                                <label class="form-check-label" for="{{ $item['key'] }}_ya">Ya</label>
                             </div>
-                            <div class="col-md-4">
-                                <input type="radio" name="b2" value="ya"> Ya
-                                <input type="radio" name="b2" value="tidak"> Tidak
-                            </div>
-                        </div>
-
-                        <div class="row mb-2">
-                            <div class="col-md-8">
-                                <p><strong>B3:</strong> Kaki tumpuan bergerak secara tidak teratur</p>
-                            </div>
-                            <div class="col-md-4">
-                                <input type="radio" name="b3" value="ya"> Ya
-                                <input type="radio" name="b3" value="tidak"> Tidak
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="keluhan{{ $index + 1 }}" id="{{ $item['key'] }}_tidak" value="0">
+                                <label class="form-check-label" for="{{ $item['key'] }}_tidak">Tidak</label>
                             </div>
                         </div>
                     </div>
-                </div> --}}
-            </form><br>
-        </div>
-    </div>
-    <!-- /.container-fluid -->
+                    @endforeach
+                </div>
 
+                    <hr>
+                    <div class="mb-4">
+                        <label class="form-label title">Tes Kesiapan Berkendara (Tes WAT)</label>
+
+                        @foreach ($watQuestions as $code => $question)
+                            @php $inputName = 'wat' . substr($code, 1); @endphp
+                            <div class="row mb-2">
+                                <div class="col-md-5">
+                                    <label class="form-label mb-0"><strong>{{ $code }}:</strong> {{ $question }}</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-check form-check-inline me-3">
+                                        <input class="form-check-input" type="radio" name="{{ $inputName }}" id="{{ $inputName }}_ya" value="1">
+                                        <label class="form-check-label" for="{{ $inputName }}_ya">Ya</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="{{ $inputName }}" id="{{ $inputName }}_tidak" value="0">
+                                        <label class="form-check-label" for="{{ $inputName }}_tidak">Tidak</label>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                    <hr>
+                    <div class="mb-4">
+                        <label class="form-label title">Tes Kesiapan Berkendara (Tes OLS)</label>
+
+                        @foreach ($olsQuestions as $code => $question)
+                            @php $inputName = 'ols' . substr($code, 1); @endphp
+                            <div class="row mb-2">
+                                <div class="col-md-5">
+                                    <label class="form-label mb-0"><strong>{{ $code }}:</strong> {{ $question }}</label>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-check form-check-inline me-3">
+                                        <input class="form-check-input" type="radio" name="{{ $inputName }}" id="{{ $inputName }}_ya" value="1">
+                                        <label class="form-check-label" for="{{ $inputName }}_ya">Ya</label>
+                                    </div>
+                                    <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="radio" name="{{ $inputName }}" id="{{ $inputName }}_tidak" value="0">
+                                        <label class="form-check-label" for="{{ $inputName }}_tidak">Tidak</label>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+
+                    <hr>
+                    <div class="submitButton d-flex justify-content-center">
+                        <button type="submit" class="btn grey text-white" style="width: 10cm">Submit</button>
+                    </div>
+                </div>
+            </div>
+            <!-- /.container-fluid -->
+    </form>
     <!-- Scroll to Top Button-->
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>

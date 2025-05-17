@@ -76,8 +76,6 @@ Route::middleware(['auth', 'admin'])->group(function () {
 
         return response()->file($fullPath);
     })->where('path', '.*')->name('file.view');
-
-
 });
 
 // Protecting personnel routes
