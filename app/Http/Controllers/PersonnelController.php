@@ -42,7 +42,7 @@ class PersonnelController extends Controller
                 return (int) $row->$key === 1;
             });
 
-            $row->rekomendasi_firetruck = $firetruck ? 'Tidak Disarankan Mengendarai Firetruck' : 'Aman';
+            $row->rekomendasi_firetruck = $firetruck ? 'Tidak Disarankan Mengendarai Firetruck' : 'Dapat Mengendarai Firetruck';
 
             return $row;
         });

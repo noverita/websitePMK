@@ -53,11 +53,11 @@ class KuesionerController extends Controller
             'tidur48' => 'required|numeric',
             'obat' => 'required|numeric',
             'keterangan_obat' => 'required|string',
-            'sideeffect1' => 'required|numeric',
-            'sideeffect2' => 'required|numeric',
-            'sideeffect3' => 'required|numeric',
-            'sideeffect4' => 'required|numeric',
-            'sideeffect5' => 'required|numeric',
+            'sideeffect1' => 'nullable|numeric',
+            'sideeffect2' => 'nullable|numeric',
+            'sideeffect3' => 'nullable|numeric',
+            'sideeffect4' => 'nullable|numeric',
+            'sideeffect5' => 'nullable|numeric',
             'waspada' => 'required|numeric',
             'stress1' => 'required|numeric',
             'jamkerja' => 'required|numeric',
@@ -80,6 +80,14 @@ class KuesionerController extends Controller
             'ols4' => 'required|numeric',
         ]);
 
+        // Default nilai 0 jika sideeffect kosong
+        $sideEffects = ['sideeffect1', 'sideeffect2', 'sideeffect3', 'sideeffect4', 'sideeffect5'];
+        foreach ($sideEffects as $field) {
+            if (!isset($validatedData[$field])) {
+                $validatedData[$field] = 3;
+            }
+        }
+
         try {
             DB::table('hasil_kuisioners')->insert(array_merge($validatedData, [
                 'user_id' => Auth::id(),
@@ -93,5 +101,4 @@ class KuesionerController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
         }
     }
-
 }

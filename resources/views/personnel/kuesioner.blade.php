@@ -138,10 +138,10 @@
                         <textarea class="form-control" id="keterangan_obat" name="keterangan_obat" rows="3" placeholder="Isikan obat yang Anda minum..."></textarea>
                     </div>
                     <hr>
-                    <div class="mb-3">
+                    <div class="mb-3" id="efek_samping_section" style="display: none;">
                         <label class="form-label title">Efek Samping Obat:</label>
                         @foreach ($sideEffects as $effect)
-                            <div class="row mb-1">
+                            <div class="row">
                                 <div class="col-md-5">
                                     <label class="form-label">{{ $effect['label'] }}</label>
                                 </div>
@@ -159,9 +159,10 @@
                                 </div>
                             </div>
                         @endforeach
+                        <hr>
                     </div>
 
-                    <hr>
+
                     <div class="mb-3">
                         <label class="form-label title">Apakah Anda Waspada?</label>
                         <div class="form-check mb-1">
@@ -318,4 +319,25 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+@endsection
+@section('js')
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            function toggleEfekSamping() {
+                var obatVal = $('input[name="obat"]:checked').val();
+                if (obatVal === '0') {
+                    $('#efek_samping_section').show();
+                } else {
+                    $('#efek_samping_section').hide();
+                }
+            }
+
+            toggleEfekSamping();
+
+            $('input[name="obat"]').on('change', function () {
+                toggleEfekSamping();
+            });
+        });
+    </script>
 @endsection
