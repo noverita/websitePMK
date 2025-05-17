@@ -97,5 +97,4 @@ class DataKesehatanController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');
         }
     }
-
 }

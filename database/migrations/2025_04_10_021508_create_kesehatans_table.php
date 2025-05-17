@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->string('year');
-            $table->string('hasil_kesehatan');
+            $table->enum('hasil_kesehatan', ['Sehat', 'Tidak Sehat'])->nullable();
             $table->string('catatan_kesehatan');
             $table->string('surat_keterangan');
             $table->timestamps();
