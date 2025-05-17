@@ -122,12 +122,12 @@
                     <div class="mb-3">
                         <label class="form-label title">Apakah Anda mengkonsumsi obat tertentu?</label>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="obat" id="obat_ya" value="1">
+                            <input class="form-check-input" type="radio" name="obat" id="obat_ya" value="0">
                             <label class="form-check-label" for="obat_ya">Ya</label>
                         </div>
 
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="obat" id="obat_tidak" value="0">
+                            <input class="form-check-input" type="radio" name="obat" id="obat_tidak" value="3">
                             <label class="form-check-label" for="obat_tidak">Tidak</label>
                         </div>
                     </div>
@@ -153,7 +153,7 @@
                                     </div>
                                     <div class="form-check form-check-inline">
                                         <input class="form-check-input" type="radio" name="{{ $effect['name'] }}"
-                                            id="{{ $effect['id'] }}_tidak" value="0">
+                                            id="{{ $effect['id'] }}_tidak" value="3">
                                         <label class="form-check-label" for="{{ $effect['id'] }}_tidak">Tidak</label>
                                     </div>
                                 </div>
@@ -165,21 +165,21 @@
                     <div class="mb-3">
                         <label class="form-label title">Apakah Anda Waspada?</label>
                         <div class="form-check mb-1">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio19" value="5">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio19" value="3">
                             <label class="form-check-label" for="inlineRadio19">Merasa Aktif dan Waspada</label>
                         </div>
                         <div class="form-check mb-1">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio20" value="4">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio20" value="3">
                             <label class="form-check-label" for="inlineRadio20">Berfungsi pada tingkat yang baik, tapi
                                 tidak di puncak, bisa
                                 berkonsentrasi</label>
                         </div>
                         <div class="form-check mb-1">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio21" value="3">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio21" value="2">
                             <label class="form-check-label" for="inlineRadio21">OK, tapi tidak sepenuhnya waspada</label>
                         </div>
                         <div class="form-check mb-1">
-                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio22" value="2">
+                            <input class="form-check-input" type="radio" name="waspada" id="inlineRadio22" value="1">
                             <label class="form-check-label" for="inlineRadio22">Sedikit grogi, sulit
                                 berkonsentrasi</label>
                         </div>
@@ -201,7 +201,7 @@
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="stress1" id="inlineRadio25"
-                                    value="0">
+                                    value="3">
                                 <label class="form-check-label" for="inlineRadio25">Tidak</label>
                             </div>
                     </div>
@@ -221,8 +221,13 @@
                             <label class="form-check-label" for="inlineRadio26">Masuk kerja lebih dari 12 jam</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio27" value="0">
-                            <label class="form-check-label" for="inlineRadio27">Masuk kerja lebih dari 8 jam - 12
+                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio27" value="2">
+                            <label class="form-check-label" for="inlineRadio27">Masuk kerja dari 8 jam - 12
+                                jam</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="jamkerja" id="inlineRadio27" value="3">
+                            <label class="form-check-label" for="inlineRadio27">Masuk kerja normal 8 jam
                                 jam</label>
                         </div>
                     </div>
@@ -243,11 +248,11 @@
                         </div>
                         <div class="col-md-5">
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="keluhan{{ $index + 1 }}" id="{{ $item['key'] }}_ya" value="1">
+                                <input class="form-check-input" type="radio" name="keluhan{{ $index + 1 }}" id="{{ $item['key'] }}_ya" value="{{ $item['ya_value'] }}">
                                 <label class="form-check-label" for="{{ $item['key'] }}_ya">Ya</label>
                             </div>
                             <div class="form-check form-check-inline">
-                                <input class="form-check-input" type="radio" name="keluhan{{ $index + 1 }}" id="{{ $item['key'] }}_tidak" value="0">
+                                <input class="form-check-input" type="radio" name="keluhan{{ $index + 1 }}" id="{{ $item['key'] }}_tidak" value="3">
                                 <label class="form-check-label" for="{{ $item['key'] }}_tidak">Tidak</label>
                             </div>
                         </div>
@@ -258,7 +263,6 @@
                     <hr>
                     <div class="mb-4">
                         <label class="form-label title">Tes Kesiapan Berkendara (Tes WAT)</label>
-
                         @foreach ($watQuestions as $code => $question)
                             @php $inputName = 'wat' . substr($code, 1); @endphp
                             <div class="row mb-2">
@@ -281,7 +285,6 @@
                     <hr>
                     <div class="mb-4">
                         <label class="form-label title">Tes Kesiapan Berkendara (Tes OLS)</label>
-
                         @foreach ($olsQuestions as $code => $question)
                             @php $inputName = 'ols' . substr($code, 1); @endphp
                             <div class="row mb-2">

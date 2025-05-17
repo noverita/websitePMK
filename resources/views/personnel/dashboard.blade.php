@@ -13,25 +13,39 @@
             <table id="dataTable" class="table table-striped text-center" width="100%" cellspacing="0">
                 <thead>
                     <tr>
+                        <th>No.</th>
                         <th>Tanggal Laporan</th>
                         <th>Shift</th>
                         <th>Hasil</th>
-
+                        <th>Status Kebugaran</th>
+                        <th>Firetruck</th>
+                        <th>Opsi</th>
                     </tr>
                 </thead>
                 <tbody>
+                    @foreach ($rows as $item)
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
+                        <td>{{$no++}}</td>
+                        <td>{{ $item->tanggal_indonesia }}</td>
+                        <td>{{$item->shift}}</td>
+                        <td>{{$item->tingkat_kebugaran}}</td>
+                        <td>
+                            @if ($item->status_kebugaran == 'Dapat Bekerja')
+                                <span class="badge bg-success">{{ $item->status_kebugaran }}</span>
+                            @elseif ($item->status_kebugaran == 'Dapat Bekerja Dalam Pengawasan')
+                                <span class="badge bg-warning text-dark">{{ $item->status_kebugaran }}</span>
+                            @else
+                                <span class="badge bg-danger">{{ $item->status_kebugaran }}</span>
+                            @endif
+                        </td>
+                        <td>
+                            {{ $item->rekomendasi_firetruck }}
+                        </td>
+                        <td>
+                            <button class="btn btn-info btn-sm">Detail</button>
+                        </td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
+                    @endforeach
                 </tbody>
             </table>
         </div>

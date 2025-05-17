@@ -19,12 +19,13 @@ class KuesionerController extends Controller
             ['label' => 'e. Tidak Ada Efek Samping', 'name' => 'sideeffect5', 'id' => 'tidakefek'],
         ];
         $keluhan = [
-            ['key' => 'pusing', 'label' => 'a. Pusing'],
-            ['key' => 'mengantuk', 'label' => 'b. Mengantuk'],
-            ['key' => 'lemas', 'label' => 'c. Lemas'],
-            ['key' => 'mual', 'label' => 'd. Mual Muntah'],
-            ['key' => 'flu', 'label' => 'e. Flu dan Meriang'],
+            ['key' => 'pusing', 'label' => 'a. Pusing', 'ya_value' => 1],
+            ['key' => 'mengantuk', 'label' => 'b. Mengantuk', 'ya_value' => 1],
+            ['key' => 'lemas', 'label' => 'c. Lemas', 'ya_value' => 1],
+            ['key' => 'mual', 'label' => 'd. Mual Muntah', 'ya_value' => 2],
+            ['key' => 'flu', 'label' => 'e. Flu dan Meriang', 'ya_value' => 1],
         ];
+
         $watQuestions = [
             'A1' => 'Berjalan Keluar Garis',
             'A2' => 'Tidak seimbang / sempoyongan',
