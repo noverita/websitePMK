@@ -16,9 +16,9 @@
                         <th>No.</th>
                         <th>Tanggal Laporan</th>
                         <th>Shift</th>
-                        <th>Hasil</th>
+                        {{-- <th>Hasil</th> --}}
                         <th>Status Kebugaran</th>
-                        <th>Firetruck</th>
+                        <th>Hasil Tes WAT & OLS</th>
                         <th>Opsi</th>
                     </tr>
                 </thead>
@@ -28,21 +28,21 @@
                         <td>{{$no++}}</td>
                         <td>{{ $item->tanggal_indonesia }}</td>
                         <td>{{$item->shift}}</td>
-                        <td>{{$item->tingkat_kebugaran}}</td>
+                        {{-- <td>{{$item->tingkat_kebugaran}}</td> --}}
                         <td>
                             @if ($item->status_kebugaran == 'Dapat Bekerja')
-                                <span class="badge bg-success">{{ $item->status_kebugaran }}</span>
+                                <span class="badge bg-success text-white">{{ $item->status_kebugaran }}</span>
                             @elseif ($item->status_kebugaran == 'Dapat Bekerja Dalam Pengawasan')
                                 <span class="badge bg-warning text-dark">{{ $item->status_kebugaran }}</span>
                             @else
-                                <span class="badge bg-danger">{{ $item->status_kebugaran }}</span>
+                                <span class="badge bg-danger text-white">{{ $item->status_kebugaran }}</span>
                             @endif
                         </td>
                         <td>
                             {{ $item->rekomendasi_firetruck }}
                         </td>
                         <td>
-                            <button class="btn btn-info btn-sm">Detail</button>
+                            {{-- <button class="btn btn-info btn-sm">Detail</button> --}}
                         </td>
                     </tr>
                     @endforeach

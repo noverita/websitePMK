@@ -58,17 +58,15 @@
                 </div>
                 <div class="modal-body">
                     <div class="row ml-4">
-                        <ul>
-                            <i class="fas fa-chevron-circle-right text-gray-300"></i>
-                            <a style="font-size: 14px">Tanggal Pengisian:</a>
-                            <a><strong>12-12-2002</strong></a>
+                        <ul class="list-unstyled">
+                            <li style="font-size: 13px"><strong>Tanggal Pengisian:</strong></li>
+                            <li>12 Mei 2025</li>
                         </ul>
                     </div>
                     <div class="row ml-4">
-                        <ul>
-                            <i class="fas fa-chevron-circle-right text-gray-300"></i>
-                            <a style="font-size: 14px">Shift:</a>
-                            <a><strong>Pagi</strong></a>
+                        <ul class="list-unstyled">
+                            <li style="font-size: 13px"><strong>Shift Kerja:</strong></li>
+                            <li>pagi</li>
                         </ul>
                     </div>
                     <hr>
@@ -95,213 +93,173 @@
                         <div class="tab-pane fade show active" id="pills-kondisiumum" role="tabpanel"
                             aria-labelledby="pills-kondisiumum-tab">
                             <div class="row ml-2 mr-2">
-                                <p><b>Berapa lama anda tidur dalam 24 jam terakhir?</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>Shift:</a>
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Berapa lama anda tidur dalam 24 jam terakhir?</strong></li>
+                                    <li>Kurang dari 4 jam</li>
                                 </ul>
                             </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>Berapa lama anda tidur dalam 48 jam terakhir?</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>Shift:</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>Apakah Anda mengkonsumsi obat tertentu?</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>Shift:</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>Jika Ya, Sebutkan obat yang Anda minum!</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>Shift:</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>Efek Samping Obat:</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>Shift:</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>Apakah Anda Waspada?</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>Shift:</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>Apakah Anda memiliki stres, masalah kesehatan atau masalah pribadi lainnya yang secara
-                                        signifikan mempengaruhi konsentrasi dan / atau tidur Anda?</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>Shift:</a>
-                                </ul>
-                            </div>
+                            <hr>
 
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Berapa lama anda tidur dalam 48 jam terakhir?</strong></li>
+                                    <li>Kurang dari 4 jam</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Apakah Anda mengkonsumsi obat tertentu?</strong></li>
+                                    <li>Kurang dari 4 jam</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Jika Ya, Sebutkan obat yang Anda minum!</strong></li>
+                                    <li>Kurang dari 4 jam</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Efek Samping Obat:</strong></li>
+                                    <li>Kurang dari 4 jam</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Apakah Anda Waspada?</strong></li>
+                                    <li>Kurang dari 4 jam</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2 mb-4">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Apakah Anda memiliki stres, masalah kesehatan atau masalah pribadi lainnya
+                                            yang secara
+                                            signifikan mempengaruhi konsentrasi dan / atau tidur Anda?</strong></li>
+                                    <li>Kurang dari 4 jam</li>
+                                </ul>
+                            </div>
                         </div>
 
-                        <div class="tab-pane fade" id="pills-jamkerja" role="tabpanel"
-                            aria-labelledby="pills-jamkerja-tab">
-                            <div class="row ml-2 mr-2">
-                                <p><b>Berapa lama Anda bekerja hari sebelumnya?</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
+
+                        <div class="tab-pane fade" id="pills-jamkerja" role="tabpanel" aria-labelledby="pills-jamkerja-tab">
+                            <div class="row ml-2 mr-2 mb-4">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Berapa lama Anda bekerja hari sebelumnya?</strong></li>
+                                    <li>Kurang dari 4 jam</li>
                                 </ul>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="pills-kesehatan" role="tabpanel"
                             aria-labelledby="pills-kesehatan-tab">
                             <div class="row ml-2 mr-2">
-                                <p><b>Keluhan yang Dirasakan Saat ini:</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>Keluhan yang Dirasakan Saat ini:</strong></li>
+                                    <li>Kurang dari 4 jam</li>
                                 </ul>
                             </div>
                             <hr>
+                            <br>
 
                             <div class="row ml-2 mr-2 py-2">
-                                <h6><b>Tes WAT</b></h6>
-                            </div>
-                            <div class="row ml-2 mr-2 py-2">
-                                <p><b>A1 : Berjalan Keluar Garis</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
+                                <h6 style="font-size: 12px">Tes WAT</h6>
                             </div>
                             <div class="row ml-2 mr-2">
-                                <p><b>A2 : Tidak seimbang / sempoyongan</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>A3 : Berhenti untuk menyeimbangkan diri</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>A4 : Tidak seimbang ketika ada stimulus suara perintah</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>A5 : Tumit & ujung kaki tidak rapat saat berjalan</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>A6 : Merentangkan tangan untuk menjaga keseimbangan</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>A7 : Tidak mampu memutar pada satu kaki</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
-                            </div>
-                            <div class="row ml-2 mr-2">
-                                <p><b>A8 : Tidak mampu menghitung/salah hitungan langkah saat jalan</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A1: Berjalan keluar garis</strong></li>
+                                    <li>Tidak</li>
                                 </ul>
                             </div>
                             <hr>
-                            <div class="row ml-2 mr-2 py-2">
-                                <h6><b>Tes WAT</b></h6>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A2: Tidak seimbang / sempoyongan</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
                             </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A3: Berhenti untuk menyeimbangkan diri</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A4: Tidak seimbang ketika ada stimulus suara perintah</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A5: Tumit & ujung kaki tidak rapat saat berjalan</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A6: Merentangkan tangan untuk menjaga keseimbangan</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A7: Tidak mampu memutar pada satu kaki</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <div class="row ml-2 mr-2">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>A8 : Tidak mampu menghitung/salah hitungan langkah saat jalan</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
+                            </div>
+                            <hr>
+                            <br>
 
                             <div class="row ml-2 mr-2 py-2">
-                                <p><b>B1 : Selalu bergoyang / tidak seimbang</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
-                                </ul>
+                                <h6 style="font-size: 12px">Tes OLS</h6>
                             </div>
                             <div class="row ml-2 mr-2">
-                                <p><b>B2 : Merentangkan tangan untuk menjaga keseimbangan</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>B1: Selalu bergoyang / tidak seimbang</strong></li>
+                                    <li>Tidak</li>
                                 </ul>
                             </div>
+                            <hr>
                             <div class="row ml-2 mr-2">
-                                <p><b>B3 : Kaki tumpuan bergerak secara tidak teratur</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>B2: Merentangkan tangan untuk menjaga keseimbangan</strong></li>
+                                    <li>Tidak</li>
                                 </ul>
                             </div>
+                            <hr>
                             <div class="row ml-2 mr-2">
-                                <p><b>B4 : Kaki yang di angkat jatuh sebelum 20 detik</b></p>
-                            </div>
-                            <div class="row">
-                                <ul>
-                                    <i class="fas fa-angle-double-right text-gray-500"></i>
-                                    <a>12 jam</a>
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>B3: Kaki tumpuan bergerak secara tidak teratur</strong></li>
+                                    <li>Tidak</li>
                                 </ul>
                             </div>
+                            <hr>
+                            <div class="row ml-2 mr-2 mb-4">
+                                <ul style="list-style-type: none; padding:0%">
+                                    <li><strong>B4: Kaki yang di angkat jatuh sebelum 20 detik</strong></li>
+                                    <li>Tidak</li>
+                                </ul>
+                            </div>
+
+
+
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn navy text-white" data-dismiss="modal">Kembali</button>
