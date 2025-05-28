@@ -158,69 +158,6 @@
 
                             <canvas id="fitnessChart" height="100"></canvas>
 
-                            <script>
-                                const rawData = {!! json_encode($fitnessStats) !!};
-                                const kebugaranLevels = ['Excellent', 'Good', 'Kurang fit'];
-                                const monthLabels = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-                                let chart;
-
-                                function renderChart(year) {
-                                    const yearData = rawData[year] || {};
-
-                                    const datasets = kebugaranLevels.map((level, idx) => {
-                                        const monthlyData = Array.from({
-                                            length: 12
-                                        }, (_, i) => yearData[level]?.[i + 1] || 0);
-                                        const colors = ['#4caf50', '#2196f3', '#f44336']; // green, blue, red
-
-                                        return {
-                                            label: level,
-                                            data: monthlyData,
-                                            backgroundColor: colors[idx],
-                                            stack: 'Stack 0'
-                                        };
-                                    });
-
-                                    const ctx = document.getElementById('fitnessChart').getContext('2d');
-                                    if (chart) chart.destroy();
-
-                                    chart = new Chart(ctx, {
-                                        type: 'bar',
-                                        data: {
-                                            labels: monthLabels,
-                                            datasets: datasets
-                                        },
-                                        options: {
-                                            responsive: true,
-                                            scales: {
-                                                x: {
-                                                    stacked: true
-                                                },
-                                                y: {
-                                                    stacked: true,
-                                                    beginAtZero: true
-                                                }
-                                            },
-                                            plugins: {
-                                                title: {
-                                                    display: true,
-                                                    text: 'Tingkat Kebugaran Tahun ' + year
-                                                }
-                                            }
-                                        }
-                                    });
-                                }
-
-                                // Initial render
-                                const defaultYear = document.getElementById('yearSelect').value;
-                                renderChart(defaultYear);
-
-                                // Handle dropdown change
-                                document.getElementById('yearSelect').addEventListener('change', function() {
-                                    renderChart(this.value);
-                                });
-                            </script>
                         </div>
                         {{-- <div class="col-auto">
                             <i class="fas fa-dumbbell fa-2x text-gray-300"></i>

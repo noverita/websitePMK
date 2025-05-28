@@ -2309,7 +2309,9 @@ textarea.form-control {
 .form-check-input {
     position: absolute;
     margin-top: .3rem;
-    margin-left: -1.25rem
+    margin-left: -1.25rem;
+  transform: scale(1.2);
+
 }
 
 .form-check-input:disabled~.form-check-label,
@@ -6366,7 +6368,6 @@ a.close.disabled {
     align-items: center;
     justify-content: flex-end;
     padding: .75rem;
-    border-top: 1px solid #e3e6f0;
     border-bottom-right-radius: calc(.3rem - 1px);
     border-bottom-left-radius: calc(.3rem - 1px)
 }
@@ -12675,9 +12676,13 @@ body.sidebar-toggled footer.sticky-footer {
 }
 .navy {
     background-color: navy;
+    color: #fff;
 }
 .border-left-navy {
-    border-left: solid 4px navy;
+    border-left: solid 3px navy;
+}
+.border-right-navy {
+    border-right: solid 3px navy;
 }
 body{
     background-color: #dee9ff;
@@ -12775,4 +12780,5 @@ body{
         font-size: 30px;
         line-height: 70px;
     }
+
 }

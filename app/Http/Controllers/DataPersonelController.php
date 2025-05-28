@@ -360,7 +360,6 @@ class DataPersonelController extends Controller
 
     public function storePelatihan(Request $request)
     {
-
         $validated = $request->validate([
             'user_id' => 'required|exists:users,id',
             'nama_pelatihan' => 'required|string|max:255',
@@ -391,7 +390,6 @@ class DataPersonelController extends Controller
     public function destroyPelatihan($id)
     {
         DB::beginTransaction();
-
         try {
             // Fetch the pelatihan
             DB::table('pelatihans')->where('id', $id)->delete();

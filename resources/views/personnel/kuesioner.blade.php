@@ -33,7 +33,7 @@
         </div>
     @endif
 
-    <a href="{{ route('personnel.dashboard') }}" class="btn navy text-white btn-icon-split mb-3">
+    <a href="{{ route('personnel.dashboard') }}" class="btn navy text-white btn-icon-split mb-2">
         <span class="icon text-white-50">
             <i class="fas fa-arrow-left"></i>
         </span>
@@ -42,39 +42,40 @@
     <form method="post" action="{{route('personnel.store.kuesioner')}}">
         @csrf
         @method("POST")
-            <div class="card border-left-navy shadow mb-4">
+
+            <div class="card border-left-navy border-right-navy shadow mb-4">
                 <div class="form-kuesioner mb-3">
                     <div class="row">
-                        <div class="col-md">
-                            <label class="form-label"><b>Tanggal Pengisian</b></label>
-                        </div>
+<div class="col-md">
+                            <label class="form-label mr-2 ml-2"><b>Tanggal Pengisian</b></label>
+</div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <input type="date" class="form-control" name="date">
-                        </div>
+<div class="col-md">
+                            <input type="date" class="form-control mr-2 ml-2" name="date">
+</div>
                     </div><br>
                     <div class="row">
                         <div class="col-md">
                             <label class="form-label"><b>Shift</b></label>
-                        </div>
+                            </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-4">
-                            <select class="form-control" id="shift" name="shift">
-                                <option value="pagi">Pagi</option>
-                                <option value="siang">Siang</option>
-                                <option value="malam">Malam</option>
-
+                        <div class="col-md">
+                            <select class="form-control mr-2 ml-2" id="shift" name="shift">
+                                <option value="" selected disabled hidden>Pilih Shift</option>
+                                <option value="Pagi">Pagi</option>
+                                <option value="Siang">Siang</option>
+                                <option value="Malam">Malam</option>
                             </select>
-                        </div>
-                    </div>
+                </div>
                 </div>
             </div>
 
+</div>
             <!-- DataTales Example -->
-            <div class="card border-left-navy shadow mb-4">
-                <div class="card-header py-3">
+            <div class="card shadow mb-4">
+                <div class="card-header navy py-3">
                     <h6 class="m-0 text-center">KONDISI UMUM</h6>
                 </div>
                 <div class="form-kuesioner mb-3">
@@ -162,7 +163,6 @@
                         <hr>
                     </div>
 
-
                     <div class="mb-3">
                         <label class="form-label title">Apakah Anda Waspada?</label>
                         <div class="form-check mb-1">
@@ -172,8 +172,7 @@
                         <div class="form-check mb-1">
                             <input class="form-check-input" type="radio" name="waspada" id="inlineRadio20" value="3">
                             <label class="form-check-label" for="inlineRadio20">Berfungsi pada tingkat yang baik, tapi
-                                tidak di puncak, bisa
-                                berkonsentrasi</label>
+                                tidak di puncak, bisa berkonsentrasi</label>
                         </div>
                         <div class="form-check mb-1">
                             <input class="form-check-input" type="radio" name="waspada" id="inlineRadio21" value="2">
@@ -192,8 +191,7 @@
                     <hr>
                     <div class="mb-3">
                             <label class="form-label title">Apakah Anda memiliki stres, masalah kesehatan atau
-                                    masalah pribadi lainnya yang secara signifikan mempengaruhi konsentrasi dan
-                                    / atau tidur Anda?
+                                masalah pribadi lainnya yang secara signifikan mempengaruhi konsentrasi dan / atau tidur Anda?
                             </label>
                             <div class="form-check mb-1">
                                 <input class="form-check-input" type="radio" name="stress1" id="inlineRadio24"
@@ -210,8 +208,8 @@
 
             </div>
 
-            <div class="card border-left-navy shadow mb-4">
-                <div class="card-header py-3">
+            <div class="card shadow mb-4">
+                <div class="card-header navy py-3">
                     <h6 class="m-0 text-center">JAM KERJA</h6>
                 </div>
                 <div class="form-kuesioner">
@@ -234,8 +232,8 @@
                     </div>
                 </div>
             </div>
-            <div class="card border-left-navy shadow mb-4">
-                <div class="card-header py-3">
+            <div class="card shadow mb-4">
+                <div class="card-header navy py-3">
                     <h6 class="m-0 text-center">KESEHATAN</h6>
                 </div>
                 <div class="form-kuesioner ">
@@ -307,7 +305,7 @@
                     </div>
 
                     <hr>
-                    <div class="submitButton d-flex justify-content-center">
+                    <div class="submitButton d-flex justify-content-center mb-4">
                         <button type="submit" class="btn grey text-white" style="width: 10cm">Submit</button>
                     </div>
                 </div>

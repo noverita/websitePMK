@@ -19,7 +19,7 @@
                         {{-- <th>Hasil</th> --}}
                         <th>Status Kebugaran</th>
                         <th>Hasil Tes WAT & OLS</th>
-                        <th>Opsi</th>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -39,11 +39,13 @@
                             @endif
                         </td>
                         <td>
-                            {{ $item->rekomendasi_firetruck }}
+                            @if ($item->rekomendasi_firetruck == 'Dapat Mengendarai Firetruck')
+                             <span class="badge bg-success text-white">{{ $item->rekomendasi_firetruck }}</span>
+                            @else
+                           <span class="badge bg-danger text-white">{{ $item->rekomendasi_firetruck }}</span>
+                           @endif
                         </td>
-                        <td>
-                            {{-- <button class="btn btn-info btn-sm">Detail</button> --}}
-                        </td>
+
                     </tr>
                     @endforeach
                 </tbody>

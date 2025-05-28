@@ -25,9 +25,8 @@ class KuesionerController extends Controller
             ['key' => 'mual', 'label' => 'd. Mual Muntah', 'ya_value' => 2],
             ['key' => 'flu', 'label' => 'e. Flu dan Meriang', 'ya_value' => 1],
         ];
-
         $watQuestions = [
-            'A1' => 'Berjalan Keluar Garis',
+            'A1' => 'Berjalan keluar garis',
             'A2' => 'Tidak seimbang / sempoyongan',
             'A3' => 'Berhenti untuk menyeimbangkan diri',
             'A4' => 'Tidak seimbang ketika ada stimulus suara perintah',
@@ -52,7 +51,7 @@ class KuesionerController extends Controller
             'tidur24' => 'required|numeric',
             'tidur48' => 'required|numeric',
             'obat' => 'required|numeric',
-            'keterangan_obat' => 'required|string',
+            'keterangan_obat' => 'nullable|string',
             'sideeffect1' => 'nullable|numeric',
             'sideeffect2' => 'nullable|numeric',
             'sideeffect3' => 'nullable|numeric',

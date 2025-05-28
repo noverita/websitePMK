@@ -73,36 +73,36 @@
                             <table class="table table-striped">
                                 <tbody>
                                     <tr>
-                                        <th scope="row">Nama Lengkap</th>
-                                        <td>{{ $personel->nama_lengkap }}</td>
+                                        <th class="align-middle" scope="row">Nama Lengkap</th>
+                                        <td class="align-middle">{{ $personel->nama_lengkap }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">NIK</th>
-                                        <td>{{ $personel->nik }}</td>
+                                        <th class="align-middle" scope="row">NIK</th>
+                                        <td class="align-middle">{{ $personel->nik }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Grade</th>
-                                        <td>{{ $personel->grade }}</td>
+                                        <th class="align-middle" scope="row">Grade</th>
+                                        <td class="align-middle">{{ $personel->grade }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Tipe Pegawai</th>
-                                        <td>{{ $personel->status_pegawai }}</td>
+                                        <th class="align-middle" scope="row">Tipe Pegawai</th>
+                                        <td class="align-middle">{{ $personel->status_pegawai }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">No. Whatsapp</th>
-                                        <td>{{ $personel->whatsapp }}</td>
+                                        <th class="align-middle" scope="row">No. Whatsapp</th>
+                                        <td class="align-middle">{{ $personel->whatsapp }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Email</th>
-                                        <td>{{ $personel->email }}</td>
+                                        <th class="align-middle" scope="row">Email</th>
+                                        <td class="align-middle">{{ $personel->email }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Role</th>
-                                        <td>{{ $personel->role }}</td>
+                                        <th class="align-middle" scope="row">Role</th>
+                                        <td class="align-middle">{{ $personel->role }}</td>
                                     </tr>
                                     <tr>
-                                        <th scope="row">Status Pegawai</th>
-                                        <td>{{ $personel->status_akun }}</td>
+                                        <th class="align-middle" scope="row">Status Pegawai</th>
+                                        <td class="align-middle">{{ $personel->status_akun }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -146,7 +146,6 @@
                                         @endphp
                                         @foreach ($sertifikat as $row)
                                             <tr>
-
                                                 <td>{{ $row->nama_sertifikasi }}</td>
                                                 <td>{{ $row->jenis_lisensi }}</td>
                                                 <td>{{ $row->skp_pt == 1 ? 'Ya' : 'Tidak' }}</td>
@@ -161,7 +160,6 @@
                                                         {{ $row->status }}
                                                     </span>
                                                 </td>
-
                                                 <td>
                                                     <a class="btn text-white grey btn-circle btn-sm"
                                                         href="{{ route('file.view', base64_encode($row->file_sertifikat)) }}"
@@ -169,11 +167,6 @@
                                                         <i class="fas fa-eye"></i>
                                                     </a>
 
-
-                                                    {{-- <a href="{{ asset('storage/' . $row->file_sertifikat) }}"
-                                                        class="btn text-white grey btn-circle btn-sm" download>
-                                                        <i class="fas fa-download"></i>
-                                                    </a> --}}
                                                     <form action="{{ route('sertifikasi.destroy', $row->id) }}"
                                                         method="POST" style="display:inline;">
                                                         @csrf
@@ -185,6 +178,7 @@
                                                             <i class="fas fa-trash"></i>
                                                         </button>
                                                     </form>
+
                                                     <!-- Modal -->
                                                     <div class="modal fade" id="confirmDeleteModal" tabindex="-1"
                                                         role="dialog" aria-labelledby="deleteModalLabel"
@@ -206,8 +200,7 @@
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary"
                                                                             data-dismiss="modal">Batal</button>
-                                                                        <button type="submit" class="btn btn-danger">Ya,
-                                                                            Hapus</button>
+                                                                        <button type="submit" class="btn btn-danger">Ya, Hapus</button>
                                                                     </div>
                                                                 </div>
                                                             </form>
@@ -284,7 +277,8 @@
                                                                             <span aria-hidden="true">&times;</span>
                                                                         </button>
                                                                     </div>
-                                                                    <div class="modal-body">Apakah yakin untuk menghapus file sertifikat ini?
+                                                                    <div class="modal-body">Apakah yakin untuk menghapus
+                                                                        file sertifikat ini?
                                                                     </div>
                                                                     <div class="modal-footer">
                                                                         <button type="button" class="btn btn-secondary"

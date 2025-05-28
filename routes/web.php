@@ -59,6 +59,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/pelatihan-personel/{id}', [DataPersonelController::class, 'showPelatihan'])->name('pelatihan.personel');
     Route::delete('/admin/profil-personel/pelatihan/delete/{id}', [DataPersonelController::class, 'destroyPelatihan'])->name('pelatihan.destroy');
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
+Route::delete('/admin/laporan/delete/{id}', [LaporanPersonelController::class, 'destroy'])->name('laporan.destroy');
+
+
     // Route::get('/admin/user-management', [UserManagementController::class, 'showUserManagement'])->name('user.management');
     // Route::get('/admin/user-management/add', [UserManagementController::class, 'createUserManagement'])->name('usermgt.create');
     Route::get('/admin/data-kesehatan-personel', [DataKesehatanController::class, 'showDataKesehatan'])->name('data.kesehatan');
@@ -84,6 +87,7 @@ Route::middleware(['auth', 'personnel'])->group(function () {
     Route::get('/personnel/kuesioner', [KuesionerController::class, 'index'])->name('personnel.kuesioner');
     Route::post('/personnel/store-kuesioner', [KuesionerController::class, 'storeKuesioner'])->name('personnel.store.kuesioner');
     Route::get('/personnel/profile', [PersonnelController::class, 'profile'])->name('personnel.profile');
+
 });
 
 Route::get('/admin', 'App\Http\Controllers\AdminController@index');

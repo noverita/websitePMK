@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
-
-
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -39,6 +37,4 @@ foreach ($results as $item) {
 
     return view('admin.dashboard', compact('kesehatanStats', 'fitnessStats'));
 }
-
-
 }

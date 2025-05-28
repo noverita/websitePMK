@@ -165,7 +165,7 @@
                     <div class="row">
                         <div class="col">
                             <div class="form-check form-check-inline">
-                                <input type="file" class="form-check-input mb-4" name="foto_diri">
+                                <input type="file" class="form-file mb-4" name="foto_diri">
                             </div>
                         </div>
                     </div>
