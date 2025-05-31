@@ -29,15 +29,20 @@
                 </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col"><strong>20</strong><br><i class="fas fa-folder-plus text-gray-400"></i> Laporan
-                            Terkumpul</div>
-                        <div class="col"><strong>12</strong><br><i class="fas fa-fire-alt text-gray-400"></i> Excellent
+                        <div class="col-md-3">
+                            <strong>{{ $laporanCount }}</strong><br>
+                            <i class="fas fa-folder-plus text-gray-400"></i> Laporan Terkumpul
                         </div>
-                        <div class="col"><strong>12</strong><br><i class="fas fa-thumbs-up text-gray-400"></i> Good</div>
-                        <div class="col"><strong>9</strong><br><i class="fas fa-stethoscope text-gray-400"></i> Kurang
-                            Fit</div>
+
+                        @foreach ($statistik as $data)
+                            <div class="col-md-3">
+                                <strong>{{ $data['count'] }}</strong><br>
+                                <i class="fas {{ $data['icon'] }} text-gray-400"></i> {{ $data['label'] }}
+                            </div>
+                        @endforeach
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -178,28 +183,33 @@
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-
-                            <select name="shift" class="form-control mb-4" style="width: 25%">
-                                <option value="" selected hidden disabled>Pilih Shift</option>
+                            <select id="shiftSelect" class="form-control mb-4" style="width: 30%">
+                                <option value="all" selected>Semua</option>
                                 <option value="pagi">Pagi</option>
                                 <option value="siang">Siang</option>
                                 <option value="malam">Malam</option>
                             </select>
-                            <ul>
-                                <i class="fas fa-chevron-circle-right text-gray-300"></i>
-                                <a>Muhammad John Doe</a>
-                                <span class="badge badge-success">
-                                    Excellent
-                                </span>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <i class="fas fa-chevron-circle-right text-gray-300"></i>
-                                <a>Lorem Ipsum Dolor Sit Amet</a>
-                                <span class="badge badge-danger">
-                                    Kurang Fit
-                                </span>
-                            </ul>
+
+
+                            <div id="userList">
+                                @forelse ($shiftAll as $user)
+                                    <ul>
+                                        <i class="fas fa-chevron-circle-right text-gray-300"></i>
+                                        <a>{{ $user->name }}</a>
+                                        <span class="badge
+                                            @if($user->tingkat_kebugaran == 'Excellent') badge-success
+                                            @elseif($user->tingkat_kebugaran == 'Kurang fit') badge-danger
+                                            @else badge-warning
+                                            @endif">
+                                            {{ $user->tingkat_kebugaran }}
+                                        </span>
+                                    </ul>
+                                    <hr>
+                                @empty
+                                    <p>Tidak ada data kuisioner hari ini.</p>
+                                @endforelse
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -216,4 +226,41 @@
     <script src="{{ asset('assets/js/demo/chart-pie-demo.js') }}"></script>
     <script src="{{ asset('assets/js/demo/chart-bar-demo.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        document.getElementById("shiftSelect").addEventListener("change", function () {
+        const selectedShift = this.value;
+
+        fetch(`/filter-shift/data?shift=${selectedShift}`)
+            .then(response => response.json())
+            .then(users => {
+                const userList = document.getElementById("userList");
+                userList.innerHTML = "";
+
+                if (users.length === 0) {
+                    userList.innerHTML = "<p>Tidak ada user untuk shift ini.</p>";
+                    return;
+                }
+
+                users.forEach(user => {
+                    const badgeClass =
+                        user.tingkat_kebugaran === "Excellent" ? "badge-success" :
+                        user.tingkat_kebugaran === "Kurang fit" ? "badge-danger" :
+                        "badge-warning";
+
+                    const userItem = `
+                        <ul>
+                            <i class="fas fa-chevron-circle-right text-gray-300"></i>
+                            <a>${user.name}</a>
+                            <span class="badge ${badgeClass}">
+                                ${user.tingkat_kebugaran}
+                            </span>
+                        </ul>
+                        <hr>
+                    `;
+                    userList.innerHTML += userItem;
+                });
+            });
+    });
+    </script>
 @endsection

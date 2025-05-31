@@ -43,6 +43,7 @@ class KuesionerController extends Controller
         ];
         return view('personnel.kuesioner', compact('sideEffects','keluhan','watQuestions','olsQuestions'));
     }
+
     public function storeKuesioner(Request $request)
     {
         $validatedData = $request->validate([
@@ -79,7 +80,7 @@ class KuesionerController extends Controller
             'ols4' => 'required|numeric',
         ]);
 
-        // Default nilai 0 jika sideeffect kosong
+        // Default value 3 untuk side effect yang tidak diisi
         $sideEffects = ['sideeffect1', 'sideeffect2', 'sideeffect3', 'sideeffect4', 'sideeffect5'];
         foreach ($sideEffects as $field) {
             if (!isset($validatedData[$field])) {
@@ -87,9 +88,32 @@ class KuesionerController extends Controller
             }
         }
 
+        // Hitung total skor
+        $fieldsToSum = [
+            'tidur24','tidur48','obat',
+            'sideeffect1','sideeffect2','sideeffect3','sideeffect4','sideeffect5',
+            'waspada','stress1','jamkerja',
+            'keluhan1','keluhan2','keluhan3','keluhan4','keluhan5'
+        ];
+
+        $score = 0;
+        foreach ($fieldsToSum as $field) {
+            $score += (int) $validatedData[$field];
+        }
+
+        // Klasifikasi tingkat kebugaran berdasarkan skor
+        if ($score >= 35) {
+            $tingkatKebugaran = 'Excellent';
+        } elseif ($score >= 20) {
+            $tingkatKebugaran = 'Good';
+        } else {
+            $tingkatKebugaran = 'Kurang fit';
+        }
+
         try {
             DB::table('hasil_kuisioners')->insert(array_merge($validatedData, [
                 'user_id' => Auth::id(),
+                'tingkat_kebugaran' => $tingkatKebugaran,
                 'created_at' => now(),
                 'updated_at' => now(),
             ]));
@@ -100,4 +124,6 @@ class KuesionerController extends Controller
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menyimpan data.');
         }
     }
+
+
 }

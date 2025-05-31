@@ -19,7 +19,6 @@
                         {{-- <th>Hasil</th> --}}
                         <th>Status Kebugaran</th>
                         <th>Hasil Tes WAT & OLS</th>
-
                     </tr>
                 </thead>
                 <tbody>
@@ -30,12 +29,12 @@
                         <td>{{$item->shift}}</td>
                         {{-- <td>{{$item->tingkat_kebugaran}}</td> --}}
                         <td>
-                            @if ($item->status_kebugaran == 'Dapat Bekerja')
-                                <span class="badge bg-success text-white">{{ $item->status_kebugaran }}</span>
-                            @elseif ($item->status_kebugaran == 'Dapat Bekerja Dalam Pengawasan')
-                                <span class="badge bg-warning text-dark">{{ $item->status_kebugaran }}</span>
+                            @if ($item->tingkat_kebugaran == 'Excellent')
+                                <span class="badge bg-success text-white">{{ $item->tingkat_kebugaran }}</span>
+                            @elseif ($item->tingkat_kebugaran == 'Good')
+                                <span class="badge bg-warning text-dark">{{ $item->tingkat_kebugaran }}</span>
                             @else
-                                <span class="badge bg-danger text-white">{{ $item->status_kebugaran }}</span>
+                                <span class="badge bg-danger text-white">{{ $item->tingkat_kebugaran }}</span>
                             @endif
                         </td>
                         <td>

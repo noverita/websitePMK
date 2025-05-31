@@ -13,7 +13,7 @@ use App\Http\Controllers\LaporanPersonelController;
 use App\Http\Controllers\AuthenticatedSessionController;
 use App\Http\Controllers\DataKesehatanController;
 use App\Http\Controllers\UserManagementController;
-
+use App\Http\Controllers\ChartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -59,7 +59,7 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin/pelatihan-personel/{id}', [DataPersonelController::class, 'showPelatihan'])->name('pelatihan.personel');
     Route::delete('/admin/profil-personel/pelatihan/delete/{id}', [DataPersonelController::class, 'destroyPelatihan'])->name('pelatihan.destroy');
     Route::get('/admin/laporan-personel', [LaporanPersonelController::class, 'laporanPersonel'])->name('laporan.personel');
-Route::delete('/admin/laporan/delete/{id}', [LaporanPersonelController::class, 'destroy'])->name('laporan.destroy');
+    Route::delete('/admin/laporan/delete/{id}', [LaporanPersonelController::class, 'destroy'])->name('laporan.destroy');
 
 
     // Route::get('/admin/user-management', [UserManagementController::class, 'showUserManagement'])->name('user.management');
@@ -79,6 +79,10 @@ Route::delete('/admin/laporan/delete/{id}', [LaporanPersonelController::class, '
 
         return response()->file($fullPath);
     })->where('path', '.*')->name('file.view');
+    //chart
+
+    Route::get('/filter-shift/data', [ChartController::class, 'getByShift'])->name('getByShift');
+
 });
 
 // Protecting personnel routes

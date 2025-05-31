@@ -46,14 +46,14 @@
             <div class="card border-left-navy border-right-navy shadow mb-4">
                 <div class="form-kuesioner mb-3">
                     <div class="row">
-<div class="col-md">
+                        <div class="col-md">
                             <label class="form-label mr-2 ml-2"><b>Tanggal Pengisian</b></label>
-</div>
+                        </div>
                     </div>
                     <div class="row">
-<div class="col-md">
+                        <div class="col-md">
                             <input type="date" class="form-control mr-2 ml-2" name="date">
-</div>
+                        </div>
                     </div><br>
                     <div class="row">
                         <div class="col-md">
@@ -68,11 +68,10 @@
                                 <option value="Siang">Siang</option>
                                 <option value="Malam">Malam</option>
                             </select>
-                </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-</div>
             <!-- DataTales Example -->
             <div class="card shadow mb-4">
                 <div class="card-header navy py-3">

@@ -17,39 +17,6 @@ class LaporanPersonelController extends Controller
             ->select('hasil_kuisioners.*', 'users.name as user_name')
             ->get()
             ->map(function ($row) {
-                $keys = [
-                    'tidur24',
-                    'tidur48',
-                    'obat',
-                    'sideeffect1',
-                    'sideeffect2',
-                    'sideeffect3',
-                    'sideeffect4',
-                    'sideeffect5',
-                    'waspada',
-                    'stress1',
-                    'jamkerja',
-                    'keluhan1',
-                    'keluhan2',
-                    'keluhan3',
-                    'keluhan4',
-                    'keluhan5'
-                ];
-
-                $total = collect($keys)->sum(function ($key) use ($row) {
-                    return (int) $row->$key;
-                });
-
-                $row->tingkat_kebugaran = $total;
-
-                // Klasifikasi status kebugaran
-                if ($total > 35) {
-                    $row->status_kebugaran = 'Dapat Bekerja';
-                } elseif ($total >= 20) {
-                    $row->status_kebugaran = 'Dapat Bekerja Dalam Pengawasan';
-                } else {
-                    $row->status_kebugaran = 'Tidak Dapat Bekerja';
-                }
 
                 // Format tanggal ke format Indonesia
                 $row->tanggal_indonesia = Carbon::parse($row->date)->locale('id')->translatedFormat('d F Y');
