@@ -82,6 +82,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     //chart
 
     Route::get('/filter-shift/data', [ChartController::class, 'getByShift'])->name('getByShift');
+    Route::get('/laporan-tahunan', [ChartController::class, 'getReportYear'])->name('getReportYear');
+    Route::get('/api/report-fitness-status', [ChartController::class, 'getFitnessReport'])->name('getFitnessReport');
+
 
 });
 

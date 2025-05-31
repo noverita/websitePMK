@@ -25,4 +25,58 @@ class ChartController extends Controller
         return response()->json($results);
 
     }
+
+    public function getReportYear(){
+        $report = DB::table('hasil_kuisioners')
+        ->select(DB::raw('YEAR(date) as year'), DB::raw('COUNT(*) as total'))
+        ->groupBy('year')
+        ->orderBy('year')
+        ->get();
+
+        $labels = $report->pluck('year');
+        $data = $report->pluck('total');
+
+        return response()->json([
+            'labels' => $labels,
+            'data' => $data,
+        ]);
+    }
+    public function getFitnessReport(Request $request)
+    {
+        $tahun = $request->input('tahun', now()->year);
+
+        $labels = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'];
+
+        $excellent = [];
+        $good = [];
+        $kurangFit = [];
+
+        foreach (range(1, 12) as $bulan) {
+            $excellent[] = DB::table('hasil_kuisioners')
+                ->whereYear('date', $tahun)
+                ->whereMonth('date', $bulan)
+                ->where('tingkat_kebugaran', 'Excellent')
+                ->count();
+
+            $good[] = DB::table('hasil_kuisioners')
+                ->whereYear('date', $tahun)
+                ->whereMonth('date', $bulan)
+                ->where('tingkat_kebugaran', 'Good')
+                ->count();
+
+            $kurangFit[] = DB::table('hasil_kuisioners')
+                ->whereYear('date', $tahun)
+                ->whereMonth('date', $bulan)
+                ->where('tingkat_kebugaran', 'Kurang Fit')
+                ->count();
+        }
+
+        return response()->json([
+            'labels' => $labels,
+            'excellent' => $excellent,
+            'good' => $good,
+            'kurang_fit' => $kurangFit
+        ]);
+    }
+
 }

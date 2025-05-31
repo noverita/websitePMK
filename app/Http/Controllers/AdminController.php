@@ -35,9 +35,10 @@ class AdminController extends Controller
         foreach ($fitnessResults as $row) {
             $fitnessStats[$row->year][$row->tingkat_kebugaran][$row->month] = $row->total;
         }
-
+         $today = Carbon::today();
         //menampilkan statistik
         $laporanCount = DB::table('hasil_kuisioners')
+        ->whereDate('date', $today)
         ->count();
 
         // Kategori + atribut visual
@@ -50,6 +51,7 @@ class AdminController extends Controller
         // Hitung per kategori
         $kategoriCounts = DB::table('hasil_kuisioners')
             ->select('tingkat_kebugaran', DB::raw('count(*) as total'))
+            ->whereDate('date', $today)
             ->groupBy('tingkat_kebugaran')
             ->pluck('total', 'tingkat_kebugaran');
 
@@ -71,12 +73,19 @@ class AdminController extends Controller
             ->orderBy('hasil_kuisioners.created_at', 'desc')
             ->get();
 
+        $years = DB::table('hasil_kuisioners')
+            ->selectRaw('YEAR(date) as year')
+            ->distinct()
+            ->orderBy('year', 'desc')
+            ->pluck('year');
+
         return view('admin.dashboard', compact(
                 'kesehatanStats',
                 'fitnessStats',
                 'laporanCount',
                 'statistik',
-                'shiftAll'
+                'shiftAll',
+                'years'
             ));
     }
 }
